@@ -496,6 +496,27 @@
     } 
 setInterval("createtime()",250);
 </script>
+{% if theme.copyright %}
+<div class="powered-by">
+  {{ __('footer.powered', '<a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>') }}
+</div>
+
+<div class="theme-info">
+  {{ __('footer.theme') }} -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.{{ theme.scheme }}
+  </a>
+</div>
+
+# 此位置插入以下代码
+<div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> 次&nbsp&nbsp&nbsp
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+
+{% endif %}
 
 
     </div>

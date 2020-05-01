@@ -14,6 +14,7 @@ jQuery(document).ready(function($) {
             "position": "absolute",
             "font-weight": "bold",
             "color": "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+            
         });
         $("body").append($i);
         $i.animate({

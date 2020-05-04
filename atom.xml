@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://stephencurry6666.github.io/"/>
-  <updated>2020-05-04T10:24:17.593Z</updated>
+  <updated>2020-05-04T14:04:49.354Z</updated>
   <id>https://stephencurry6666.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaSE篇-Day1笔记</title>
+    <link href="https://stephencurry6666.github.io/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://stephencurry6666.github.io/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-05-04T13:40:32.213Z</published>
+    <updated>2020-05-04T14:04:49.354Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、计算机基础"><a href="#一、计算机基础" class="headerlink" title="一、计算机基础"></a>一、计算机基础</h2><h3 id="1-计算机概述"><a href="#1-计算机概述" class="headerlink" title="1.计算机概述"></a>1.计算机概述</h3><p>  <strong>计算机全称为：电子计算机，俗称电脑</strong></p><a id="more"></a><h3 id="2-计算机硬件和软件概述"><a href="#2-计算机硬件和软件概述" class="headerlink" title="2.计算机硬件和软件概述"></a>2.计算机硬件和软件概述</h3><ul><li><strong>计算机硬件是指计算机系统中由电子，机械和光电元件等组成的各种物理装置的总称。</strong></li><li><strong>计算机软件是指使用计算机过程中必不可少的东西，计算机软件可以使家算计按照事先预定好的顺序完成特定的功能，计算机软件按照其功能划分为系统软件和应用软件。</strong></li></ul><h3 id="3-软件开发和计算机语言概述"><a href="#3-软件开发和计算机语言概述" class="headerlink" title="3.软件开发和计算机语言概述"></a>3.软件开发和计算机语言概述</h3><ul><li><strong>软件开发：借助开发工具与计算机语言制作软件。</strong></li><li><strong>计算机语言：人与计算机之间进行信息交流沟通的一种特殊语言。</strong></li><li><strong>常见的计算机语言如C，C++，C#，JAVA，python。</strong></li></ul><h3 id="4-人机交互"><a href="#4-人机交互" class="headerlink" title="4.人机交互"></a>4.人机交互</h3><p>   <strong>交互方式：</strong></p><ul><li><strong>图形化界面：这种方式简单直观，使用者易于接受，容易操作上手。</strong></li><li><strong>命令性方式：需要一个控制台，输入特定的指令，让计算机完成一些操作。较为麻烦。需要记录住一些命令。</strong></li></ul><h3 id="5-键盘功能键和快捷键"><a href="#5-键盘功能键和快捷键" class="headerlink" title="5.键盘功能键和快捷键"></a>5.键盘功能键和快捷键</h3><p>   <strong>应该记住一些简单的功能键和快捷键</strong></p><ul><li><strong>Tab 缩进空格</strong></li><li><strong>Enter 回车</strong></li><li><strong>Window键</strong></li><li><strong>Ctrl+A全选 Ctrl+C 复制 Ctrl+V 粘贴 Ctrl+X剪切 Ctrl+Z 撤销 Ctrl+S 保存</strong></li></ul><h3 id="6-如何打开DOS控制台"><a href="#6-如何打开DOS控制台" class="headerlink" title="6.如何打开DOS控制台"></a>6.如何打开DOS控制台</h3><p>   <strong>Windows+R -&gt; cmd -&gt; 回车</strong></p><h3 id="7-常见的DOS讲解"><a href="#7-常见的DOS讲解" class="headerlink" title="7.常见的DOS讲解"></a>7.常见的DOS讲解</h3><ul><li><strong>d: +回车   盘符切换</strong></li><li><strong>dir(directory):   列出当前目录下的文件以及文件夹</strong></li><li><strong>md(make directory):    创建目录</strong></li><li><strong>rd(remove directory):   删除目录</strong></li><li><strong>cd(change directory):   改变指定目录（进入指定目录）</strong></li><li><strong>cd..:     退回上级目录</strong></li><li><strong>cd\:     退回根目录</strong></li><li><strong>exit:     推出dos命令行</strong></li><li><strong>cls(clear screen):    清屏</strong></li><li><strong>del(delete):   删除文件，删除一堆后缀名一样的文件，例如.txt</strong></li></ul><h2 id="二、Java语言基础"><a href="#二、Java语言基础" class="headerlink" title="二、Java语言基础"></a>二、Java语言基础</h2><h3 id="1-Java语言概述"><a href="#1-Java语言概述" class="headerlink" title="1.Java语言概述"></a>1.Java语言概述</h3><p><strong>Java语言由詹姆斯.高斯林发明</strong></p><h3 id="2-Java语言跨平台原理"><a href="#2-Java语言跨平台原理" class="headerlink" title="2.Java语言跨平台原理"></a>2.Java语言跨平台原理</h3><p><strong>Java是面向对象的语言，其重点特点是开源和跨平台</strong></p><p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=52291647,1781400255&amp;fm=15&amp;gp=0.jpg" alt="Java语言的跨平台性"></p><h3 id="3-JDK与JRE的概述"><a href="#3-JDK与JRE的概述" class="headerlink" title="3.JDK与JRE的概述"></a>3.JDK与JRE的概述</h3><p><strong>JRE -&gt; Java运行环境</strong></p><p><strong>JDK -&gt; Java开发工具包，其中包含了JRE</strong></p><p><strong>简单而言：使用JDK开发完成的java程序，交给JRE去运行</strong></p><h3 id="4-JDK的下载、安装和卸载"><a href="#4-JDK的下载、安装和卸载" class="headerlink" title="4.JDK的下载、安装和卸载"></a>4.JDK的下载、安装和卸载</h3><p><strong>详情请看：<a href="https://blog.csdn.net/nuoyanli/article/details/86513950" target="_blank" rel="noopener">https://blog.csdn.net/nuoyanli/article/details/86513950</a></strong></p><h3 id="5-Java环境变量的配置"><a href="#5-Java环境变量的配置" class="headerlink" title="5.Java环境变量的配置"></a>5.Java环境变量的配置</h3><p><strong>详情请看：<a href="https://blog.csdn.net/nuoyanli/article/details/86513950" target="_blank" rel="noopener">https://blog.csdn.net/nuoyanli/article/details/86513950</a></strong></p><h3 id="6-第一个Java案例的编写和运行"><a href="#6-第一个Java案例的编写和运行" class="headerlink" title="6.第一个Java案例的编写和运行"></a>6.第一个Java案例的编写和运行</h3><p><strong>视频里老师用的是记事本进行编写和运行，而我用的是Eclipse Jee 2018-12</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line">import java.math.*;</span><br><span class="line">import java.io.*;</span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  &#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">        System.out.println(&quot;Hello world&quot;);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、计算机基础&quot;&gt;&lt;a href=&quot;#一、计算机基础&quot; class=&quot;headerlink&quot; title=&quot;一、计算机基础&quot;&gt;&lt;/a&gt;一、计算机基础&lt;/h2&gt;&lt;h3 id=&quot;1-计算机概述&quot;&gt;&lt;a href=&quot;#1-计算机概述&quot; class=&quot;headerlink&quot; title=&quot;1.计算机概述&quot;&gt;&lt;/a&gt;1.计算机概述&lt;/h3&gt;&lt;p&gt;  &lt;strong&gt;计算机全称为：电子计算机，俗称电脑&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java系统学习-JavaSE篇" scheme="https://stephencurry6666.github.io/categories/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0-JavaSE%E7%AF%87/"/>
+    
+    
+      <category term="Java系统学习" scheme="https://stephencurry6666.github.io/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java系统学习规划(1)——JavaSE篇</title>
     <link href="https://stephencurry6666.github.io/2020/05/04/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92(1)%E2%80%94JavaSE%E7%AF%87/"/>
     <id>https://stephencurry6666.github.io/2020/05/04/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92(1)%E2%80%94JavaSE%E7%AF%87/</id>
     <published>2020-05-04T09:55:56.852Z</published>
-    <updated>2020-05-04T10:24:17.593Z</updated>
+    <updated>2020-05-04T13:44:29.027Z</updated>
     
     <content type="html"><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p><strong>关于为什么要在现在系统的学习Java，是因为我觉得去年暑假学习的一些Java知识基本都忘记了(<del>其实是因为今年疫情影响，很大概率原地退役，所以也算为以后做做准备</del>)</strong></p><a id="more"></a><h2 id="Java系统学习规划-1"><a href="#Java系统学习规划-1" class="headerlink" title="Java系统学习规划(1)"></a>Java系统学习规划(1)</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><p><strong>选择什么课程：这里的话我是选择了刘意老师的深入浅出精华版为主，毕向东老师的Java基础教程为辅来进行学习。</strong></p><p>这里给出刘意老师视频的B站地址：<a href="https://www.bilibili.com/video/BV1Jt411w7fR?from=search&amp;seid=5273427619493979344" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Jt411w7fR?from=search&amp;seid=5273427619493979344</a></p><p>这里给出毕向东老师视频的B站地址：<a href="https://www.bilibili.com/video/BV1pt41127na?from=search&amp;seid=9126689322584219690" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1pt41127na?from=search&amp;seid=9126689322584219690</a></p><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><p><strong>学习重点参考</strong> </p><p>初学者也容易想走捷径。我相信很多人都会有这个想法：能不能只学工作上要用的？根本原因是知识点真的太多了。以刘意老师视频为例，面向对象（封装，继承，多态），异常，多线程，集合框架，IO，网络编程都挺难的。其中面向对象是JavaSE的重中之重，里面的知识点个人认为是最难的。后面的知识点都是建立在这之上展开的，没学好面向对象，后面就会稀里糊涂。当然，也不是真的一点都不能跳，但最好完整地学下来。按照后面JavaWeb的学习来看，我的建议是：</p><ul><li><strong>面向对象是基石，JavaSE中最重要的一是集合，二是IO，</strong> 希望大家学习这两个知识点时认真对待，多敲代码，多思考。</li><li><strong>常用API里，String及其相关类StringBuilder, StringBuffer</strong> 等必须熟悉，后面会不断用到。不学好的话，后面怎么死都不知道！</li><li><strong>泛型一般只出现在集合中</strong> ，个人觉得如果一时无法掌握，那么<strong>暂时会在集合中使用泛型就行了。</strong></li><li>反射对于初学者来说是<strong>非常抽象的！！</strong> 但它又无比重要。它虽然不是JavaSE的重点，但是<strong>它是JavaWeb很多难点的底层支撑，不懂反射，寸步难行。</strong></li></ul><p><strong>重点</strong></p><ul><li>面向对象☆☆☆☆☆</li><li>集合☆☆☆☆☆</li><li>IO ☆☆☆☆☆</li><li>String/StringBuffer/StringBuilder ☆☆☆☆☆</li><li>反射☆☆☆☆☆</li><li>泛型☆☆☆☆</li></ul><p><strong>熟悉</strong></p><ul><li>异常</li><li>多线程</li></ul><p><strong>先过一遍</strong></p><ul><li>网络编程</li><li>正则表达式</li></ul><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>这里给出刘意老师视频的配套资料</strong></p><p>2015年版本刘意Java基础配套资料：<a href="https://pan.baidu.com/s/13slfA9U23PiXca_ROPC0ww" target="_blank" rel="noopener">https://pan.baidu.com/s/13slfA9U23PiXca_ROPC0ww</a>   提取码：rmkv</p>]]></content>
     
@@ -32,7 +55,7 @@
     </summary>
     
     
-      <category term="Java系统学习" scheme="https://stephencurry6666.github.io/categories/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Java系统学习-JavaSE篇" scheme="https://stephencurry6666.github.io/categories/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0-JavaSE%E7%AF%87/"/>
     
     
       <category term="Java系统学习" scheme="https://stephencurry6666.github.io/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>

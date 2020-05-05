@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaSE篇-Day2笔记 | 愿你出走半生，归来仍是少年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java语言基础Java基础语法1.关键字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSE篇-Day2笔记">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="愿你出走半生，归来仍是少年">
+<meta property="og:description" content="Java语言基础Java基础语法1.关键字">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588673781789&amp;di=405fa28b84d8a8b0464f054e43655198&amp;imgtype=0&amp;src=http%253A%252F%252Fpic4.zhimg.com%252Fv2-b1d047a34f15efeabd5211fd54f73b0b_b.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588680207620&amp;di=5dc7fbed0760175d40d1bbb10baa7b8d&amp;imgtype=0&amp;src=http%253A%252F%252Fgss0.baidu.com%252F9fo3dSag_xI4khGko9WTAnF6hhy%252Fzhidao%252Fpic%252Fitem%252Fd439b6003af33a87736ff400c45c10385343b5ae.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588680802524&amp;di=c3fd9ec5b2d6bae9fefda7479f3c2742&amp;imgtype=0&amp;src=http%253A%252F%252Fwww.myexception.cn%252Fimg%252F2015%252F07%252F11%252F060509721.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181213115022126.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjUxODA2Mg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5238858-60ecd9255c14ed89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/554/format/webp">
+<meta property="article:published_time" content="2020-05-05T07:12:42.825Z">
+<meta property="article:modified_time" content="2020-05-05T10:28:31.566Z">
+<meta property="article:author" content="Stephencurry6666">
+<meta property="article:tag" content="Java系统学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588673781789&amp;di=405fa28b84d8a8b0464f054e43655198&amp;imgtype=0&amp;src=http%253A%252F%252Fpic4.zhimg.com%252Fv2-b1d047a34f15efeabd5211fd54f73b0b_b.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+      
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/touxiang3.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Stephencurry6666</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="https://stephencurry6666.github.io/">博客首页</a></li>
+                        
+                            <li><a  href="/archives">文章归档</a></li>
+                        
+                            <li><a  href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail"  target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                            
+                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                                <a class="fl QQ"  target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat"  target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Hexo%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" style="font-size: 10px;">Hexo的一些基本用法和编写博客的一些注意事项</a> <a href="/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" style="font-size: 20px;">Java系统学习</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://blog.csdn.net/weixin_43846139">我的csdn</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一只努力学习算法的小小ACMer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+<div style="position:absolute; bottom:80px; left:-20px; width:40%">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=522433199&auto=1&height=66"></iframe>
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Stephencurry6666</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="//img/touxiang3.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Stephencurry6666</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://stephencurry6666.github.io/">博客首页</a></li>
+                
+                    <li><a href="/archives">文章归档</a></li>
+                
+                    <li><a href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                        <a class="QQ" target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaSE-Day(2)学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+      <time datetime="2020-05-05T07:12:42.825Z" itemprop="datePublished">2020-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaSE篇-Day2笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0-JavaSE%E7%AF%87/">Java系统学习-JavaSE篇</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" rel="tag">Java系统学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">3.1k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">12分</span>
+      </span>
+    </span>
+</div>
+
+      
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Java语言基础"><a href="#Java语言基础" class="headerlink" title="Java语言基础"></a>Java语言基础</h1><h2 id="Java基础语法"><a href="#Java基础语法" class="headerlink" title="Java基础语法"></a>Java基础语法</h2><h3 id="1-关键字"><a href="#1-关键字" class="headerlink" title="1.关键字"></a>1.关键字</h3><a id="more"></a>
+<p><strong>关键字概述：</strong><br>被Java语言赋予特定含义的单词。</p>
+<p><strong>关键字特点：</strong><br>组成关键字的字母全部小写。</p>
+<p><strong>注意事项：</strong><br>goto和const是保留字，在一般的高级Java编译器中，针对关键字都有特殊的颜色标记。</p>
+<ul>
+<li><strong>Java关键字</strong></li>
+</ul>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588673781789&amp;di=405fa28b84d8a8b0464f054e43655198&amp;imgtype=0&amp;src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-b1d047a34f15efeabd5211fd54f73b0b_b.jpg" alt="Java关键字"></p>
+<h3 id="2-标识符"><a href="#2-标识符" class="headerlink" title="2.标识符"></a>2.标识符</h3><p><strong>标识符概述：</strong><br>就是给类，接口，方法，变量等起名字时使用的字符序列</p>
+<p><strong>组成规则：</strong></p>
+<ul>
+<li><strong>英文大小写字母</strong></li>
+<li><strong>数字字符</strong></li>
+<li><strong>$和_</strong></li>
+</ul>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li><strong>不能以数字开头</strong></li>
+<li><strong>不能是Java中的关键字</strong></li>
+<li><strong>区分大小写</strong></li>
+</ul>
+<h3 id="3-标识符的常见命名规则"><a href="#3-标识符的常见命名规则" class="headerlink" title="3.标识符的常见命名规则"></a>3.标识符的常见命名规则</h3><p><strong>注意事项：</strong><br>见名知意</p>
+<ul>
+<li><strong>举例：我要定义一个学生类</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Student &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>包：</strong><br>其实就是文件夹，用于把相同的类名进行区分，全部小写</p>
+<ul>
+<li><strong>单级：liuyi</strong></li>
+<li><strong>多级：cn.itcast</strong></li>
+</ul>
+<p><strong>类或者接口：</strong></p>
+<ul>
+<li><strong>一个单词：单词的首字母必须大写,举例：Student，Dog</strong></li>
+<li><strong>多个单词：每个单词的首字母必须大写，举例：HelloWorld，StudentName</strong></li>
+</ul>
+<p><strong>方法或者变量：</strong></p>
+<ul>
+<li><strong>一个单词：单词的首字母小写，举例：main，age</strong></li>
+<li><strong>多个单词：从第二个单词开始，每个单词的首字母大写，举例：studentAge,showAllNames</strong></li>
+</ul>
+<p><strong>常量：</strong></p>
+<ul>
+<li><strong>一个单词组成：全部大写，举例：PI</strong></li>
+<li><strong>多个单词组成：每个字母都大写，用_隔开，举例：STUDENT_MAX_AGE</strong></li>
+</ul>
+<h3 id="4-注释概述及其分类"><a href="#4-注释概述及其分类" class="headerlink" title="4.注释概述及其分类"></a>4.注释概述及其分类</h3><p><strong>注释概述：</strong><br>用于解释说明的文字</p>
+<p><strong>Java中注释分类格式：</strong></p>
+<ul>
+<li><strong>单行注释：格式：//注释文字</strong></li>
+<li><strong>多行注释：格式：/星 注释文字 星/，注意：多行不可以嵌套使用，而单行是可以的</strong></li>
+<li><strong>文档注释：格式：/星星 注释文字 星/</strong></li>
+</ul>
+<h3 id="5-HelloWorld案例加入注释"><a href="#5-HelloWorld案例加入注释" class="headerlink" title="5.HelloWorld案例加入注释"></a>5.HelloWorld案例加入注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> 需求：我准备写一个java程序，把&quot;HelloWorld&quot;这句话输出在控制台</span><br><span class="line"></span><br><span class="line">分析：</span><br><span class="line">A:要写一个Java程序，必须定义类</span><br><span class="line">B:把数据能够输出，说明我们的程序是可以独立运行的，而程序要独立运行，必须定义main方法</span><br><span class="line">C:把数据输出在控制台，必须使用输出语句</span><br><span class="line">实现：</span><br><span class="line">A:java语言提供了一个关键字：class用来定义类，后面跟的是类名</span><br><span class="line">B:main方法的格式是固定的：</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">C:输出语句的格式是固定的：</span><br><span class="line">System.out.println(&quot;HelloWorld&quot;);</span><br><span class="line">&quot;HelloWorld&quot;这个内容是可以改变的</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;这是我的HelloWorld案例</span><br><span class="line">class HelloWorld &#123;</span><br><span class="line">&#x2F;*</span><br><span class="line">为了程序能够独立运行，定义main方法</span><br><span class="line">main方法是程序的入口</span><br><span class="line">被jvm自动调用</span><br><span class="line">*&#x2F;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">  &#x2F;&#x2F;为了把数据显示在控制台，我们就使用了输出语句</span><br><span class="line"> System.out.println(&quot;HelloWorld&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-注释的作用"><a href="#6-注释的作用" class="headerlink" title="6.注释的作用"></a>6.注释的作用</h3><p>略过，在Eclipse Jee 2018-12程序中编写Java代码时，有错误的话，编译器会提示。</p>
+<h3 id="7-常量的概述和使用"><a href="#7-常量的概述和使用" class="headerlink" title="7.常量的概述和使用"></a>7.常量的概述和使用</h3><p><strong>常量概述：</strong><br>在程序执行的过程中其值不可以发生改变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    常量：</span><br><span class="line">        在程序执行过程中，其值不发生改变的量。</span><br><span class="line"></span><br><span class="line">    分类：</span><br><span class="line">        A:字面值常量</span><br><span class="line">        B:自定义常量(后面讲)</span><br><span class="line"></span><br><span class="line">    字面值常量</span><br><span class="line">        A:字符串常量  用双引号括起来的内容。</span><br><span class="line">            举例：&quot;hello&quot;,&quot;world&quot;,&quot;HelloWorld&quot;</span><br><span class="line">        B:整数常量   所有的整数</span><br><span class="line">            举例：100,200</span><br><span class="line">        C:小数常量   所有的小数</span><br><span class="line">            举例：10.23,110.11</span><br><span class="line">		D:字符常量	用单引号括起来的内容</span><br><span class="line">			举例：&#39;a&#39;,&#39;A&#39;,&#39;0&#39;</span><br><span class="line">			错误的：&#39;ab&#39;</span><br><span class="line">		E:布尔常量	比较特殊</span><br><span class="line">			举例：true,false</span><br><span class="line">		F:空常量	后面讲</span><br><span class="line">			举例：null</span><br><span class="line">*&#x2F;</span><br><span class="line">class ConstantDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;字符串常量的输出</span><br><span class="line">		System.out.println(&quot;hello&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;整数常量的输出</span><br><span class="line">		System.out.println(100);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;小数常量的输出</span><br><span class="line">		System.out.println(100.10);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;字符常量的输出</span><br><span class="line">		System.out.println(&#39;a&#39;);</span><br><span class="line">		System.out.println(&#39;A&#39;);</span><br><span class="line">		System.out.println(&#39;0&#39;);</span><br><span class="line">		&#x2F;&#x2F;这个是有问题的</span><br><span class="line">		&#x2F;&#x2F;System.out.println(&#39;ab&#39;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;布尔常量的输出</span><br><span class="line">		System.out.println(true);</span><br><span class="line">		System.out.println(false);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-进制概述以及二进制、八进制、十六进制图解"><a href="#8-进制概述以及二进制、八进制、十六进制图解" class="headerlink" title="8.进制概述以及二进制、八进制、十六进制图解"></a>8.进制概述以及二进制、八进制、十六进制图解</h3><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588680207620&amp;di=5dc7fbed0760175d40d1bbb10baa7b8d&amp;imgtype=0&amp;src=http%3A%2F%2Fgss0.baidu.com%2F9fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fd439b6003af33a87736ff400c45c10385343b5ae.jpg" alt="进制"></p>
+<p><strong>二进制-&gt;八进制：</strong><br>把二进制的数据，从右开始，每三位一组合，最左边不够的时候，补0。然后，分别计算出对应的十进制数值，最后，再把每个十进制的数据组合起来，就是一个八进制数据。</p>
+<p><strong>二进制-&gt;十六进制：</strong><br>把二进制的数据，从右开始，每四位一组合，最左边不够的时候，补0。然后，分别计算出对应的十进制数值，最后，再把每个十进制的数据组合起来，就是一个十六进制数据。</p>
+<p><strong>规则：进制越大，表现形式越短</strong></p>
+<h3 id="9-不同进制数据的表现形式"><a href="#9-不同进制数据的表现形式" class="headerlink" title="9.不同进制数据的表现形式"></a>9.不同进制数据的表现形式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	不同进制的数据表现：</span><br><span class="line">		二进制：由0，1组成。以0b开头。</span><br><span class="line">		八进制：由0,1,...7组成。以0开头。</span><br><span class="line">		十进制：由0,1,...9组成。默认整数是十进制。</span><br><span class="line">		十六进制：由0,1,...9,a,b,c,d,e,f(大小写均可)组成。以0x开头。</span><br><span class="line">*&#x2F;</span><br><span class="line">class JinZhiDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(100); &#x2F;&#x2F;十进制</span><br><span class="line">		</span><br><span class="line">		System.out.println(0b100); &#x2F;&#x2F;二进制</span><br><span class="line">		System.out.println(0100); &#x2F;&#x2F;八进制</span><br><span class="line">		System.out.println(0x100); &#x2F;&#x2F;十六进制</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="10-任意进制到十进制的转换"><a href="#10-任意进制到十进制的转换" class="headerlink" title="10.任意进制到十进制的转换"></a>10.任意进制到十进制的转换</h3><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588680802524&amp;di=c3fd9ec5b2d6bae9fefda7479f3c2742&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.myexception.cn%2Fimg%2F2015%2F07%2F11%2F060509721.png" alt="转换"></p>
+<p><strong>系数：每一个位上的数据值本身就是系数。</strong></p>
+<p><strong>基数：x进制的基数就是x。</strong></p>
+<p><strong>权：我们针对每一个位上的数据进行编号，从右边，并且是从0开始编号，这个编号就是该位上数据的权值。</strong></p>
+<p><strong>PS：每一个位上的系数x基数^权次幂相加。</strong></p>
+<h3 id="11-十进制到任意进制的转换"><a href="#11-十进制到任意进制的转换" class="headerlink" title="11.十进制到任意进制的转换"></a>11.十进制到任意进制的转换</h3><p><strong>方法：这个数对基数依次取余，将余数倒序输出，在倒序输出余数之前正序输出最后一次的商。（这个方法是很简单的一种方式，可以大大的节省时间）。</strong></p>
+<p><strong>将十进制转成八进制：</strong><br>579 / 8 = 72　．．．3<br>72 / 8 =9　．．．0<br>9 / 8 =1　．．．1</p>
+<p>先输出最后一次计算的商，然后倒序从下到上输出余数<br>八进制的 576 为　1103</p>
+<h3 id="12-快速的进制转换法"><a href="#12-快速的进制转换法" class="headerlink" title="12.快速的进制转换法"></a>12.快速的进制转换法</h3><p><strong>8421码</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20181213115022126.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjUxODA2Mg==,size_16,color_FFFFFF,t_70" alt="8421"></p>
+<h3 id="13-原码、反码、补码的讲解"><a href="#13-原码、反码、补码的讲解" class="headerlink" title="13.原码、反码、补码的讲解"></a>13.原码、反码、补码的讲解</h3><p><strong>在探求为何机器要使用补码之前, 让我们先了解原码, 反码和补码的概念.对于一个数, 计算机要使用一定的编码方式进行存储. 原码, 反码, 补码是机器存储一个具体数字的编码方式。</strong></p>
+<p><strong>原码：</strong><br>原码就是符号位加上真值的绝对值, 即用第一位表示符号, 其余位表示值. 比如如果是8位二进制:</p>
+<p>[+1]原 = 0000 0001</p>
+<p>[-1]原 = 1000 0001</p>
+<p>第一位是符号位. 因为第一位是符号位, 所以8位二进制数的取值范围就是:[1111 1111 , 0111 1111]即[-127 , 127]，原码是人脑最容易理解和计算的表示方式。</p>
+<p><strong>反码：</strong><br>反码的表示方法是:正数的反码是其本身；负数的反码是在其原码的基础上, 符号位不变，其余各个位取反。</p>
+<p>[+1] = [00000001]原 = [00000001]反</p>
+<p>[-1] = [10000001]原 = [11111110]反</p>
+<p>可见如果一个反码表示的是负数, 人脑无法直观的看出来它的数值. 通常要将其转换成原码再计算。</p>
+<p><strong>补码：</strong><br>补码的表示方法是:正数的补码就是其本身；负数的补码是在其原码的基础上, 符号位不变, 其余各位取反, 最后+1. (即在反码的基础上+1)。</p>
+<p>[+1] = [00000001]原 = [00000001]反 = [00000001]补</p>
+<p>[-1] = [10000001]原 = [11111110]反 = [11111111]补</p>
+<p>对于负数, 补码表示方式也是人脑无法直观看出其数值的. 通常也需要转换成原码在计算其数值。</p>
+<h3 id="14-变量的概述及格式"><a href="#14-变量的概述及格式" class="headerlink" title="14.变量的概述及格式"></a>14.变量的概述及格式</h3><p><strong>变量的概念：</strong></p>
+<ul>
+<li><p><strong>在程序执行的过程中，在某个范围内其值可以发生改变的量</strong></p>
+</li>
+<li><p><strong>从本质上讲，变量其实是内存中的一小块区域，使用变量名来访问这块区域，因此，每一个变量使用前必须要先申请（声明），然后必须进行赋值（填充内容），才能使用。</strong></p>
+</li>
+</ul>
+<p><strong>变量定义格式：</strong></p>
+<ul>
+<li><strong>数据类型 变量名 = 初始化值;</strong></li>
+</ul>
+<p>注意：格式是固定的，记住格式，以不变应万变</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5238858-60ecd9255c14ed89.png?imageMogr2/auto-orient/strip|imageView2/2/w/554/format/webp" alt="变量"></p>
+<h3 id="15-数据类型的概述和分类和定义不同数据类型的变量"><a href="#15-数据类型的概述和分类和定义不同数据类型的变量" class="headerlink" title="15.数据类型的概述和分类和定义不同数据类型的变量"></a>15.数据类型的概述和分类和定义不同数据类型的变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	数据类型：Java是一种强类型的语言，针对每一种数据都定义了明确的数据类型。</span><br><span class="line">	</span><br><span class="line">	数据类型分类：</span><br><span class="line">		A:基本数据类型</span><br><span class="line">		B:引用数据类型(类,接口,数值)</span><br><span class="line">		</span><br><span class="line">	基本数据类型:4类8种</span><br><span class="line">		A:整数			占用字节数</span><br><span class="line">			byte			1</span><br><span class="line">			short			2</span><br><span class="line">			int				4</span><br><span class="line">			long			8</span><br><span class="line">			</span><br><span class="line">		B:浮点数</span><br><span class="line">			float 			4</span><br><span class="line">			double 			8</span><br><span class="line">			</span><br><span class="line">		C:字符</span><br><span class="line">			char			2</span><br><span class="line">		D:布尔</span><br><span class="line">			boolean			1</span><br><span class="line">		</span><br><span class="line">		注意：</span><br><span class="line">			整数默认是int类型</span><br><span class="line">			浮点数默认是double类型。</span><br><span class="line">			</span><br><span class="line">			长整型后缀用L或者l标记。建议使用L。</span><br><span class="line">			单精度浮点数用F或者f标记。建议使用F。</span><br><span class="line">*&#x2F;</span><br><span class="line">class DataTypeDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;定义变量的格式：</span><br><span class="line">		&#x2F;&#x2F;数据类型 变量名 &#x3D; 初始化值;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义一个字节变量</span><br><span class="line">		byte b &#x3D; 10;</span><br><span class="line">		System.out.println(10);</span><br><span class="line">		System.out.println(b);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义一个短整型变量</span><br><span class="line">		short s &#x3D; 100;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义一个整型变量</span><br><span class="line">		int i &#x3D; 1000;</span><br><span class="line">		System.out.println(i);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;超过了int的范围</span><br><span class="line">		&#x2F;&#x2F;int j &#x3D; 1000000000000;</span><br><span class="line">		long j &#x3D; 1000000000000L;</span><br><span class="line">		&#x2F;&#x2F;long j &#x3D; 100L;</span><br><span class="line">		System.out.println(j);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义浮点数据变量</span><br><span class="line">		float f &#x3D; 12.345F;</span><br><span class="line">		System.out.println(f);</span><br><span class="line">		</span><br><span class="line">		double d &#x3D; 12.345;</span><br><span class="line">		System.out.println(d);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义字符变量</span><br><span class="line">		char ch &#x3D; &#39;a&#39;;</span><br><span class="line">		System.out.println(ch);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义布尔变量</span><br><span class="line">		boolean flag &#x3D; true;</span><br><span class="line">		System.out.println(flag);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="16-使用变量的注意事项"><a href="#16-使用变量的注意事项" class="headerlink" title="16.使用变量的注意事项"></a>16.使用变量的注意事项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	使用变量的时候要注意的问题：</span><br><span class="line">		A:作用域</span><br><span class="line">			变量定义在哪个大括号内，它就在这个大括号内有效。</span><br><span class="line">			并且，在同一个大括号内不能同时定义同名的变量。</span><br><span class="line">			</span><br><span class="line">		B:初始化值</span><br><span class="line">			没有初始化值的变量不能直接使用。</span><br><span class="line">			你只要在使用前给值就行，不一定非要在定义的时候立即给值。</span><br><span class="line">			推荐在定义的时候给值。</span><br><span class="line">			</span><br><span class="line">			定义变量的格式：</span><br><span class="line">				a:数据类型 变量名 &#x3D; 初始化值;</span><br><span class="line">				b:数据类型 变量名;</span><br><span class="line">				  变量名 &#x3D; 初始化值;</span><br><span class="line">		</span><br><span class="line">		C:在一行上建议只定义一个变量</span><br><span class="line">			可以定义多个，但是不建议</span><br><span class="line">*&#x2F;</span><br><span class="line">class DataTypeDemo2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;定义变量</span><br><span class="line">		int x &#x3D; 100;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;错误，不能有同名的</span><br><span class="line">		&#x2F;&#x2F;int x &#x3D; 200;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义变量必须给值</span><br><span class="line">		&#x2F;&#x2F;int y;</span><br><span class="line">		&#x2F;&#x2F;System.out.println(y);</span><br><span class="line">		</span><br><span class="line">		int z;</span><br><span class="line">		z &#x3D; 100;</span><br><span class="line">		System.out.println(z);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;在一行上定义多个变量</span><br><span class="line">		&#x2F;&#x2F;int a &#x3D; 10; int b &#x3D; 20; int c  &#x3D; 30;</span><br><span class="line">		&#x2F;&#x2F;上面的写法可以，但是不建议。</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 20;</span><br><span class="line">		int c  &#x3D; 30;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;int d, e;</span><br><span class="line">		&#x2F;&#x2F;d &#x3D; 40;</span><br><span class="line">		&#x2F;&#x2F;e &#x3D; 50;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;int f,int g; &#x2F;&#x2F;错误</span><br><span class="line">		&#x2F;&#x2F;int h; int i; &#x2F;&#x2F;正确</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="17-数据类型转换默认转换"><a href="#17-数据类型转换默认转换" class="headerlink" title="17.数据类型转换默认转换"></a>17.数据类型转换默认转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	+是一个运算符(我们等会讲解)。做加法运算的。</span><br><span class="line">	</span><br><span class="line">	一般来说，我们在运算的时候，要求参与运算的数据类型必须一致。</span><br><span class="line">	</span><br><span class="line">	注意：</span><br><span class="line">		boolean类型不能转换为其他的数据类型</span><br><span class="line"></span><br><span class="line">	默认转换(从小到大的转换)</span><br><span class="line">		A:byte,short,char—int—long—float—double</span><br><span class="line">		B:byte,short,char相互之间不转换，他们参与运算首先转换为int类型</span><br><span class="line">*&#x2F;</span><br><span class="line">class DataTypeDemo3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;直接输出的方式做加法</span><br><span class="line">		&#x2F;&#x2F;System.out.println(3 + 4);</span><br><span class="line">	</span><br><span class="line">		&#x2F;&#x2F;两个int类型做加法</span><br><span class="line">		int x &#x3D; 3;</span><br><span class="line">		int y &#x3D; 4;</span><br><span class="line">		int z &#x3D; x + y;</span><br><span class="line">		System.out.println(z);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义一个byte类型，一个int类型，做加法</span><br><span class="line">		byte a &#x3D; 3;</span><br><span class="line">		int b &#x3D; 4;</span><br><span class="line">		System.out.println(a + b);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;可能损失精度</span><br><span class="line">		&#x2F;&#x2F;byte c &#x3D;  a + b;</span><br><span class="line">		int c &#x3D; a + b;</span><br><span class="line">		System.out.println(c);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="18-数据类型转换强制转换"><a href="#18-数据类型转换强制转换" class="headerlink" title="18.数据类型转换强制转换"></a>18.数据类型转换强制转换</h3>
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin222.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day2笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
+        <p><span>发布时间:</span>2020年05月05日 - 15时12分</p>
+        <p><span>最后更新:</span>2020年05月05日 - 18时28分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="JavaSE篇-Day2笔记">https://stephencurry6666.github.io/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaSE篇-Day1笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java语言基础"><span class="toc-number">1.</span> <span class="toc-text">Java语言基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java基础语法"><span class="toc-number">1.1.</span> <span class="toc-text">Java基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关键字"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-标识符"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-标识符的常见命名规则"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.标识符的常见命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-注释概述及其分类"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.注释概述及其分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-HelloWorld案例加入注释"><span class="toc-number">1.1.5.</span> <span class="toc-text">5.HelloWorld案例加入注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-注释的作用"><span class="toc-number">1.1.6.</span> <span class="toc-text">6.注释的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-常量的概述和使用"><span class="toc-number">1.1.7.</span> <span class="toc-text">7.常量的概述和使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-进制概述以及二进制、八进制、十六进制图解"><span class="toc-number">1.1.8.</span> <span class="toc-text">8.进制概述以及二进制、八进制、十六进制图解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-不同进制数据的表现形式"><span class="toc-number">1.1.9.</span> <span class="toc-text">9.不同进制数据的表现形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-任意进制到十进制的转换"><span class="toc-number">1.1.10.</span> <span class="toc-text">10.任意进制到十进制的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-十进制到任意进制的转换"><span class="toc-number">1.1.11.</span> <span class="toc-text">11.十进制到任意进制的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-快速的进制转换法"><span class="toc-number">1.1.12.</span> <span class="toc-text">12.快速的进制转换法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-原码、反码、补码的讲解"><span class="toc-number">1.1.13.</span> <span class="toc-text">13.原码、反码、补码的讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-变量的概述及格式"><span class="toc-number">1.1.14.</span> <span class="toc-text">14.变量的概述及格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-数据类型的概述和分类和定义不同数据类型的变量"><span class="toc-number">1.1.15.</span> <span class="toc-text">15.数据类型的概述和分类和定义不同数据类型的变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-使用变量的注意事项"><span class="toc-number">1.1.16.</span> <span class="toc-text">16.使用变量的注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-数据类型转换默认转换"><span class="toc-number">1.1.17.</span> <span class="toc-text">17.数据类型转换默认转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-数据类型转换强制转换"><span class="toc-number">1.1.18.</span> <span class="toc-text">18.数据类型转换强制转换</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTkzMy8yNjQyNA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="下一篇: JavaSE篇-Day1笔记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day2笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day1笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92(1)%E2%80%94JavaSE%E7%AF%87/">Java系统学习规划(1)——JavaSE篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/hello-world/">Hello Stephencurry6666</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Stephencurry6666
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >大佬到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<i class="fas fa-chart-area"></i>
+<span class="post-count">字数统计：4.9k</span>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("04/30/2020 18:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>再次温习最小生成树的一些思路 | 愿你出走半生，归来仍是少年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="写在前面因为之前4月份打了将近一个月的个人赛，有些以前学习过的算法已经忘了，所以重新再温习一遍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再次温习最小生成树的一些思路">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/index.html">
+<meta property="og:site_name" content="愿你出走半生，归来仍是少年">
+<meta property="og:description" content="写在前面因为之前4月份打了将近一个月的个人赛，有些以前学习过的算法已经忘了，所以重新再温习一遍。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NjM2MTE3?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NjQ2MzA4?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NjU4MzI0?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NzExODQ1?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NzIzMTg5?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NzMyNjMy?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzODU0ODA3?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTA1MTQ0?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTEzODk1?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTIxMDQ3?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTI5Mjcz?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTM4NDI0?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTQ2MTQx?x-oss-process=image/format,png">
+<meta property="article:published_time" content="2020-05-12T08:30:24.464Z">
+<meta property="article:modified_time" content="2020-05-12T09:20:59.153Z">
+<meta property="article:author" content="Stephencurry6666">
+<meta property="article:tag" content="最小生成树再温">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NjM2MTE3?x-oss-process=image/format,png">
+  
+    <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+      
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/touxiang3.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Stephencurry6666</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="https://stephencurry6666.github.io/">博客首页</a></li>
+                        
+                            <li><a  href="/archives">文章归档</a></li>
+                        
+                            <li><a  href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail"  target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                            
+                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                                <a class="fl QQ"  target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat"  target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CF/" style="font-size: 10px;">CF</a> <a href="/tags/Hexo%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" style="font-size: 10px;">Hexo的一些基本用法和编写博客的一些注意事项</a> <a href="/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" style="font-size: 20px;">Java系统学习</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">并查集再温</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 15px;">最小生成树</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">最小生成树再温</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://blog.csdn.net/weixin_43846139">我的csdn</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一只努力学习算法的小小ACMer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+<div style="position:absolute; bottom:80px; left:-20px; width:40%">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=522433199&auto=1&height=66"></iframe>
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Stephencurry6666</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="//img/touxiang3.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Stephencurry6666</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://stephencurry6666.github.io/">博客首页</a></li>
+                
+                    <li><a href="/archives">文章归档</a></li>
+                
+                    <li><a href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                        <a class="QQ" target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-再次温习最小生成树的一些思路" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" class="article-date">
+      <time datetime="2020-05-12T08:30:24.464Z" itemprop="datePublished">2020-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      再次温习最小生成树的一些思路
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%87%8D%E6%B8%A9/">算法重温</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%86%8D%E6%B8%A9/" rel="tag">最小生成树再温</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.3k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">12分</span>
+      </span>
+    </span>
+</div>
+
+      
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>因为之前4月份打了将近一个月的个人赛，有些以前学习过的算法已经忘了，所以重新再温习一遍。</p>
+<a id="more"></a>
+<h2 id="关于最小生成树"><a href="#关于最小生成树" class="headerlink" title="关于最小生成树"></a>关于最小生成树</h2><p><strong>最小生成树（minimum spanning tree）是由n个顶点，n-1条边，将一个连通图连接起来，且使权值最小的结构。<br>最小生成树可以用Prim（普里姆）算法或kruskal（克鲁斯卡尔）算法求出。</strong></p>
+<h2 id="Kruskal算法详解及模板与例题"><a href="#Kruskal算法详解及模板与例题" class="headerlink" title="Kruskal算法详解及模板与例题"></a>Kruskal算法详解及模板与例题</h2><h3 id="Kruskal算法简介"><a href="#Kruskal算法简介" class="headerlink" title="Kruskal算法简介"></a>Kruskal算法简介</h3><p><strong>Kruskal算法是基于并查集算法而进行的，很简单的思路就是，对一张图，将所有的边都拆出来，然后对每条边的边权进行排序（从大到小，从小到大看题目需要），然后再将边连回去，连边的时候判断两个点是否被连通了，如果是连通的，那么就将该边扔了再看下一条边，如果没有被连通，那么就将该条边连上，然后用并查集合并即可。</strong></p>
+<p><strong>时间复杂度：O（NlogN）（N为边数）<br>kruskal算法又称“加边法”，用于边数较少的稀疏图<br>方法：每次找图中权值最小的边，将边连接的两个顶点加入最小生成树集合中<br>注意：相同权值任选其中一个即可，但是不允许出现闭合回路的情况。</strong></p>
+<h3 id="Kruskal算法图解"><a href="#Kruskal算法图解" class="headerlink" title="Kruskal算法图解"></a>Kruskal算法图解</h3><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NjM2MTE3?x-oss-process=image/format,png" alt="tupian1"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NjQ2MzA4?x-oss-process=image/format,png" alt="tupian2"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NjU4MzI0?x-oss-process=image/format,png" alt="tupian3"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NzExODQ1?x-oss-process=image/format,png" alt="tupian4"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NzIzMTg5?x-oss-process=image/format,png" alt="tupian5"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTE1NzMyNjMy?x-oss-process=image/format,png" alt="tupian6"></p>
+<h3 id="Kruskal算法代码详解及模板"><a href="#Kruskal算法代码详解及模板" class="headerlink" title="Kruskal算法代码详解及模板"></a>Kruskal算法代码详解及模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 200010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int pre[maxx];</span><br><span class="line">int n;</span><br><span class="line">struct node&#x2F;&#x2F;存边权值</span><br><span class="line">&#123;</span><br><span class="line">    int s;</span><br><span class="line">    int e;</span><br><span class="line">    int v;</span><br><span class="line">&#125; edge[maxx];</span><br><span class="line">bool cmp(node a, node b)&#x2F;&#x2F;看情况修改 优先级给小边权还是大边权</span><br><span class="line">&#123;</span><br><span class="line">    return a.v &lt; b.v;</span><br><span class="line">&#125;</span><br><span class="line">void init()&#x2F;&#x2F;初始化</span><br><span class="line">&#123;</span><br><span class="line">    for (int i &#x3D; 0; i &lt;&#x3D; n; i++)</span><br><span class="line">        pre[i] &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line">int getf(int a)&#x2F;&#x2F;并查集 看两点是否在同一个图内</span><br><span class="line">&#123;</span><br><span class="line">    if (pre[a] &#x3D;&#x3D; a)</span><br><span class="line">        return a;</span><br><span class="line">    int tmp &#x3D; getf(pre[a]);</span><br><span class="line">    return pre[a] &#x3D; tmp;</span><br><span class="line">&#125;</span><br><span class="line">int Kruskal(int a, int b) &#x2F;&#x2F;并查集合并操作，看是否在同一个图内 如果在就跳过 不在就合并</span><br><span class="line">&#123;</span><br><span class="line">    int fa &#x3D; getf(a);</span><br><span class="line">    int fb &#x3D; getf(b);</span><br><span class="line">    if (fa !&#x3D; fb)</span><br><span class="line">    &#123;</span><br><span class="line">        pre[fa] &#x3D; fb;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while (~scanf(&quot;%d&quot;, &amp;n), n)</span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        int m &#x3D; (n * (n - 1)) &#x2F; 2;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">            scanf(&quot;%d%d%d&quot;, &amp;edge[i].s, &amp;edge[i].e, &amp;edge[i].v);</span><br><span class="line">        sort(edge + 1, edge + m + 1, cmp);</span><br><span class="line">        int ans &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (Kruskal(edge[i].s, edge[i].e))</span><br><span class="line">                ans +&#x3D; edge[i].v;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%d\n&quot;, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Kruskal算法例题"><a href="#Kruskal算法例题" class="headerlink" title="Kruskal算法例题"></a>Kruskal算法例题</h3><p><strong>例题一：POJ-1287</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 10010;</span><br><span class="line">const int mod &#x3D; 10007;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">using namespace std;</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">    int s;</span><br><span class="line">    int e;</span><br><span class="line">    int v;</span><br><span class="line">&#125; edge[maxx];</span><br><span class="line">bool cmp(node a, node b)</span><br><span class="line">&#123;</span><br><span class="line">    return a.v &lt; b.v;</span><br><span class="line">&#125;</span><br><span class="line">int pre[maxx];</span><br><span class="line">int n, r;</span><br><span class="line">void init()</span><br><span class="line">&#123;</span><br><span class="line">    for (int i &#x3D; 0; i &lt;&#x3D; n; i++)</span><br><span class="line">        pre[i] &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line">int getf(int a)</span><br><span class="line">&#123;</span><br><span class="line">    if (pre[a] &#x3D;&#x3D; a)</span><br><span class="line">        return a;</span><br><span class="line">    int tmp &#x3D; getf(pre[a]);</span><br><span class="line">    return pre[a] &#x3D; tmp;</span><br><span class="line">&#125;</span><br><span class="line">int Kruskal(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">    int fa &#x3D; getf(a);</span><br><span class="line">    int fb &#x3D; getf(b);</span><br><span class="line">    if (fa !&#x3D; fb)</span><br><span class="line">    &#123;</span><br><span class="line">        pre[fa] &#x3D; fb;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while (~scanf(&quot;%d%d&quot;, &amp;n, &amp;r), n)</span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; r; i++)</span><br><span class="line">            scanf(&quot;%d%d%d&quot;, &amp;edge[i].s, &amp;edge[i].e, &amp;edge[i].v);</span><br><span class="line">        sort(edge + 1, edge + r + 1, cmp);</span><br><span class="line">        int ans &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; r; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (Kruskal(edge[i].s, edge[i].e))</span><br><span class="line">                ans +&#x3D; edge[i].v;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%d\n&quot;, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Prim算法详解及模板与例题"><a href="#Prim算法详解及模板与例题" class="headerlink" title="Prim算法详解及模板与例题"></a>Prim算法详解及模板与例题</h2><h3 id="Prim算法简介"><a href="#Prim算法简介" class="headerlink" title="Prim算法简介"></a>Prim算法简介</h3><p><strong>时间复杂度：O（N^2）（N为顶点数）<br>prim算法又称“加点法”，用于边数较多的带权无向连通图<br>方法：每次找与之连线权值最小的顶点，将该点加入最小生成树集合中<br>注意：相同权值任选其中一个即可，但是不允许出现闭合回路的情况。</strong></p>
+<h3 id="Prim算法图解"><a href="#Prim算法图解" class="headerlink" title="Prim算法图解"></a>Prim算法图解</h3><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzODU0ODA3?x-oss-process=image/format,png" alt="tupian1"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTA1MTQ0?x-oss-process=image/format,png" alt="tupian2"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTEzODk1?x-oss-process=image/format,png" alt="tupian3"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTIxMDQ3?x-oss-process=image/format,png" alt="tupian4"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTI5Mjcz?x-oss-process=image/format,png" alt="tupian5"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTM4NDI0?x-oss-process=image/format,png" alt="tupian6"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODIwMTEzOTQ2MTQx?x-oss-process=image/format,png" alt="tupian7"></p>
+<h3 id="Prim算法代码详解及模板"><a href="#Prim算法代码详解及模板" class="headerlink" title="Prim算法代码详解及模板"></a>Prim算法代码详解及模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 210;</span><br><span class="line">const int mod &#x3D; 10007;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">using namespace std;</span><br><span class="line">int mapp[maxx][maxx]; &#x2F;&#x2F;存图</span><br><span class="line">int dis[maxx];        &#x2F;&#x2F;记录任意一点到这个点的最近距离</span><br><span class="line">bool vis[maxx];       &#x2F;&#x2F;用来标记0和1  表示这个点是否被选择过</span><br><span class="line">int n;</span><br><span class="line">void Prim()</span><br><span class="line">&#123;</span><br><span class="line">    int sum &#x3D; 0;</span><br><span class="line">    int now;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#x2F;&#x2F;初始化</span><br><span class="line">    &#123;</span><br><span class="line">        dis[i] &#x3D; inf;</span><br><span class="line">        vis[i] &#x3D; false;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#x2F;&#x2F;选择1为起始点，初始化</span><br><span class="line">        dis[i] &#x3D; mapp[1][i];</span><br><span class="line">    dis[1] &#x3D; 0;                 &#x2F;&#x2F;起点的上一个节点没有节点，所以为0</span><br><span class="line">    vis[1] &#x3D; true;              &#x2F;&#x2F;定义起点已经加入了最小生成树</span><br><span class="line">    for (int i &#x3D; 1; i &lt; n; i++) &#x2F;&#x2F;循环找最小边，循环n-1次</span><br><span class="line">    &#123;</span><br><span class="line">        now &#x3D; inf;</span><br><span class="line">        int minn &#x3D; inf;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++) &#x2F;&#x2F;找dis最小的节点并加入最小生成树</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &lt; minn)</span><br><span class="line">            &#123;</span><br><span class="line">                now &#x3D; j;&#x2F;&#x2F;找出最小的顶点</span><br><span class="line">                minn &#x3D; dis[j];&#x2F;&#x2F;找出权值最短的路径长度</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (now &#x3D;&#x3D; inf)</span><br><span class="line">            break; &#x2F;&#x2F;防止不成图</span><br><span class="line">        vis[now] &#x3D; true;</span><br><span class="line">        sum +&#x3D; minn;&#x2F;&#x2F;求和</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++) &#x2F;&#x2F;添入新点后更新最小距离</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &gt; mapp[now][j])</span><br><span class="line">                dis[j] &#x3D; mapp[now][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;, sum);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while (~scanf(&quot;%d&quot;, &amp;n), n)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#x2F;&#x2F;初始化邻接矩阵</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (i &#x3D;&#x3D; j)</span><br><span class="line">                    mapp[i][j] &#x3D; 0;</span><br><span class="line">                else</span><br><span class="line">                    mapp[i][j] &#x3D; inf;</span><br><span class="line">            &#125;</span><br><span class="line">        int a,b,c;</span><br><span class="line">        for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);</span><br><span class="line">            mapp[a][b] &#x3D; mapp[b][a] &#x3D; c;</span><br><span class="line">        &#125;</span><br><span class="line">        Prim();</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Prim算法例题"><a href="#Prim算法例题" class="headerlink" title="Prim算法例题"></a>Prim算法例题</h3><p><strong>例题一：POJ-1251</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 210;</span><br><span class="line">const int mod &#x3D; 10007;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">using namespace std;</span><br><span class="line">int mapp[maxx][maxx];</span><br><span class="line">int dis[maxx];</span><br><span class="line">bool vis[maxx];</span><br><span class="line">int n;</span><br><span class="line">void Prim()</span><br><span class="line">&#123;</span><br><span class="line">    int sum &#x3D; 0;</span><br><span class="line">    int now;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dis[i] &#x3D; inf;</span><br><span class="line">        vis[i] &#x3D; false;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        dis[i] &#x3D; mapp[1][i];</span><br><span class="line">    dis[1] &#x3D; 0;</span><br><span class="line">    vis[1] &#x3D; true;</span><br><span class="line">    for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        now &#x3D; inf;</span><br><span class="line">        int minn &#x3D; inf;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &lt; minn)</span><br><span class="line">            &#123;</span><br><span class="line">                now &#x3D; j;</span><br><span class="line">                minn &#x3D; dis[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (now &#x3D;&#x3D; inf)</span><br><span class="line">            break;</span><br><span class="line">        vis[now] &#x3D; true;</span><br><span class="line">        sum +&#x3D; minn;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &gt; mapp[now][j])</span><br><span class="line">                dis[j] &#x3D; mapp[now][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;, sum);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char a, b;</span><br><span class="line">    int num1, num2;</span><br><span class="line">    int x, y;</span><br><span class="line">    while (~scanf(&quot;%d&quot;, &amp;n), n)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (i &#x3D;&#x3D; j)</span><br><span class="line">                    mapp[i][j] &#x3D; 0;</span><br><span class="line">                else</span><br><span class="line">                    mapp[i][j] &#x3D; inf;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a &gt;&gt; num1;</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; num1; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; b &gt;&gt; num2;</span><br><span class="line">                x &#x3D; a - 64;</span><br><span class="line">                y &#x3D; b - 64;</span><br><span class="line">                mapp[x][y] &#x3D; mapp[y][x] &#x3D; num2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Prim();</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>例题二：Hihocoder-1097</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 10010;</span><br><span class="line">const int mod &#x3D; 10007;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">using namespace std;</span><br><span class="line">int mapp[maxx][maxx];</span><br><span class="line">int dis[maxx];</span><br><span class="line">bool vis[maxx];</span><br><span class="line">int n;</span><br><span class="line">void Prim()</span><br><span class="line">&#123;</span><br><span class="line">    int sum &#x3D; 0;</span><br><span class="line">    int now;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dis[i] &#x3D; inf;</span><br><span class="line">        vis[i] &#x3D; false;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        dis[i] &#x3D; mapp[1][i];</span><br><span class="line">    dis[1] &#x3D; 0;</span><br><span class="line">    vis[1] &#x3D; true;</span><br><span class="line">    for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        now &#x3D; inf;</span><br><span class="line">        int minn &#x3D; inf;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &lt; minn)</span><br><span class="line">            &#123;</span><br><span class="line">                now &#x3D; j;</span><br><span class="line">                minn &#x3D; dis[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (now &#x3D;&#x3D; inf)</span><br><span class="line">            break;</span><br><span class="line">        vis[now] &#x3D; true;</span><br><span class="line">        sum +&#x3D; minn;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &gt; mapp[now][j])</span><br><span class="line">                dis[j] &#x3D; mapp[now][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;, sum);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while (~scanf(&quot;%d&quot;, &amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (i &#x3D;&#x3D; j)</span><br><span class="line">                    mapp[i][j] &#x3D; 0;</span><br><span class="line">                else</span><br><span class="line">                    mapp[i][j] &#x3D; inf;</span><br><span class="line">            &#125;</span><br><span class="line">        int a;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                scanf(&quot;%d&quot;, &amp;a);</span><br><span class="line">                if (a &lt; mapp[i][j])</span><br><span class="line">                    mapp[i][j] &#x3D; mapp[j][i] &#x3D; a;</span><br><span class="line">            &#125;</span><br><span class="line">        Prim();</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin222.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习最小生成树的一些思路</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
+        <p><span>发布时间:</span>2020年05月12日 - 16时30分</p>
+        <p><span>最后更新:</span>2020年05月12日 - 17时20分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" title="再次温习最小生成树的一些思路">https://stephencurry6666.github.io/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          QS Network（ZOJ-1586）（最小生成树）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/11/Codeforces%20625(Div.2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeforces 625(Div.2)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于最小生成树"><span class="toc-number">2.</span> <span class="toc-text">关于最小生成树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kruskal算法详解及模板与例题"><span class="toc-number">3.</span> <span class="toc-text">Kruskal算法详解及模板与例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kruskal算法简介"><span class="toc-number">3.1.</span> <span class="toc-text">Kruskal算法简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kruskal算法图解"><span class="toc-number">3.2.</span> <span class="toc-text">Kruskal算法图解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kruskal算法代码详解及模板"><span class="toc-number">3.3.</span> <span class="toc-text">Kruskal算法代码详解及模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kruskal算法例题"><span class="toc-number">3.4.</span> <span class="toc-text">Kruskal算法例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prim算法详解及模板与例题"><span class="toc-number">4.</span> <span class="toc-text">Prim算法详解及模板与例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prim算法简介"><span class="toc-number">4.1.</span> <span class="toc-text">Prim算法简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prim算法图解"><span class="toc-number">4.2.</span> <span class="toc-text">Prim算法图解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prim算法代码详解及模板"><span class="toc-number">4.3.</span> <span class="toc-text">Prim算法代码详解及模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prim算法例题"><span class="toc-number">4.4.</span> <span class="toc-text">Prim算法例题</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTkzMy8yNjQyNA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" title="上一篇: QS Network（ZOJ-1586）（最小生成树）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/05/11/Codeforces%20625(Div.2)/" title="下一篇: Codeforces 625(Div.2)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/Constructing%20Roads%EF%BC%88POJ-2421%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/">Constructing Roads（POJ-2421）（最小生成树）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/">QS Network（ZOJ-1586）（最小生成树）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习最小生成树的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/Codeforces%20625(Div.2)/">Codeforces 625(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/08/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习并查集的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day2笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day1笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92(1)%E2%80%94JavaSE%E7%AF%87/">Java系统学习规划(1)——JavaSE篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/hello-world/">Hello Stephencurry6666</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Stephencurry6666
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >大佬到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<i class="fas fa-chart-area"></i>
+<span class="post-count">字数统计：15.2k</span>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("04/30/2020 18:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>

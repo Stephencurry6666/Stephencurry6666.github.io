@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaSE-Day(3)学习笔记 | 愿你出走半生，归来仍是少年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据类型中补充的几个小问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSE-Day(3)学习笔记">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="愿你出走半生，归来仍是少年">
+<meta property="og:description" content="数据类型中补充的几个小问题">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-12T09:38:34.083Z">
+<meta property="article:modified_time" content="2020-05-12T12:39:14.882Z">
+<meta property="article:author" content="Stephencurry6666">
+<meta property="article:tag" content="Java系统学习">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+      
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/touxiang3.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Stephencurry6666</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="https://stephencurry6666.github.io/">博客首页</a></li>
+                        
+                            <li><a  href="/archives">文章归档</a></li>
+                        
+                            <li><a  href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail"  target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                            
+                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                                <a class="fl QQ"  target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat"  target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CF/" style="font-size: 10px;">CF</a> <a href="/tags/Hexo%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" style="font-size: 10px;">Hexo的一些基本用法和编写博客的一些注意事项</a> <a href="/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" style="font-size: 20px;">Java系统学习</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">并查集再温</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 15px;">最小生成树</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">最小生成树再温</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://blog.csdn.net/weixin_43846139">我的csdn</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一只努力学习算法的小小ACMer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+<div style="position:absolute; bottom:80px; left:-20px; width:40%">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=522433199&auto=1&height=66"></iframe>
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Stephencurry6666</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="//img/touxiang3.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Stephencurry6666</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://stephencurry6666.github.io/">博客首页</a></li>
+                
+                    <li><a href="/archives">文章归档</a></li>
+                
+                    <li><a href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                        <a class="QQ" target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaSE-Day(3)学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+      <time datetime="2020-05-12T09:38:34.083Z" itemprop="datePublished">2020-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaSE-Day(3)学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0-JavaSE%E7%AF%87/">Java系统学习-JavaSE篇</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" rel="tag">Java系统学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">7.6k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">37分</span>
+      </span>
+    </span>
+</div>
+
+      
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="数据类型中补充的几个小问题"><a href="#数据类型中补充的几个小问题" class="headerlink" title="数据类型中补充的几个小问题"></a>数据类型中补充的几个小问题</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">1:在定义Long或者Float类型变量的时候，要加L或者f。</span><br><span class="line">  整数默认是int类型，浮点数默认是double。</span><br><span class="line">  </span><br><span class="line">  byte，short在定义的时候，他们接收的其实是一个int类型的值。</span><br><span class="line">  这个是自己做了一个数据检测的，如果不再它们的范围内，就报错。</span><br><span class="line">  </span><br><span class="line">2:byte值的问题</span><br><span class="line">	byte b1 &#x3D; 127;</span><br><span class="line">	byte b2 &#x3D; (byte)128; &#x2F;&#x2F;-128</span><br><span class="line">	byte b3 &#x3D; (byte)129; &#x2F;&#x2F;-127</span><br><span class="line">	byte b4 &#x3D; (byte)130; &#x2F;&#x2F;-126</span><br><span class="line">	</span><br><span class="line">	byte的范围：-128 ~ 127</span><br><span class="line">	</span><br><span class="line">	128：10000000</span><br><span class="line">	-128：10000000 (这里的1即是符号位，也是数值位)</span><br><span class="line">	</span><br><span class="line">3:数据类型转换之默认转换</span><br><span class="line">	byte,short,char -- int -- long -- float -- double</span><br><span class="line">	</span><br><span class="line">	long: 8个字节</span><br><span class="line">	float：4个字节</span><br><span class="line">	</span><br><span class="line">	A:它们底层的存储结构不同。</span><br><span class="line">	B:float表示的数据范围比long的范围要大</span><br><span class="line">		long：2^63-1</span><br><span class="line">		float：3.4*10^38 &gt; 2*10^38 &gt; 2*8^38 &#x3D; 2*2^3^38 &#x3D; 2*2^114 &gt; 2^63-1</span><br><span class="line"></span><br><span class="line">4:Java语言中的字符char可以存储一个中文汉字吗?为什么呢?</span><br><span class="line">	可以。因为java语言中的字符占用两个字节。</span><br><span class="line">	</span><br><span class="line">	Java语言采用的是Unicode编码。</span><br></pre></td></tr></table></figure>
+<h2 id="算术运算符的基本用法"><a href="#算术运算符的基本用法" class="headerlink" title="算术运算符的基本用法"></a>算术运算符的基本用法</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	算术运算符：</span><br><span class="line">		+,-,*,&#x2F;,%,++,--</span><br><span class="line">		</span><br><span class="line">	注意事项：</span><br><span class="line">		A:整数相除只能得到整数。如果想得到小数，必须把数据变化为浮点数类型</span><br><span class="line">		B:&#x2F;获取的是除法操作的商，%获取的是除法操作的余数</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">class OperatorDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;定义变量</span><br><span class="line">		int x &#x3D; 3;  &#x2F;&#x2F;把3赋值给int类型的变量x</span><br><span class="line">		int y &#x3D; 4;</span><br><span class="line">		</span><br><span class="line">		System.out.println(x+y);</span><br><span class="line">		System.out.println(x-y);</span><br><span class="line">		System.out.println(x*y);</span><br><span class="line">		System.out.println(x&#x2F;y); &#x2F;&#x2F;整数相除只能得到整数</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;我就想得到小数，该肿么办呢?</span><br><span class="line">		&#x2F;&#x2F;只需要把操作的数据中任意的一个数据变为浮点数</span><br><span class="line">		System.out.println(x*1.0&#x2F;y);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;%的应用</span><br><span class="line">		System.out.println(x%y); &#x2F;&#x2F;得到的是余数</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="算术运算符-和—的使用"><a href="#算术运算符-和—的使用" class="headerlink" title="算术运算符++和—的使用"></a>算术运算符++和—的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	++,--运算符的使用：</span><br><span class="line">		单独使用：</span><br><span class="line">			放在操作数的前面和后面效果一样。(这种用法是我们比较常见的)</span><br><span class="line">		参与运算使用：</span><br><span class="line">			放在操作数的前面，先自增或者自减，然后再参与运算。</span><br><span class="line">			放在操作数的后面，先参与运算，再自增或者自减。</span><br><span class="line">			</span><br><span class="line">	作用：就是对变量进行自增1或者自减1。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo2 &#123;</span><br><span class="line">		public static void main(String[] args) &#123;</span><br><span class="line">			&#x2F;&#x2F;定义两个变量</span><br><span class="line">			int x &#x3D; 3;</span><br><span class="line">			int y &#x3D; 4;</span><br><span class="line">			</span><br><span class="line">			&#x2F;&#x2F;字符串的拼接</span><br><span class="line">			&#x2F;&#x2F;System.out.println(&quot;x:&quot;+x);</span><br><span class="line">			&#x2F;&#x2F;System.out.println(&quot;y:&quot;+y);</span><br><span class="line">			</span><br><span class="line">			System.out.println(&quot;x:&quot;+x+&quot;,y:&quot;+y);</span><br><span class="line">			</span><br><span class="line">			&#x2F;&#x2F;单独使用</span><br><span class="line">			&#x2F;&#x2F;x++;</span><br><span class="line">			&#x2F;&#x2F;y--;</span><br><span class="line">			++x;</span><br><span class="line">			--y;</span><br><span class="line">			&#x2F;&#x2F;System.out.println(x);</span><br><span class="line">			System.out.println(&quot;x:&quot;+x+&quot;,y:&quot;+y);</span><br><span class="line">			</span><br><span class="line">			&#x2F;&#x2F;意外的类型,常量是不可以这样做的</span><br><span class="line">			&#x2F;&#x2F;System.out.println(10++);</span><br><span class="line">			</span><br><span class="line">			System.out.println(&quot;-------------------&quot;);</span><br><span class="line">			&#x2F;&#x2F;参与运算使用</span><br><span class="line">			int a &#x3D; 3;</span><br><span class="line">			int b &#x3D; 4;</span><br><span class="line">			</span><br><span class="line">			&#x2F;&#x2F;int c &#x3D; a++;</span><br><span class="line">			&#x2F;&#x2F;int d &#x3D; b--;</span><br><span class="line">			</span><br><span class="line">			int c &#x3D; ++a;</span><br><span class="line">			int d &#x3D; --b;</span><br><span class="line">			</span><br><span class="line">			System.out.println(&quot;a:&quot;+a); &#x2F;&#x2F;4, 4</span><br><span class="line">			System.out.println(&quot;b:&quot;+b); &#x2F;&#x2F;3, 3</span><br><span class="line">			System.out.println(&quot;c:&quot;+c); &#x2F;&#x2F;3, 4</span><br><span class="line">			System.out.println(&quot;d:&quot;+d); &#x2F;&#x2F;4, 3</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="算术运算符-的多种用法"><a href="#算术运算符-的多种用法" class="headerlink" title="算术运算符+的多种用法"></a>算术运算符+的多种用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	+的用法：</span><br><span class="line">		A:加法</span><br><span class="line">		B:正号</span><br><span class="line">		C:字符串连接符</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;加法</span><br><span class="line">		System.out.println(3+4);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;正号</span><br><span class="line">		System.out.println(+4);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&#39;a&#39;);</span><br><span class="line">		System.out.println(&#39;a&#39;+1); &#x2F;&#x2F;这里是加法</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;字符串连接符</span><br><span class="line">		System.out.println(&quot;hello&quot;+&#39;a&#39;+1);</span><br><span class="line">		System.out.println(&#39;a&#39;+1+&quot;hello&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="算术运算符-和—的练习"><a href="#算术运算符-和—的练习" class="headerlink" title="算术运算符++和—的练习"></a>算术运算符++和—的练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	++,--的练习题</span><br><span class="line">	</span><br><span class="line">	第一题：</span><br><span class="line">	int a &#x3D; 10;</span><br><span class="line">	int b &#x3D; 10;</span><br><span class="line">	int c &#x3D; 10;</span><br><span class="line"></span><br><span class="line">	a &#x3D; b++;</span><br><span class="line">	c &#x3D; --a;</span><br><span class="line">	b &#x3D; ++a;</span><br><span class="line">	a &#x3D; c--;</span><br><span class="line">	请分别计算出a,b,c的值</span><br><span class="line">	</span><br><span class="line">	第二题：</span><br><span class="line">	int x &#x3D; 4;</span><br><span class="line">	int y &#x3D; (x++)+(++x)+(x*10);</span><br><span class="line">	请分别计算出x,y的值</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorTest &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 10;</span><br><span class="line">		int c &#x3D; 10;</span><br><span class="line"></span><br><span class="line">		a &#x3D; b++; &#x2F;&#x2F;a&#x3D;10,b&#x3D;11,c&#x3D;10</span><br><span class="line">		c &#x3D; --a; &#x2F;&#x2F;a&#x3D;9,b&#x3D;11,c&#x3D;9</span><br><span class="line">		b &#x3D; ++a; &#x2F;&#x2F;a&#x3D;10,b&#x3D;10,c&#x3D;9</span><br><span class="line">		a &#x3D; c--; &#x2F;&#x2F;a&#x3D;9,b&#x3D;10,c&#x3D;8</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;a:&quot;+a);</span><br><span class="line">		System.out.println(&quot;b:&quot;+b);</span><br><span class="line">		System.out.println(&quot;c:&quot;+c);</span><br><span class="line">		System.out.println(&quot;--------------&quot;);</span><br><span class="line">		</span><br><span class="line">		int x &#x3D; 4;</span><br><span class="line">		int y &#x3D; (x++)+(++x)+(x*10);</span><br><span class="line">		&#x2F;&#x2F;4+6+60</span><br><span class="line">		&#x2F;&#x2F;x&#x3D;5,6</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;x:&quot;+x);</span><br><span class="line">		System.out.println(&quot;y:&quot;+y);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="赋值运算符的基本用法"><a href="#赋值运算符的基本用法" class="headerlink" title="赋值运算符的基本用法"></a>赋值运算符的基本用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	赋值运算符：</span><br><span class="line">		基本的赋值运算符：&#x3D;</span><br><span class="line">			把&#x3D;右边的数据赋值给左边。</span><br><span class="line">			</span><br><span class="line">		扩展的赋值运算符：+&#x3D;,-&#x3D;,*&#x3D;,&#x2F;&#x3D;,%&#x3D;</span><br><span class="line">			+&#x3D; 把左边和右边做加法，然后赋值给左边。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;定义一个变量</span><br><span class="line">		int x &#x3D; 10;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;其他用法</span><br><span class="line">		int a,b; </span><br><span class="line">		a &#x3D; b &#x3D; 10;</span><br><span class="line">		System.out.println(a); </span><br><span class="line">		System.out.println(b);</span><br><span class="line">		System.out.println(&quot;-----------&quot;);</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F;定义一个变量</span><br><span class="line">		int y &#x3D; 10;</span><br><span class="line">		</span><br><span class="line">		y +&#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		System.out.println(y);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="赋值运算符的面试题"><a href="#赋值运算符的面试题" class="headerlink" title="赋值运算符的面试题"></a>赋值运算符的面试题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	面试题：</span><br><span class="line">		short s&#x3D;1;s &#x3D; s+1; </span><br><span class="line">		</span><br><span class="line">		short s&#x3D;1;s+&#x3D;1;</span><br><span class="line">		上面两个代码有没有问题，如果有，那里有问题。</span><br><span class="line">		</span><br><span class="line">		为什么第二个木有问题呢?</span><br><span class="line">			扩展的赋值运算符其实隐含了一个强制类型转换。</span><br><span class="line">			</span><br><span class="line">			s +&#x3D; 1;</span><br><span class="line">			不是等价于 s &#x3D; s + 1;</span><br><span class="line">			而是等价于 s &#x3D; (s的数据类型)(s + 1);</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorTest &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;short s &#x3D; 1;</span><br><span class="line">		&#x2F;&#x2F;s &#x3D; s + 1;</span><br><span class="line">		&#x2F;&#x2F;System.out.println(s);</span><br><span class="line">		</span><br><span class="line">		short s &#x3D; 1;</span><br><span class="line">		s +&#x3D; 1; &#x2F;&#x2F;好像是 s &#x3D; s + 1;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="比较运算符的基本用法及其注意事项"><a href="#比较运算符的基本用法及其注意事项" class="headerlink" title="比较运算符的基本用法及其注意事项"></a>比较运算符的基本用法及其注意事项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	比较运算符：</span><br><span class="line">		&#x3D;&#x3D;,!&#x3D;,&gt;,&gt;&#x3D;,&lt;,&lt;&#x3D;</span><br><span class="line">		</span><br><span class="line">	特点：</span><br><span class="line">		无论你的操作是简单还是复杂，结果是boolean类型。</span><br><span class="line">		</span><br><span class="line">	注意事项：</span><br><span class="line">		&quot;&#x3D;&#x3D;&quot;不能写成&quot;&#x3D;&quot;。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int x &#x3D; 3;</span><br><span class="line">		int y &#x3D; 4;</span><br><span class="line">		int z &#x3D; 3;</span><br><span class="line">	</span><br><span class="line">		System.out.println(x &#x3D;&#x3D; y);</span><br><span class="line">		System.out.println(x &#x3D;&#x3D; z);</span><br><span class="line">		System.out.println((x+y) &#x3D;&#x3D; (x+z));</span><br><span class="line">		System.out.println(&quot;------------&quot;);</span><br><span class="line">		</span><br><span class="line">		System.out.println(x !&#x3D; y);</span><br><span class="line">		System.out.println(x &gt; y);</span><br><span class="line">		System.out.println(x &gt;&#x3D; y);</span><br><span class="line">		System.out.println(x &lt; y);</span><br><span class="line">		System.out.println(x &lt;&#x3D; y);</span><br><span class="line">		System.out.println(&quot;------------&quot;);</span><br><span class="line">		</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;boolean flag &#x3D; (a &#x3D;&#x3D; b);</span><br><span class="line">		&#x2F;&#x2F;boolean flag &#x3D; (a &#x3D; b); &#x2F;&#x2F;这个是有问题的，不兼容的类型</span><br><span class="line">		&#x2F;&#x2F;System.out.println(flag);</span><br><span class="line">		</span><br><span class="line">		int c &#x3D; (a &#x3D; b); &#x2F;&#x2F;把b赋值给a，然后把a留下来</span><br><span class="line">		System.out.println(c);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="逻辑运算符的基本用法"><a href="#逻辑运算符的基本用法" class="headerlink" title="逻辑运算符的基本用法"></a>逻辑运算符的基本用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	逻辑运算符：</span><br><span class="line">		&amp;,|,^,!</span><br><span class="line">		&amp;&amp;,||</span><br><span class="line">		</span><br><span class="line">	特点：</span><br><span class="line">		逻辑运算符一般用于连接boolean类型的表达式或者值。</span><br><span class="line">			</span><br><span class="line">		表达式：就是用运算符把常量或者变量连接起来的符合java语法的式子。</span><br><span class="line">			算术表达式：a + b</span><br><span class="line">			比较表达式：a &#x3D;&#x3D; b</span><br><span class="line">			</span><br><span class="line">	结论：</span><br><span class="line">		&amp;逻辑与:有false则false。</span><br><span class="line">		|逻辑或:有true则true。</span><br><span class="line">		^逻辑异或:相同为false，不同为true。</span><br><span class="line">			举例：情侣关系。男男,男女,女男,女女</span><br><span class="line">		!逻辑非:非false则true，非true则false。</span><br><span class="line">			特点：偶数个不改变本身。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int a &#x3D; 3;</span><br><span class="line">		int b &#x3D; 4;</span><br><span class="line">		int c &#x3D; 5;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;&amp;逻辑与</span><br><span class="line">		System.out.println((a &gt; b) &amp; (a &gt; c)); &#x2F;&#x2F;false &amp; false &#x3D; false</span><br><span class="line">		System.out.println((a &gt; b) &amp; (a &lt; c)); &#x2F;&#x2F;false &amp; true &#x3D; false</span><br><span class="line">		System.out.println((a &lt; b) &amp; (a &gt; c)); &#x2F;&#x2F;true &amp; false &#x3D; false</span><br><span class="line">		System.out.println((a &lt; b) &amp; (a &lt; c)); &#x2F;&#x2F;true &amp; true &#x3D; true</span><br><span class="line">		System.out.println(&quot;---------------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;|逻辑或</span><br><span class="line">		System.out.println((a &gt; b) | (a &gt; c)); &#x2F;&#x2F;false | false &#x3D; false</span><br><span class="line">		System.out.println((a &gt; b) | (a &lt; c)); &#x2F;&#x2F;false | true &#x3D; true</span><br><span class="line">		System.out.println((a &lt; b) | (a &gt; c)); &#x2F;&#x2F;true | false &#x3D; true</span><br><span class="line">		System.out.println((a &lt; b) | (a &lt; c)); &#x2F;&#x2F;true | true &#x3D; true</span><br><span class="line">		System.out.println(&quot;---------------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;^逻辑异或</span><br><span class="line">		System.out.println((a &gt; b) ^ (a &gt; c)); &#x2F;&#x2F;false ^ false &#x3D; false</span><br><span class="line">		System.out.println((a &gt; b) ^ (a &lt; c)); &#x2F;&#x2F;false ^ true &#x3D; true</span><br><span class="line">		System.out.println((a &lt; b) ^ (a &gt; c)); &#x2F;&#x2F;true ^ false &#x3D; true</span><br><span class="line">		System.out.println((a &lt; b) ^ (a &lt; c)); &#x2F;&#x2F;true ^ true &#x3D; false</span><br><span class="line">		System.out.println(&quot;---------------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;!逻辑非</span><br><span class="line">		System.out.println(!(a &gt; b)); &#x2F;&#x2F;!false &#x3D; true</span><br><span class="line">		System.out.println(!(a &lt; b)); &#x2F;&#x2F;!true &#x3D; false</span><br><span class="line">		System.out.println(!!(a &gt; b)); &#x2F;&#x2F;!!false &#x3D; false</span><br><span class="line">		System.out.println(!!!(a &gt; b)); &#x2F;&#x2F;!!false &#x3D; true</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="逻辑运算符-amp-amp-和-amp-的区别"><a href="#逻辑运算符-amp-amp-和-amp-的区别" class="headerlink" title="逻辑运算符&amp;&amp;和&amp;的区别"></a>逻辑运算符&amp;&amp;和&amp;的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	&amp;&amp;和&amp;的区别? 同理||和|的区别?</span><br><span class="line">		A:最终结果一样。</span><br><span class="line">		B:&amp;&amp;具有短路效果。左边是false，右边不执行。</span><br><span class="line">		C:||具有短路效果，左边是true，右边不执行。</span><br><span class="line">		</span><br><span class="line">	开发中常用的逻辑运算符：</span><br><span class="line">		&amp;&amp;,||,!</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int a &#x3D; 3;</span><br><span class="line">		int b &#x3D; 4;</span><br><span class="line">		int c &#x3D; 5;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;&amp;&amp;双与</span><br><span class="line">		System.out.println((a &gt; b) &amp;&amp; (a &gt; c)); &#x2F;&#x2F;false &amp;&amp; false &#x3D; false</span><br><span class="line">		System.out.println((a &gt; b) &amp;&amp; (a &lt; c)); &#x2F;&#x2F;false &amp;&amp; true &#x3D; false</span><br><span class="line">		System.out.println((a &lt; b) &amp;&amp; (a &gt; c)); &#x2F;&#x2F;true &amp;&amp; false &#x3D; false</span><br><span class="line">		System.out.println((a &lt; b) &amp;&amp; (a &lt; c)); &#x2F;&#x2F;true &amp;&amp; true &#x3D; true</span><br><span class="line">		System.out.println(&quot;----------------&quot;);</span><br><span class="line">		</span><br><span class="line">		int x &#x3D; 3;</span><br><span class="line">		int y &#x3D; 4;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;boolean b1 &#x3D; ((x++ &#x3D;&#x3D; 3) &amp; (y++ &#x3D;&#x3D; 4));</span><br><span class="line">		&#x2F;&#x2F;boolean b1 &#x3D; ((x++ &#x3D;&#x3D; 3) &amp;&amp; (y++ &#x3D;&#x3D; 4));</span><br><span class="line">		&#x2F;&#x2F;boolean b1 &#x3D; ((++x &#x3D;&#x3D; 3) &amp; (y++ &#x3D;&#x3D; 4));</span><br><span class="line">		boolean b1 &#x3D; ((++x &#x3D;&#x3D; 3) &amp;&amp; (y++ &#x3D;&#x3D; 4));</span><br><span class="line">		System.out.println(&quot;x:&quot;+x);</span><br><span class="line">		System.out.println(&quot;y:&quot;+y);</span><br><span class="line">		System.out.println(b1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="位运算的基本用法1"><a href="#位运算的基本用法1" class="headerlink" title="位运算的基本用法1"></a>位运算的基本用法1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	位运算符：</span><br><span class="line">		&amp;,|,^,~</span><br><span class="line">		&lt;&lt;,&gt;&gt;,&gt;&gt;&gt;</span><br><span class="line">		</span><br><span class="line">	注意：</span><br><span class="line">		要做位运算，首先要把数据转换为二进制。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;&amp;,|,^,~</span><br><span class="line">		</span><br><span class="line">		int a &#x3D; 3;</span><br><span class="line">		int b &#x3D; 4;</span><br><span class="line">		</span><br><span class="line">		System.out.println(3 &amp; 4);</span><br><span class="line">		System.out.println(3 | 4);</span><br><span class="line">		System.out.println(3 ^ 4);</span><br><span class="line">		System.out.println(~3);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*</span><br><span class="line">	分析：因为是位运算，所以我们必须先把数据换算成二进制。</span><br><span class="line">	</span><br><span class="line">	3的二进制：11</span><br><span class="line">		00000000 00000000 00000000 00000011</span><br><span class="line">	4的二进制：100</span><br><span class="line">		00000000 00000000 00000000 00000100</span><br><span class="line">	</span><br><span class="line">	&amp;位与运算：有0则0。</span><br><span class="line">		00000000 00000000 00000000 00000011</span><br><span class="line">	   &amp;00000000 00000000 00000000 00000100</span><br><span class="line">		-----------------------------------</span><br><span class="line">		00000000 00000000 00000000 00000000</span><br><span class="line">		结果是：0</span><br><span class="line">		</span><br><span class="line">	|位或运算：有1则1。</span><br><span class="line">		00000000 00000000 00000000 00000011</span><br><span class="line">	   |00000000 00000000 00000000 00000100</span><br><span class="line">		-----------------------------------</span><br><span class="line">		00000000 00000000 00000000 00000111</span><br><span class="line">		结果是：7</span><br><span class="line">		</span><br><span class="line">	^位异或运算：相同则0，不同则1。</span><br><span class="line">		00000000 00000000 00000000 00000011</span><br><span class="line">	   &amp;00000000 00000000 00000000 00000100</span><br><span class="line">		-----------------------------------</span><br><span class="line">		00000000 00000000 00000000 00000111</span><br><span class="line">		结果是：7</span><br><span class="line">		</span><br><span class="line">	~按位取反运算符：0变1，1变0</span><br><span class="line">		00000000 00000000 00000000 00000011</span><br><span class="line">	   ~11111111 11111111 11111111 11111100 (补码)</span><br><span class="line">	   </span><br><span class="line">	   补码：11111111 11111111 11111111 11111100</span><br><span class="line">	   反码：11111111 11111111 11111111 11111011</span><br><span class="line">	   原码：10000000 00000000 00000000 00000100</span><br><span class="line">		结果是：-4</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<h3 id="位异或运算符的特点"><a href="#位异或运算符的特点" class="headerlink" title="位异或运算符的特点"></a>位异或运算符的特点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	^的特点：一个数据对另一个数据位异或两次，该数本身不变。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		System.out.println(a ^ b ^ b); &#x2F;&#x2F;10</span><br><span class="line">		System.out.println(a ^ b ^ a); &#x2F;&#x2F;20</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="位运算的面试题"><a href="#位运算的面试题" class="headerlink" title="位运算的面试题"></a>位运算的面试题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	面试题：</span><br><span class="line">		请自己实现两个整数变量的交换</span><br><span class="line">		注意：以后讲课的过程中，我没有明确指定数据的类型，默认int类型。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorTest &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;a:&quot;+a+&quot;,b:&quot;+b);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;方式1：使用第三方变量(开发中用的)</span><br><span class="line">		&#x2F;*</span><br><span class="line">		int c &#x3D; a;</span><br><span class="line">		a &#x3D; b;</span><br><span class="line">		b &#x3D; c;</span><br><span class="line">		System.out.println(&quot;a:&quot;+a+&quot;,b:&quot;+b);</span><br><span class="line">		System.out.println(&quot;------------&quot;);</span><br><span class="line">		*&#x2F;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;方式2：用位异或实现(面试用)</span><br><span class="line">		&#x2F;&#x2F;左边：a,b,a</span><br><span class="line">		&#x2F;&#x2F;右边：a ^ b</span><br><span class="line">		&#x2F;*</span><br><span class="line">		a &#x3D; a ^ b;</span><br><span class="line">		b &#x3D; a ^ b; &#x2F;&#x2F;a ^ b ^ b &#x3D; a</span><br><span class="line">		a &#x3D; a ^ b; &#x2F;&#x2F;a ^ b ^ a &#x3D; b</span><br><span class="line">		System.out.println(&quot;a:&quot;+a+&quot;,b:&quot;+b);</span><br><span class="line">		*&#x2F;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;方式3：用变量相加的做法</span><br><span class="line">		&#x2F;*</span><br><span class="line">		a &#x3D; a + b; &#x2F;&#x2F;a&#x3D;30</span><br><span class="line">		b &#x3D; a - b; &#x2F;&#x2F;b&#x3D;10</span><br><span class="line">		a &#x3D; a - b; &#x2F;&#x2F;a&#x3D;20</span><br><span class="line">		System.out.println(&quot;a:&quot;+a+&quot;,b:&quot;+b);</span><br><span class="line">		*&#x2F;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;方式4：一句话搞定</span><br><span class="line">		b &#x3D; (a+b) - (a&#x3D;b); &#x2F;&#x2F;b&#x3D;30-20&#x3D;10,a&#x3D;20</span><br><span class="line">		System.out.println(&quot;a:&quot;+a+&quot;,b:&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="位运算的基本用法2及面试题"><a href="#位运算的基本用法2及面试题" class="headerlink" title="位运算的基本用法2及面试题"></a>位运算的基本用法2及面试题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	&lt;&lt;:左移	左边最高位丢弃，右边补齐0</span><br><span class="line">	&gt;&gt;:右移	最高位是0，左边补齐0；最高为是1，左边补齐1</span><br><span class="line">	&gt;&gt;&gt;:无符号右移 无论最高位是0还是1，左边补齐0</span><br><span class="line">	</span><br><span class="line">	面试题：</span><br><span class="line">		请用最有效率的方式写出计算2乘以8的结果?</span><br><span class="line">			2 * 8</span><br><span class="line">			</span><br><span class="line">			2 &lt;&lt; 3</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;&lt;&lt; 把&lt;&lt;左边的数据乘以2的移动次幂</span><br><span class="line">		System.out.println(3 &lt;&lt; 2); &#x2F;&#x2F;3*2^2 &#x3D; 3*4 &#x3D; 12;</span><br><span class="line">	</span><br><span class="line">		&#x2F;&#x2F;&gt;&gt; 把&gt;&gt;左边的数据除以2的移动次幂</span><br><span class="line">		System.out.println(24 &gt;&gt; 2); &#x2F;&#x2F;24 &#x2F; 2^2 &#x3D; 24 &#x2F; 4 &#x3D; 6</span><br><span class="line">		System.out.println(24 &gt;&gt;&gt; 2);</span><br><span class="line">		</span><br><span class="line">		System.out.println(-24 &gt;&gt; 2); </span><br><span class="line">		System.out.println(-24 &gt;&gt;&gt; 2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*</span><br><span class="line">	计算出3的二进制：11</span><br><span class="line">		00000000 00000000 00000000 00000011</span><br><span class="line">	(00)000000 00000000 00000000 0000001100</span><br><span class="line">		</span><br><span class="line">	&gt;&gt;的移动：	</span><br><span class="line">	计算出24的二进制：11000</span><br><span class="line">		原码：10000000 00000000 00000000 00011000</span><br><span class="line">		反码：11111111 11111111 11111111 11100111</span><br><span class="line">		补码：11111111 11111111 11111111 11101000</span><br><span class="line">		</span><br><span class="line">		11111111 11111111 11111111 11101000</span><br><span class="line">		1111111111 11111111 11111111 111010(00) 补码</span><br><span class="line">		</span><br><span class="line">		补码：1111111111 11111111 11111111 111010</span><br><span class="line">		反码：1111111111 11111111 11111111 111001</span><br><span class="line">		原码：1000000000 00000000 00000000 000110</span><br><span class="line">		</span><br><span class="line">		结果：-6</span><br><span class="line">		</span><br><span class="line">	&gt;&gt;&gt;的移动：</span><br><span class="line">		计算出24的二进制：11000</span><br><span class="line">		原码：10000000 00000000 00000000 00011000</span><br><span class="line">		反码：11111111 11111111 11111111 11100111</span><br><span class="line">		补码：11111111 11111111 11111111 11101000</span><br><span class="line">		</span><br><span class="line">		11111111 11111111 11111111 11101000</span><br><span class="line">		0011111111 11111111 11111111 111010(00)</span><br><span class="line">		</span><br><span class="line">		结果：</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<h3 id="三元运算符的基本用法"><a href="#三元运算符的基本用法" class="headerlink" title="三元运算符的基本用法"></a>三元运算符的基本用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	单目运算符：~3</span><br><span class="line">	双目运算符：3 + 4</span><br><span class="line"></span><br><span class="line">	三目运算符：</span><br><span class="line">		格式：比较表达式?表达式1:表达式2;</span><br><span class="line">		</span><br><span class="line">		比较表达式:结果是一个boolean类型。</span><br><span class="line">		</span><br><span class="line">		执行流程：</span><br><span class="line">			根据比较表达式的计算返回一个true或者false。</span><br><span class="line">			如果是true，就把表达式1作为结果。</span><br><span class="line">			如果是false，就把表达式2作为结果。</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int x &#x3D; 100;</span><br><span class="line">		int y &#x3D; 200;</span><br><span class="line">		</span><br><span class="line">		int z &#x3D; ((x &gt; y)? x: y);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;int z &#x3D; ((x &lt; y)? x: y);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;int z &#x3D; ((x &#x3D;&#x3D; y)? x: y);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;报错</span><br><span class="line">		&#x2F;&#x2F;int z &#x3D; ((x &#x3D; y)? x : y);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;z:&quot;+z);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三元运算符的练习"><a href="#三元运算符的练习" class="headerlink" title="三元运算符的练习"></a>三元运算符的练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	练习：</span><br><span class="line">		获取两个整数中的最大值</span><br><span class="line">		获取三个整数中的最大值</span><br><span class="line">		比较两个整数是否相同</span><br><span class="line">*&#x2F;</span><br><span class="line">class OperatorTest &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;获取两个整数中的最大值</span><br><span class="line">		int x &#x3D; 100;</span><br><span class="line">		int y &#x3D; 200;</span><br><span class="line">		</span><br><span class="line">		int max &#x3D; (x &gt; y? x: y);</span><br><span class="line">		System.out.println(&quot;max:&quot;+max);</span><br><span class="line">		System.out.println(&quot;--------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;获取三个整数中的最大值</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 30;</span><br><span class="line">		int c &#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;分两步：</span><br><span class="line">		&#x2F;&#x2F;A:先比较a,b的最大值</span><br><span class="line">		&#x2F;&#x2F;B:拿a,b的最大值在和c进行比较</span><br><span class="line">		int temp &#x3D; ((a &gt; b)? a: b);</span><br><span class="line">		&#x2F;&#x2F;System.out.println(temp);</span><br><span class="line">		int max1 &#x3D; (temp &gt; c? temp: c);</span><br><span class="line">		System.out.println(&quot;max1:&quot;+max1);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;一步搞定</span><br><span class="line">		&#x2F;&#x2F;int max2 &#x3D; (a &gt; b)?((a &gt; c)? a: c):((b &gt; c)? b: c);</span><br><span class="line">		&#x2F;&#x2F;这种做法不推荐。</span><br><span class="line">		&#x2F;&#x2F;int max2 &#x3D; a &gt; b?a &gt; c? a: c:b &gt; c? b: c;</span><br><span class="line">		&#x2F;&#x2F;System.out.println(&quot;max2:&quot;+max2);</span><br><span class="line">		System.out.println(&quot;--------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;比较两个整数是否相同</span><br><span class="line">		int m &#x3D; 100;</span><br><span class="line">		int n &#x3D; 200;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;boolean flag &#x3D; (m &#x3D;&#x3D; n)? true: false;</span><br><span class="line">		boolean flag &#x3D; (m &#x3D;&#x3D; n);</span><br><span class="line">		System.out.println(flag);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="键盘录入的基本格式讲解"><a href="#键盘录入的基本格式讲解" class="headerlink" title="键盘录入的基本格式讲解"></a>键盘录入的基本格式讲解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	为了让程序的数据更符合开发的数据，我们就加入了键盘录入。</span><br><span class="line">	让程序更灵活一下。</span><br><span class="line">	</span><br><span class="line">	那么，我们如何实现键盘数据的录入呢?</span><br><span class="line">		A:导包</span><br><span class="line">			格式：</span><br><span class="line">				import java.util.Scanner; </span><br><span class="line">			位置：</span><br><span class="line">				在class上面。</span><br><span class="line">		B:创建键盘录入对象</span><br><span class="line">			格式：</span><br><span class="line">				Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		C:通过对象获取数据	</span><br><span class="line">			格式：</span><br><span class="line">				int x &#x3D; sc.nextInt();</span><br><span class="line">*&#x2F;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">class ScannerDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;创建键盘录入数据对象</span><br><span class="line">		Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请你输入一个数据：&quot;);</span><br><span class="line">		int x &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;你输入的数据是：&quot;+x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="键盘录入的练习1"><a href="#键盘录入的练习1" class="headerlink" title="键盘录入的练习1"></a>键盘录入的练习1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	键盘录入练习：</span><br><span class="line">		键盘录入两个数据，并对这两个数据求和，输出其结果</span><br><span class="line">*&#x2F;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">class ScannerTest &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;键盘录入两个数据，并对这两个数据求和，输出其结果</span><br><span class="line">		&#x2F;&#x2F;创建键盘录入对象</span><br><span class="line">		Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第一个数据：&quot;);</span><br><span class="line">		int x &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第二个数据：&quot;);</span><br><span class="line">		int y &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;把键盘录入的数据进行相加即可</span><br><span class="line">		int sum &#x3D; (x + y);</span><br><span class="line">		System.out.println(&quot;sum:&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*</span><br><span class="line">	键盘录入练习：键盘录入两个数据，获取这两个数据中的最大值</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">class ScannerTest2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;创建键盘录入对象</span><br><span class="line">		Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第一个数据：&quot;);</span><br><span class="line">		int a &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第二个数据：&quot;);</span><br><span class="line">		int b &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;获取这两个数据中的最大值</span><br><span class="line">		int max &#x3D; (a &gt; b? a: b);</span><br><span class="line">		System.out.println(&quot;max:&quot;+max);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="键盘录入的练习2"><a href="#键盘录入的练习2" class="headerlink" title="键盘录入的练习2"></a>键盘录入的练习2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	练习：</span><br><span class="line">		键盘录入三个数据，获取这三个数据中的最大值</span><br><span class="line">		键盘录入两个数据，比较这两个数据是否相等</span><br><span class="line">*&#x2F;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">class ScannerTest3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;键盘录入三个数据，获取这三个数据中的最大值</span><br><span class="line">	</span><br><span class="line">		&#x2F;&#x2F;创建键盘录入对象</span><br><span class="line">		Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第一个数据：&quot;);</span><br><span class="line">		int a &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第二个数据：&quot;);</span><br><span class="line">		int b &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第三个数据：&quot;);</span><br><span class="line">		int c &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;获取这三个数据中的最大值</span><br><span class="line">		int temp &#x3D; ((a &gt; b)? a: b);</span><br><span class="line">		int max &#x3D; (temp &gt; c? temp : c);</span><br><span class="line">		System.out.println(&quot;max:&quot;+max);</span><br><span class="line">		System.out.println(&quot;------------------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;键盘录入两个数据</span><br><span class="line">		System.out.println(&quot;请输入第一个数据：&quot;);</span><br><span class="line">		int x &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第二个数据：&quot;);</span><br><span class="line">		int y &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;比较这两个数据是否相等</span><br><span class="line">		boolean flag &#x3D; (x &#x3D;&#x3D; y);</span><br><span class="line">		System.out.println(&quot;flag:&quot;+flag);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="顺序结构语句"><a href="#顺序结构语句" class="headerlink" title="顺序结构语句"></a>顺序结构语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	流程控制语句：可以控制程序的执行流程。</span><br><span class="line">	</span><br><span class="line">	分类：</span><br><span class="line">		顺序结构</span><br><span class="line">		选择结构</span><br><span class="line">		循环结构</span><br><span class="line">		</span><br><span class="line">	顺序结构：</span><br><span class="line">		从上往下，依次执行。</span><br><span class="line">*&#x2F;</span><br><span class="line">class ShunXuJieGouDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;程序开始了&quot;);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;我爱Java&quot;);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;程序结束了&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构if语句格式1"><a href="#选择结构if语句格式1" class="headerlink" title="选择结构if语句格式1"></a>选择结构if语句格式1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	选择结构：</span><br><span class="line">		if语句</span><br><span class="line">		switch语句</span><br><span class="line">		</span><br><span class="line">	if语句：</span><br><span class="line">		格式1</span><br><span class="line">		格式2</span><br><span class="line">		格式3</span><br><span class="line">		</span><br><span class="line">	if语句的格式：</span><br><span class="line">		if(比较表达式) &#123;</span><br><span class="line">			语句体;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		执行流程：</span><br><span class="line">			先计算比较表达式的值，看其返回值是true还是false。</span><br><span class="line">			如果是true，就执行语句体；</span><br><span class="line">			如果是false，就不执行语句体；</span><br><span class="line">*&#x2F;</span><br><span class="line">class IfDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int x &#x3D; 10;</span><br><span class="line">		</span><br><span class="line">		if(x &#x3D;&#x3D; 10) &#123;</span><br><span class="line">			System.out.println(&quot;x等于10&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		if(x &#x3D;&#x3D; 20) &#123;</span><br><span class="line">			System.out.println(&quot;x等于20&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;over&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构if语句注意事项"><a href="#选择结构if语句注意事项" class="headerlink" title="选择结构if语句注意事项"></a>选择结构if语句注意事项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	if语句的注意事项：</span><br><span class="line">		A:比较表达式无论简单还是复杂，结果必须是boolean类型</span><br><span class="line">		B:if语句控制的语句体如果是一条语句，大括号可以省略；</span><br><span class="line">		  如果是多条语句，就不能省略。建议永远不要省略。</span><br><span class="line">		C:一般来说：有左大括号就没有分号，有分号就没有左大括号</span><br><span class="line">*&#x2F;</span><br><span class="line">class IfDemo2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int x &#x3D; 10;</span><br><span class="line">		</span><br><span class="line">		if(x &#x3D;&#x3D; 10) &#123;</span><br><span class="line">			System.out.println(&quot;x等于10&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		if((x &gt; 5) || (x &#x3D;&#x3D; 10)) &#123;</span><br><span class="line">			System.out.println(&quot;x大于或者等于10&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;-------------------&quot;);</span><br><span class="line">		</span><br><span class="line">		int a &#x3D; 100;</span><br><span class="line">		</span><br><span class="line">		&#x2F;*</span><br><span class="line">		if(a &#x3D;&#x3D; 100) &#123;</span><br><span class="line">			System.out.println(&quot;a的值是100&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		*&#x2F;</span><br><span class="line">		</span><br><span class="line">		if(a !&#x3D; 100) &#123;</span><br><span class="line">			System.out.println(&quot;a的值是100&quot;);</span><br><span class="line">			System.out.println(&quot;over&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;-------------------&quot;);</span><br><span class="line">		</span><br><span class="line">		int b &#x3D; 100;</span><br><span class="line">		if(b !&#x3D; 100);  &#x2F;&#x2F;这里其实是有语句体的，只不过是空语句体。</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;代码块</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;b的值是100&quot;);</span><br><span class="line">			System.out.println(&quot;over&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构if语句格式2"><a href="#选择结构if语句格式2" class="headerlink" title="选择结构if语句格式2"></a>选择结构if语句格式2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	if语句格式2：</span><br><span class="line">		if(比较表达式) &#123;</span><br><span class="line">			语句体1;</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			语句体2;</span><br><span class="line">		&#125;</span><br><span class="line">	执行流程：</span><br><span class="line">		首先计算比较表达式的值，看其返回值是true还是false。</span><br><span class="line">		如果是true，就执行语句体1；</span><br><span class="line">		如果是false，就执行语句体2；</span><br><span class="line">		</span><br><span class="line">	注意：else后面是没有比较表达式的，只有if后面有。</span><br><span class="line">*&#x2F;</span><br><span class="line">class IfDemo3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;判断两个数据是否相等</span><br><span class="line">		</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		if(a &#x3D;&#x3D; b) &#123;</span><br><span class="line">			System.out.println(&quot;a等于b&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;a不等于b&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构if语句格式2的练习"><a href="#选择结构if语句格式2的练习" class="headerlink" title="选择结构if语句格式2的练习"></a>选择结构if语句格式2的练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	if语句格式2的练习：</span><br><span class="line">		A:获取两个数据中较大的值</span><br><span class="line">		B:判断一个数据是奇数还是偶数,并输出是奇数还是偶数</span><br><span class="line">*&#x2F;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">class IfTest &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;创建键盘录入对象</span><br><span class="line">		Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;获取两个数据中较大的值</span><br><span class="line">		System.out.println(&quot;请输入第一个数据：&quot;);</span><br><span class="line">		int a &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;请输入第二个数据：&quot;);</span><br><span class="line">		int b &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;定义一个变量接收最大值</span><br><span class="line">		int max;</span><br><span class="line">		</span><br><span class="line">		if(a &gt; b) &#123;</span><br><span class="line">			max &#x3D; a;</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			max &#x3D; b;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;max:&quot;+max);</span><br><span class="line">		System.out.println(&quot;----------------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;判断一个数据是奇数还是偶数</span><br><span class="line">		System.out.println(&quot;请输入你要判断的数据：&quot;);</span><br><span class="line">		int x &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		if(x%2 &#x3D;&#x3D; 0) &#123;</span><br><span class="line">			System.out.println(x+&quot;这个数据是偶数&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(x+&quot;这个数据是奇数&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="if语句的格式2和三元的相互转换问题"><a href="#if语句的格式2和三元的相互转换问题" class="headerlink" title="if语句的格式2和三元的相互转换问题"></a>if语句的格式2和三元的相互转换问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	由于if语句的第二种格式刚才也完成了三元运算符可以完成的效果。</span><br><span class="line">	所以，我们就认为他们可以完成一样的操作。</span><br><span class="line">	但是，他们就一点区别没有吗?肯定不是。</span><br><span class="line">	</span><br><span class="line">	区别：</span><br><span class="line">		三元运算符实现的，都可以采用if语句实现。反之不成立。</span><br><span class="line">		</span><br><span class="line">		什么时候if语句实现不能用三元改进呢?</span><br><span class="line">			当if语句控制的操作是一个输出语句的时候就不能。</span><br><span class="line">			为什么呢?因为三元运算符是一个运算符，运算符操作完毕就应该有一个结果，而不是一个输出。</span><br><span class="line">*&#x2F;</span><br><span class="line">class IfDemo4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;获取两个数据的最大值</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;用if语句实现</span><br><span class="line">		int max1;</span><br><span class="line">		if(a &gt; b) &#123;</span><br><span class="line">			max1 &#x3D; a;</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			max1 &#x3D; b;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;max1:&quot;+max1);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;用三元改进</span><br><span class="line">		int max2 &#x3D; (a &gt; b)? a: b;</span><br><span class="line">		System.out.println(&quot;max2:&quot;+max2);</span><br><span class="line">		System.out.println(&quot;----------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;判断一个数据是奇数还是偶数,并输出是奇数还是偶数</span><br><span class="line">		int x &#x3D; 100;</span><br><span class="line">		</span><br><span class="line">		if(x%2 &#x3D;&#x3D; 0) &#123;</span><br><span class="line">			System.out.println(&quot;100是一个偶数&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;100是一个奇数&quot;);</span><br><span class="line">		&#125; </span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;用三元改进</span><br><span class="line">		&#x2F;&#x2F;这种改进是错误的。</span><br><span class="line">		&#x2F;&#x2F;String s &#x3D; (x%2 &#x3D;&#x3D; 0)?System.out.println(&quot;100是一个偶数&quot;);:System.out.println(&quot;100是一个奇数&quot;);;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构if语句格式3"><a href="#选择结构if语句格式3" class="headerlink" title="选择结构if语句格式3"></a>选择结构if语句格式3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	if语句的格式3：</span><br><span class="line">		if(比较表达式1) &#123;</span><br><span class="line">			语句体1;</span><br><span class="line">		&#125;else if(比较表达式2) &#123;</span><br><span class="line">			语句体2;</span><br><span class="line">		&#125;else if(比较表达式3) &#123;</span><br><span class="line">			语句体3;</span><br><span class="line">		&#125;</span><br><span class="line">		...</span><br><span class="line">		else &#123;</span><br><span class="line">			语句体n+1;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	执行流程：</span><br><span class="line">		首先计算比较表达式1看其返回值是true还是false，</span><br><span class="line">		如果是true，就执行语句体1，if语句结束。</span><br><span class="line">		如果是false，接着计算比较表达式2看其返回值是true还是false，</span><br><span class="line">		</span><br><span class="line">		如果是true，就执行语句体2，if语句结束。</span><br><span class="line">		如果是false，接着计算比较表达式3看其返回值是true还是false，</span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">		如果都是false，就执行语句体n+1。</span><br><span class="line">*&#x2F;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">class IfDemo5 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;需求：键盘录入一个成绩，判断并输出成绩的等级。</span><br><span class="line">		&#x2F;*</span><br><span class="line">			90-100 优秀</span><br><span class="line">			80-90  好</span><br><span class="line">			70-80  良</span><br><span class="line">			60-70  及格</span><br><span class="line">			0-60   不及格</span><br><span class="line">		*&#x2F;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;创建键盘录入对象</span><br><span class="line">		Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;录入数据</span><br><span class="line">		System.out.println(&quot;请输入你的考试成绩：&quot;);</span><br><span class="line">		int score &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		&#x2F;*</span><br><span class="line">		if(score&gt;&#x3D;90 &amp;&amp; score&lt;&#x3D;100) &#123;</span><br><span class="line">			System.out.println(&quot;优秀&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;80 &amp;&amp; score&lt;90) &#123;</span><br><span class="line">			System.out.println(&quot;好&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;70 &amp;&amp; score&lt;80) &#123;</span><br><span class="line">			System.out.println(&quot;良&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;60 &amp;&amp; score&lt;70) &#123;</span><br><span class="line">			System.out.println(&quot;及格&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;不及格&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		*&#x2F;</span><br><span class="line">		&#x2F;&#x2F;这样写已经满足我的基本要求，但是可能别人在使用的时候，不会按照你要求的数据给出了。</span><br><span class="line">		&#x2F;&#x2F;在做一个程序的基本测试的时候，一定要考虑这样的几个问题：</span><br><span class="line">		&#x2F;&#x2F;正确数据，错误数据，边界数据。</span><br><span class="line">		&#x2F;&#x2F;而我们刚才写的程序并没有处理错误数据，所以这个程序不是很好，要改进</span><br><span class="line">		&#x2F;*</span><br><span class="line">		if(score&gt;&#x3D;90 &amp;&amp; score&lt;&#x3D;100) &#123;</span><br><span class="line">			System.out.println(&quot;优秀&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;80 &amp;&amp; score&lt;90) &#123;</span><br><span class="line">			System.out.println(&quot;好&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;70 &amp;&amp; score&lt;80) &#123;</span><br><span class="line">			System.out.println(&quot;良&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;60 &amp;&amp; score&lt;70) &#123;</span><br><span class="line">			System.out.println(&quot;及格&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;0 &amp;&amp; score&lt;60)&#123;</span><br><span class="line">			System.out.println(&quot;不及格&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;你输入的成绩有误&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		*&#x2F;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;另一种判断改进</span><br><span class="line">		if(score&lt;0 || score&gt;100) &#123;</span><br><span class="line">			System.out.println(&quot;你输入的成绩有误&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;90 &amp;&amp; score&lt;&#x3D;100) &#123;</span><br><span class="line">			System.out.println(&quot;优秀&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;80 &amp;&amp; score&lt;90) &#123;</span><br><span class="line">			System.out.println(&quot;好&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;70 &amp;&amp; score&lt;80) &#123;</span><br><span class="line">			System.out.println(&quot;良&quot;);</span><br><span class="line">		&#125;else if(score&gt;&#x3D;60 &amp;&amp; score&lt;70) &#123;</span><br><span class="line">			System.out.println(&quot;及格&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;不及格&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构if语句格式3的练习"><a href="#选择结构if语句格式3的练习" class="headerlink" title="选择结构if语句格式3的练习"></a>选择结构if语句格式3的练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	键盘录入月份的值，输出对应的季节。</span><br><span class="line">	</span><br><span class="line">	春	3,4,5</span><br><span class="line">	夏	6,7,8</span><br><span class="line">	秋	9,10,11</span><br><span class="line">	冬	12,1,2</span><br><span class="line">	</span><br><span class="line">	分析：</span><br><span class="line">		A:键盘录入月份的值，所以我们要使用Scanner。</span><br><span class="line">		B:我们应该判断这个月份在那个季节，而这个判断情况较多，所以，用if语句格式3。</span><br><span class="line">		</span><br><span class="line">	if语句的使用场景：</span><br><span class="line">		A:针对表达式是一个boolean类型的判断</span><br><span class="line">		B:针对一个范围的判断</span><br><span class="line">*&#x2F;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">class IfTest3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;创建键盘录入对象</span><br><span class="line">		Scanner sc &#x3D; new Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;录入数据</span><br><span class="line">		System.out.println(&quot;请你输入一个月份:&quot;);</span><br><span class="line">		int month &#x3D; sc.nextInt();</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;第三种格式实现即可</span><br><span class="line">		if(month&lt;1 || month&gt;12) &#123;</span><br><span class="line">			System.out.println(&quot;你输入的月份有误&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 1) &#123;</span><br><span class="line">			System.out.println(&quot;冬季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 2) &#123;</span><br><span class="line">			System.out.println(&quot;冬季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 3) &#123;</span><br><span class="line">			System.out.println(&quot;春季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 4) &#123;</span><br><span class="line">			System.out.println(&quot;春季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 5) &#123;</span><br><span class="line">			System.out.println(&quot;春季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 6) &#123;</span><br><span class="line">			System.out.println(&quot;夏季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 7) &#123;</span><br><span class="line">			System.out.println(&quot;夏季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 8) &#123;</span><br><span class="line">			System.out.println(&quot;夏季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 9) &#123;</span><br><span class="line">			System.out.println(&quot;秋季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 10) &#123;</span><br><span class="line">			System.out.println(&quot;秋季&quot;);</span><br><span class="line">		&#125;else if(month &#x3D;&#x3D; 11) &#123;</span><br><span class="line">			System.out.println(&quot;秋季&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;冬季&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;--------------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;这个程序确实是符合了我们的需求，但是就是看起来比较麻烦</span><br><span class="line">		&#x2F;&#x2F;那么，我们能不能改进一下呢?</span><br><span class="line">		&#x2F;&#x2F;month &#x3D;&#x3D; 3</span><br><span class="line">		&#x2F;&#x2F;month &#x3D;&#x3D; 4</span><br><span class="line">		&#x2F;&#x2F;month &#x3D;&#x3D; 5</span><br><span class="line">		&#x2F;&#x2F;我们发现，上面三个都是春季。</span><br><span class="line">		&#x2F;&#x2F;而他们本身每一个都是一个boolean表达式</span><br><span class="line">		&#x2F;&#x2F;所以，我们就可以考虑使用逻辑运算符给他们连接起来改进</span><br><span class="line">		if(month&lt;1 || month&gt;12) &#123;</span><br><span class="line">			System.out.println(&quot;你输入的月份有误&quot;);</span><br><span class="line">		&#125;else if(month&#x3D;&#x3D;3 || month&#x3D;&#x3D;4 || month&#x3D;&#x3D;5) &#123;</span><br><span class="line">			System.out.println(&quot;春季&quot;);</span><br><span class="line">		&#125;else if(month&#x3D;&#x3D;6 || month&#x3D;&#x3D;7 || month&#x3D;&#x3D;8) &#123;</span><br><span class="line">			System.out.println(&quot;夏季&quot;);</span><br><span class="line">		&#125;else if(month&#x3D;&#x3D;9 || month&#x3D;&#x3D;10 || month&#x3D;&#x3D;11) &#123;</span><br><span class="line">			System.out.println(&quot;秋季&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;冬季&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;--------------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;这个时候，程序代码以及可以了。</span><br><span class="line">		&#x2F;&#x2F;但是呢，假如我要求你输入一个月份，判断是上半年还是下半年。</span><br><span class="line">		&#x2F;&#x2F;这个时候，我们的判断条件连接就是6个boolean表达式</span><br><span class="line">		&#x2F;&#x2F;我们可能还有更多的连接</span><br><span class="line">		&#x2F;&#x2F;这个时候，其实我们还有另外的一种改进方案：</span><br><span class="line">		&#x2F;&#x2F;month &#x3D;&#x3D; 3</span><br><span class="line">		&#x2F;&#x2F;month &#x3D;&#x3D; 4</span><br><span class="line">		&#x2F;&#x2F;month &#x3D;&#x3D; 5</span><br><span class="line">		&#x2F;&#x2F;month&gt;&#x3D;3 &amp;&amp; month&lt;&#x3D;5</span><br><span class="line">		&#x2F;&#x2F;用范围也是可以改进的。</span><br><span class="line">		if(month&lt;1 || month&gt;12) &#123;</span><br><span class="line">			System.out.println(&quot;你输入的月份有误&quot;);</span><br><span class="line">		&#125;else if(month&gt;&#x3D;3 &amp;&amp; month&lt;&#x3D;5) &#123;</span><br><span class="line">			System.out.println(&quot;春季&quot;);</span><br><span class="line">		&#125;else if(month&gt;&#x3D;6 &amp;&amp; month&lt;&#x3D;8) &#123;</span><br><span class="line">			System.out.println(&quot;夏季&quot;);</span><br><span class="line">		&#125;else if(month&gt;&#x3D;9 &amp;&amp; month&lt;&#x3D;11) &#123;</span><br><span class="line">			System.out.println(&quot;秋季&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;冬季&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;--------------&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构if语句的嵌套使用"><a href="#选择结构if语句的嵌套使用" class="headerlink" title="选择结构if语句的嵌套使用"></a>选择结构if语句的嵌套使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">	获取三个数据中的最大值</span><br><span class="line">	</span><br><span class="line">	由此案例主要是为了讲解if语句是可以嵌套使用的。而且是可以任意的嵌套。</span><br><span class="line">*&#x2F;</span><br><span class="line">class IfTest4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int a &#x3D; 10;</span><br><span class="line">		int b &#x3D; 30;</span><br><span class="line">		int c &#x3D; 20;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;三元实现</span><br><span class="line">		&#x2F;&#x2F;int temp &#x3D; (a&gt;b)? a: b;</span><br><span class="line">		&#x2F;&#x2F;int max &#x3D; (temp&gt;c)? temp: c;</span><br><span class="line">		&#x2F;&#x2F;System.out.println(&quot;max:&quot;+max);</span><br><span class="line">		&#x2F;&#x2F;System.out.println(&quot;--------&quot;);</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;用if语句实现</span><br><span class="line">		int max;</span><br><span class="line">		if(a &gt; b) &#123;</span><br><span class="line">			if(a &gt; c) &#123;</span><br><span class="line">				max &#x3D; a;</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				max &#x3D; c;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			if(b &gt; c) &#123;</span><br><span class="line">				max &#x3D; b;</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				max &#x3D; c;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;max:&quot;+max);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin222.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE-Day(3)学习笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
+        <p><span>发布时间:</span>2020年05月12日 - 17时38分</p>
+        <p><span>最后更新:</span>2020年05月12日 - 20时39分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="JavaSE-Day(3)学习笔记">https://stephencurry6666.github.io/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/12/Constructing%20Roads%EF%BC%88POJ-2421%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Constructing Roads（POJ-2421）（最小生成树）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型中补充的几个小问题"><span class="toc-number">1.</span> <span class="toc-text">数据类型中补充的几个小问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算术运算符的基本用法"><span class="toc-number">2.</span> <span class="toc-text">算术运算符的基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符"><span class="toc-number">2.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符-和—的使用"><span class="toc-number">2.2.</span> <span class="toc-text">算术运算符++和—的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符-的多种用法"><span class="toc-number">2.3.</span> <span class="toc-text">算术运算符+的多种用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符-和—的练习"><span class="toc-number">2.4.</span> <span class="toc-text">算术运算符++和—的练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值运算符的基本用法"><span class="toc-number">2.5.</span> <span class="toc-text">赋值运算符的基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值运算符的面试题"><span class="toc-number">2.6.</span> <span class="toc-text">赋值运算符的面试题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较运算符的基本用法及其注意事项"><span class="toc-number">2.7.</span> <span class="toc-text">比较运算符的基本用法及其注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑运算符的基本用法"><span class="toc-number">2.8.</span> <span class="toc-text">逻辑运算符的基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑运算符-amp-amp-和-amp-的区别"><span class="toc-number">2.9.</span> <span class="toc-text">逻辑运算符&amp;&amp;和&amp;的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位运算的基本用法1"><span class="toc-number">2.10.</span> <span class="toc-text">位运算的基本用法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位异或运算符的特点"><span class="toc-number">2.11.</span> <span class="toc-text">位异或运算符的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位运算的面试题"><span class="toc-number">2.12.</span> <span class="toc-text">位运算的面试题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位运算的基本用法2及面试题"><span class="toc-number">2.13.</span> <span class="toc-text">位运算的基本用法2及面试题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三元运算符的基本用法"><span class="toc-number">2.14.</span> <span class="toc-text">三元运算符的基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三元运算符的练习"><span class="toc-number">2.15.</span> <span class="toc-text">三元运算符的练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#键盘录入的基本格式讲解"><span class="toc-number">2.16.</span> <span class="toc-text">键盘录入的基本格式讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#键盘录入的练习1"><span class="toc-number">2.17.</span> <span class="toc-text">键盘录入的练习1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#键盘录入的练习2"><span class="toc-number">2.18.</span> <span class="toc-text">键盘录入的练习2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#顺序结构语句"><span class="toc-number">2.19.</span> <span class="toc-text">顺序结构语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择结构if语句格式1"><span class="toc-number">2.20.</span> <span class="toc-text">选择结构if语句格式1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择结构if语句注意事项"><span class="toc-number">2.21.</span> <span class="toc-text">选择结构if语句注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择结构if语句格式2"><span class="toc-number">2.22.</span> <span class="toc-text">选择结构if语句格式2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择结构if语句格式2的练习"><span class="toc-number">2.23.</span> <span class="toc-text">选择结构if语句格式2的练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if语句的格式2和三元的相互转换问题"><span class="toc-number">2.24.</span> <span class="toc-text">if语句的格式2和三元的相互转换问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择结构if语句格式3"><span class="toc-number">2.25.</span> <span class="toc-text">选择结构if语句格式3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择结构if语句格式3的练习"><span class="toc-number">2.26.</span> <span class="toc-text">选择结构if语句格式3的练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择结构if语句的嵌套使用"><span class="toc-number">2.27.</span> <span class="toc-text">选择结构if语句的嵌套使用</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTkzMy8yNjQyNA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/05/12/Constructing%20Roads%EF%BC%88POJ-2421%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" title="下一篇: Constructing Roads（POJ-2421）（最小生成树）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE-Day(3)学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/Constructing%20Roads%EF%BC%88POJ-2421%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/">Constructing Roads（POJ-2421）（最小生成树）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/">QS Network（ZOJ-1586）（最小生成树）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习最小生成树的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/Codeforces%20625(Div.2)/">Codeforces 625(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/08/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习并查集的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day2笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day1笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92(1)%E2%80%94JavaSE%E7%AF%87/">Java系统学习规划(1)——JavaSE篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/hello-world/">Hello Stephencurry6666</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Stephencurry6666
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >大佬到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<i class="fas fa-chart-area"></i>
+<span class="post-count">字数统计：22.8k</span>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("04/30/2020 18:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>

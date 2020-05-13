@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20180701/305473_1530409311818_55A3FDD5552A97D657101D27CE6E2F90">
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20180701/305473_1530409345048_6028F142230141307F51778CA0C5A02F">
 <meta property="article:published_time" content="2020-05-13T03:39:36.878Z">
-<meta property="article:modified_time" content="2020-05-13T04:18:06.337Z">
+<meta property="article:modified_time" content="2020-05-13T08:24:43.827Z">
 <meta property="article:author" content="Stephencurry6666">
 <meta property="article:tag" content="牛客题解">
 <meta name="twitter:card" content="summary">
@@ -369,8 +369,8 @@
 <p>4</p>
 <p><strong>题意：</strong><br>中文题，不过多叙述题意。</p>
 <p><strong>思路：</strong><br>这道题的话，看起来像汉诺塔，但是汉诺塔可以随意移动，虽然也有一定前提。但是对这个题目来说最要命的约束条件就是到了对面就不能动了。所以我们可以知道一定是重的青蛙先跳去对面。所以我们从几个极端来看。<br>如果给出莲叶数是m，石头数目是n。</p>
-<p>如果n是0，那么最多可以允许m+1个青蛙，m个青蛙填满莲叶，最后一个青蛙跳过去。<br>如果n是1，那么最多允许m+1个青蛙先填满莲叶，在去石头上面过渡，另外的m+1个青蛙根据m=0的情况跳。所以一共 （m + 1）<em>2。所以我们得出结论：$$ans=2^{n}</em>(m+1)$$</p>
-<p><strong>AC代码：</strong></p>
+<p>如果n是0，那么最多可以允许m+1个青蛙，m个青蛙填满莲叶，最后一个青蛙跳过去。<br>如果n是1，那么最多允许m+1个青蛙先填满莲叶，在去石头上面过渡，另外的m+1个青蛙根据m=0的情况跳。所以一共 （m + 1）*2。所以我们得出结论：</p>
+<script type="math/tex; mode=display">ans=2^{n}*(m+1)</script><p><strong>AC代码：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    cout &lt;&lt; (1 &lt;&lt; n) * (m + 1) &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h3><p><strong>题意：</strong><br>月月给华华出了一道题，先给你一个式子：$F_{1}=A,F_{2}=B,F_{i}=F_{i-1}+F_{i-2}(i&gt;2)$，然后求$gcd(F_{N},F_{N+1})$。</p>
 <p><strong>思路：</strong><br>这道题的话，考察裴蜀定理,裴蜀定理具体如下：裴蜀定理（或贝祖定理）得名于法国数学家艾蒂安·裴蜀，说明了对任何整数a、b和它们的最大公约数d，关于未知数x和y的线性不定方程（称为裴蜀等式）：若a,b是整数,且$gcd(a,b)=d$，那么对于任意的整数x,y,ax+by都一定是d的倍数，特别地，一定存在整数x,y，使$ax+by=d$成立。由裴蜀定理可知，要求$gcd(F_{N},F_{N+1})$,只要求出$gcd(A,B)$就可以了，这两者是相等的。并且C++函数库中已经封装了_$gcd(a,b)$用来求a与b之间的最大公约数，我们只需要套用就可以了。</p>
@@ -446,7 +446,7 @@
         <p><span>本文标题:</span><a href="/2020/05/13/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E5%91%A8%E5%91%A8%E7%BB%836/">牛客算法周周练6</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
         <p><span>发布时间:</span>2020年05月13日 - 11时39分</p>
-        <p><span>最后更新:</span>2020年05月13日 - 12时18分</p>
+        <p><span>最后更新:</span>2020年05月13日 - 16时24分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/05/13/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E5%91%A8%E5%91%A8%E7%BB%836/" title="牛客算法周周练6">https://stephencurry6666.github.io/2020/05/13/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E5%91%A8%E5%91%A8%E7%BB%836/</a>
             <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/13/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E5%91%A8%E5%91%A8%E7%BB%836/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

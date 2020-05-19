@@ -3,22 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>QS Network（ZOJ-1586）（最小生成树） | 愿你出走半生，归来仍是少年</title>
+  <title>再次温习矩阵快速幂的一些思路 | 愿你出走半生，归来仍是少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Sunny Cup 2003 - Preliminary RoundApril 20th, 12:00 - 17:00 Problem E: QS Network">
+  <meta name="description" content="写在前面因为之前4月份打了将近一个月的个人赛，有些以前学习过的算法已经忘了，所以重新再温习一遍。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QS Network（ZOJ-1586）（最小生成树）">
-<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/index.html">
+<meta property="og:title" content="再次温习矩阵快速幂的一些思路">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/19/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/index.html">
 <meta property="og:site_name" content="愿你出走半生，归来仍是少年">
-<meta property="og:description" content="Sunny Cup 2003 - Preliminary RoundApril 20th, 12:00 - 17:00 Problem E: QS Network">
+<meta property="og:description" content="写在前面因为之前4月份打了将近一个月的个人赛，有些以前学习过的算法已经忘了，所以重新再温习一遍。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vj.z180.cn/1120637f03c5c4bc9402775a6100caa8?v=1589071552">
-<meta property="article:published_time" content="2020-05-12T08:30:24.464Z">
-<meta property="article:modified_time" content="2020-05-12T09:24:50.592Z">
+<meta property="article:published_time" content="2020-05-19T03:33:36.941Z">
+<meta property="article:modified_time" content="2020-05-19T04:00:51.768Z">
 <meta property="article:author" content="Stephencurry6666">
-<meta property="article:tag" content="最小生成树">
+<meta property="article:tag" content="矩阵快速幂再温">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vj.z180.cn/1120637f03c5c4bc9402775a6100caa8?v=1589071552">
   
     <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
   
@@ -281,11 +279,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-QS Network（ZOJ-1586）（最小生成树）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-再次温习矩阵快速幂的一些思路" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" class="article-date">
-      <time datetime="2020-05-12T08:30:24.464Z" itemprop="datePublished">2020-05-12</time>
+      <a href="/2020/05/19/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" class="article-date">
+      <time datetime="2020-05-19T03:33:36.941Z" itemprop="datePublished">2020-05-19</time>
 </a>
     </div>
   
@@ -298,7 +296,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      QS Network（ZOJ-1586）（最小生成树）
+      再次温习矩阵快速幂的一些思路
     </h1>
   
 
@@ -307,13 +305,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">最小生成树</a>
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%87%8D%E6%B8%A9/">算法重温</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="tag">最小生成树</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E5%86%8D%E6%B8%A9/" rel="tag">矩阵快速幂再温</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -326,7 +324,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">877字</span>
+        <span class="post-count">1.3k字</span>
       </span>
     </span>
     &nbsp; | &nbsp;
@@ -334,7 +332,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -343,40 +341,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Sunny Cup 2003 - Preliminary Round<br>April 20th, 12:00 - 17:00</p>
-<p>Problem E: QS Network</p>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>因为之前4月份打了将近一个月的个人赛，有些以前学习过的算法已经忘了，所以重新再温习一遍。</p>
 <a id="more"></a>
-<p>In the planet w-503 of galaxy cgb, there is a kind of intelligent creature named QS. QScommunicate with each other via networks. If two QS want to get connected, they need to buy two network adapters (one for each QS) and a segment of network cable. Please be advised that ONE NETWORK ADAPTER CAN ONLY BE USED IN A SINGLE CONNECTION.(ie. if a QS want to setup four connections, it needs to buy four adapters). In the procedure of communication, a QS broadcasts its message to all the QS it is connected with, the group of QS who receive the message broadcast the message to all the QS they connected with, the procedure repeats until all the QS’s have received the message.</p>
-<p>A sample is shown below:</p>
-<p><img src="https://vj.z180.cn/1120637f03c5c4bc9402775a6100caa8?v=1589071552" alt="tupian"></p>
-<p>A sample QS network, and QS A want to send a message.</p>
-<p>Step 1. QS A sends message to QS B and QS C;</p>
-<p>Step 2. QS B sends message to QS A ; QS C sends message to QS A and QS D;</p>
-<p>Step 3. the procedure terminates because all the QS received the message.</p>
-<p>Each QS has its favorate brand of network adapters and always buys the brand in all of its connections. Also the distance between QS vary. Given the price of each QS’s favorate brand of network adapters and the price of cable between each pair of QS, your task is to write a program to determine the minimum cost to setup a QS network.</p>
-<p>Input</p>
-<p>The 1st line of the input contains an integer t which indicates the number of data sets.</p>
-<p>From the second line there are t data sets.</p>
-<p>In a single data set,the 1st line contains an interger n which indicates the number of QS.</p>
-<p>The 2nd line contains n integers, indicating the price of each QS’s favorate network adapter.</p>
-<p>In the 3rd line to the n+2th line contain a matrix indicating the price of cable between ecah pair of QS.</p>
-<p>Constrains:</p>
-<p>all the integers in the input are non-negative and not more than 1000.</p>
-<p>Output</p>
-<p>for each data set,output the minimum cost in a line. NO extra empty lines needed.</p>
-<p>Sample Input</p>
-<p>1</p>
-<p>3</p>
-<p>10 20 30</p>
-<p>0 100 200</p>
-<p>100 0 300</p>
-<p>200 300 0</p>
-<p>Sample Output</p>
-<p>370</p>
-<p><strong>题意：</strong><br><strong>第一行给出T，代表有T组数据。每组数据第一行给出N，代表图有N个结点。接着一行给出N个数，代表每个结点的权值（就是接收器的费用），接着N行每行N个数，矩阵的形式给出各点之间边的权值（也就是连接接收器网线的费用）。最后实际权值就是边的权值加上两个点的权值，输出最小生成树的权值总和即可。</strong></p>
-<p><strong>思路：</strong><br><strong>这道题的话，因为输入的是矩阵，我们用Prim算法更好一些，套下模板即可。</strong></p>
-<p><strong>AC代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 10010;</span><br><span class="line">const int mod &#x3D; 10007;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">using namespace std;</span><br><span class="line">int mapp[maxx][maxx];</span><br><span class="line">int dis[maxx];</span><br><span class="line">int val[maxx];</span><br><span class="line">bool vis[maxx];</span><br><span class="line">int n;</span><br><span class="line">void Prim()</span><br><span class="line">&#123;</span><br><span class="line">    int sum &#x3D; 0;</span><br><span class="line">    int now;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dis[i] &#x3D; i;</span><br><span class="line">        vis[i] &#x3D; false;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        dis[i] &#x3D; mapp[1][i];</span><br><span class="line">    dis[1] &#x3D; 0;</span><br><span class="line">    vis[1] &#x3D; true;</span><br><span class="line">    for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        now &#x3D; inf;</span><br><span class="line">        int minn &#x3D; inf;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &lt; minn)</span><br><span class="line">            &#123;</span><br><span class="line">                now &#x3D; j;</span><br><span class="line">                minn &#x3D; dis[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (now &#x3D;&#x3D; inf)</span><br><span class="line">            break;</span><br><span class="line">        vis[now] &#x3D; true;</span><br><span class="line">        sum +&#x3D; minn;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &gt; mapp[now][j])</span><br><span class="line">                dis[j] &#x3D; mapp[now][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;, sum);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int t;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;t);</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;val[i]);</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                scanf(&quot;%d&quot;, &amp;mapp[i][j]);</span><br><span class="line">                mapp[i][j] +&#x3D; val[i] + val[j];</span><br><span class="line">            &#125;</span><br><span class="line">        Prim();</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="关于矩阵快速幂"><a href="#关于矩阵快速幂" class="headerlink" title="关于矩阵快速幂"></a>关于矩阵快速幂</h2><p><strong>矩阵快速幂就是把整数变成矩阵用快速幂来算其次方，比如$A^{n-2}$，其中$A=\begin{Bmatrix}<br>1 &amp; 1\\<br> 1&amp; 0<br>\end{Bmatrix}$,像这样的就是矩阵快速幂。</strong></p>
+<h2 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h2><h3 id="矩阵的一些名词定义"><a href="#矩阵的一些名词定义" class="headerlink" title="矩阵的一些名词定义"></a>矩阵的一些名词定义</h3><ul>
+<li><p>$n$阶矩阵：$\begin{Bmatrix}<br>1 &amp; 1\\<br>1&amp; 0<br>\end{Bmatrix}$，这就是一个$2∗2$的矩阵，也叫$2$阶矩阵。</p>
+</li>
+<li><p>行向量：只有一行的矩阵，也叫行矩阵，$(a1,a2,…,an)$这就是一个行向量。</p>
+</li>
+<li><p>列向量：只有一列的矩阵，也叫列矩阵，$\begin{Bmatrix}<br>a_{1}\\<br>a_{2}\\<br>a_{3}\\<br>…\\<br>a_{n}<br>\end{Bmatrix}$，这就是一个列向量。</p>
+</li>
+</ul>
+<h3 id="矩阵的相关运算"><a href="#矩阵的相关运算" class="headerlink" title="矩阵的相关运算"></a>矩阵的相关运算</h3><p><strong>矩阵加法：</strong></p>
+<p>设有两个$m*n$的矩阵，$A=(a_{ij})$，$B=(b_{ij})$，那么矩阵$A$和$B$的和记做$A+B$。也就是对应相加重新构成的一个矩阵。这里要注意的是，只有当两个矩阵是同型矩阵（也就是行数相等列数也相等）时，这两个矩阵才能进行加法运算。</p>
+<p><strong>矩阵乘法：</strong></p>
+<p>就是对应的第一个矩阵的第一行的第一个数乘以第二个矩阵的第一列的第一个数；<br>第一个矩阵的第一行的第二个数乘以第二个矩阵的第一列的第二个数。总结来说就是第一个矩阵的每一行去乘以对应的第二个矩阵的每一列。</p>
+<p><strong>PS1：剩下的许多关于矩阵的知识可以看这篇博客：<a href="https://blog.csdn.net/nuoyanli/article/details/105314274" target="_blank" rel="noopener">https://blog.csdn.net/nuoyanli/article/details/105314274</a></strong></p>
+<p><strong>PS2：视频讲解可以看这个视频：<a href="https://www.bilibili.com/video/BV1gx41127d7?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1gx41127d7?p=1</a></strong></p>
+<h2 id="矩阵快速幂的模板及例题"><a href="#矩阵快速幂的模板及例题" class="headerlink" title="矩阵快速幂的模板及例题"></a>矩阵快速幂的模板及例题</h2><h3 id="矩阵快速幂的模板"><a href="#矩阵快速幂的模板" class="headerlink" title="矩阵快速幂的模板"></a>矩阵快速幂的模板</h3><p><strong>首先先给出矩阵乘法的模板，这里以51nod-1137为例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 1010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int m1[maxx][maxx], m2[maxx][maxx], m[maxx][maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    memset(m, 0, sizeof(m));</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            cin &gt;&gt; m1[i][j];</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            cin &gt;&gt; m2[i][j];</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            for (int k &#x3D; 1; k &lt;&#x3D; n; k++)</span><br><span class="line">                m[i][j] +&#x3D; m1[i][k] * m2[k][j];</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">            cout &lt;&lt; m[i][j] &lt;&lt; &quot; &quot;;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>给出矩阵快速幂的模板，这里以51nod-1113为例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 110;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const int mod &#x3D; 1e9 + 7;</span><br><span class="line">#define mod(x) ((x) % mod)</span><br><span class="line">using namespace std;</span><br><span class="line">int n;</span><br><span class="line">struct mat</span><br><span class="line">&#123;</span><br><span class="line">    int m[maxx][maxx];</span><br><span class="line">&#125; unit; &#x2F;&#x2F;矩阵</span><br><span class="line">mat operator*(mat a, mat b)</span><br><span class="line">&#123; &#x2F;&#x2F;重载矩阵乘法</span><br><span class="line">    mat res;</span><br><span class="line">    ll x; &#x2F;&#x2F;可能爆int</span><br><span class="line">    for (int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">        for (int j &#x3D; 0; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            x &#x3D; 0;</span><br><span class="line">            for (int k &#x3D; 0; k &lt; n; k++)</span><br><span class="line">                x +&#x3D; mod((ll)a.m[i][k] * b.m[k][j]);</span><br><span class="line">            res.m[i][j] &#x3D; mod(x);</span><br><span class="line">        &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">void init_unit()</span><br><span class="line">&#123; &#x2F;&#x2F;定义单位矩阵</span><br><span class="line">    for (int i &#x3D; 0; i &lt; maxx; i++)</span><br><span class="line">        unit.m[i][i] &#x3D; 1;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">mat pow_mat(mat a, ll n)</span><br><span class="line">&#123; &#x2F;&#x2F;矩阵快速幂,跟快速幂形式上差不多</span><br><span class="line">    mat res &#x3D; unit;</span><br><span class="line">    while (n)</span><br><span class="line">    &#123;</span><br><span class="line">        if (n &amp; 1)</span><br><span class="line">            res &#x3D; res * a;</span><br><span class="line">        a &#x3D; a * a;</span><br><span class="line">        n &gt;&gt;&#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    ll x;</span><br><span class="line">    init_unit();</span><br><span class="line">    while (cin &gt;&gt; n &gt;&gt; x)</span><br><span class="line">    &#123;</span><br><span class="line">        mat a;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">            for (int j &#x3D; 0; j &lt; n; j++)</span><br><span class="line">                cin &gt;&gt; a.m[i][j];</span><br><span class="line">        a &#x3D; pow_mat(a, x);</span><br><span class="line">        for (int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">            for (int j &#x3D; 0; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (j + 1 &#x3D;&#x3D; n)</span><br><span class="line">                    cout &lt;&lt; a.m[i][j] &lt;&lt; endl;</span><br><span class="line">                else</span><br><span class="line">                    cout &lt;&lt; a.m[i][j] &lt;&lt; &quot; &quot;;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="例题：POJ-3070"><a href="#例题：POJ-3070" class="headerlink" title="例题：POJ-3070"></a>例题：POJ-3070</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;functional&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;deque&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 110;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const int mod &#x3D; 1e4;</span><br><span class="line">using namespace std;</span><br><span class="line">int n &#x3D; 2;</span><br><span class="line">struct mat</span><br><span class="line">&#123;</span><br><span class="line">    int m[maxx][maxx];</span><br><span class="line">&#125; unit;</span><br><span class="line">mat operator*(mat a, mat b)</span><br><span class="line">&#123;</span><br><span class="line">    mat res;</span><br><span class="line">    ll x;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">        for (int j &#x3D; 0; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            x &#x3D; 0;</span><br><span class="line">            for (int k &#x3D; 0; k &lt; n; k++)</span><br><span class="line">                x &#x3D; (x + a.m[i][k] * b.m[k][j]) % mod;</span><br><span class="line">            res.m[i][j] &#x3D; x % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">void init_unit()</span><br><span class="line">&#123;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; maxx; i++)</span><br><span class="line">        unit.m[i][i] &#x3D; 1;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">mat pow_mat(mat a, ll n)</span><br><span class="line">&#123;</span><br><span class="line">    mat res &#x3D; unit;</span><br><span class="line">    while (n)</span><br><span class="line">    &#123;</span><br><span class="line">        if (n &amp; 1)</span><br><span class="line">            res &#x3D; res * a;</span><br><span class="line">        a &#x3D; a * a;</span><br><span class="line">        n &gt;&gt;&#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    ll x;</span><br><span class="line">    init_unit();</span><br><span class="line">    while (cin &gt;&gt; x &amp;&amp; x !&#x3D; -1)</span><br><span class="line">    &#123;</span><br><span class="line">        mat a;</span><br><span class="line">        a.m[0][0] &#x3D; 1;</span><br><span class="line">        a.m[0][1] &#x3D; 1;</span><br><span class="line">        a.m[1][0] &#x3D; 1;</span><br><span class="line">        a.m[1][1] &#x3D; 0;</span><br><span class="line">        a &#x3D; pow_mat(a, x);</span><br><span class="line">        cout &lt;&lt; a.m[0][1] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
       
@@ -432,13 +418,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/">QS Network（ZOJ-1586）（最小生成树）</a></p>
+        <p><span>本文标题:</span><a href="/2020/05/19/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习矩阵快速幂的一些思路</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
-        <p><span>发布时间:</span>2020年05月12日 - 16时30分</p>
-        <p><span>最后更新:</span>2020年05月12日 - 17时24分</p>
+        <p><span>发布时间:</span>2020年05月19日 - 11时33分</p>
+        <p><span>最后更新:</span>2020年05月19日 - 12时00分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" title="QS Network（ZOJ-1586）（最小生成树）">https://stephencurry6666.github.io/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/05/19/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" title="再次温习矩阵快速幂的一些思路">https://stephencurry6666.github.io/2020/05/19/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/19/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -451,18 +437,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/05/12/Constructing%20Roads%EF%BC%88POJ-2421%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Constructing Roads（POJ-2421）（最小生成树）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">再次温习最小生成树的一些思路</div>
+    <a href="/2020/05/18/Codeforces%20628(Div.2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeforces 628(Div.2)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -473,7 +450,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于矩阵快速幂"><span class="toc-number">2.</span> <span class="toc-text">关于矩阵快速幂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵快速幂"><span class="toc-number">3.</span> <span class="toc-text">矩阵快速幂</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵的一些名词定义"><span class="toc-number">3.1.</span> <span class="toc-text">矩阵的一些名词定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵的相关运算"><span class="toc-number">3.2.</span> <span class="toc-text">矩阵的相关运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵快速幂的模板及例题"><span class="toc-number">4.</span> <span class="toc-text">矩阵快速幂的模板及例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵快速幂的模板"><span class="toc-number">4.1.</span> <span class="toc-text">矩阵快速幂的模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例题：POJ-3070"><span class="toc-number">4.2.</span> <span class="toc-text">例题：POJ-3070</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -545,13 +522,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/05/12/Constructing%20Roads%EF%BC%88POJ-2421%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/" title="上一篇: Constructing Roads（POJ-2421）（最小生成树）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" title="下一篇: 再次温习最小生成树的一些思路">
+            <a href="/2020/05/18/Codeforces%20628(Div.2)/" title="下一篇: Codeforces 628(Div.2)">
                 <i class="fa fa-angle-right"></i>
             </a>
         

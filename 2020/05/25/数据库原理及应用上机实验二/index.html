@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Codeforces 625(Div.2) | 愿你出走半生，归来仍是少年</title>
+  <title>数据库原理及应用上机实验二 | 愿你出走半生，归来仍是少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A题 题意：输入两组数，为1表示有该任务，0表示没有，现在由你定义每个任务的分数，使得最高分最小的情况下，第一个人的总分大于第二个人，如果无法满足，输出-1。">
+  <meta name="description" content="实验名称：实验二 数据基本查询">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 625(Div.2)">
-<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/11/Codeforces%20625(Div.2)/index.html">
+<meta property="og:title" content="数据库原理及应用上机实验二">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/index.html">
 <meta property="og:site_name" content="愿你出走半生，归来仍是少年">
-<meta property="og:description" content="A题 题意：输入两组数，为1表示有该任务，0表示没有，现在由你定义每个任务的分数，使得最高分最小的情况下，第一个人的总分大于第二个人，如果无法满足，输出-1。">
+<meta property="og:description" content="实验名称：实验二 数据基本查询">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-11T12:28:49.376Z">
-<meta property="article:modified_time" content="2020-05-11T12:59:49.089Z">
+<meta property="article:published_time" content="2020-05-25T02:30:50.492Z">
+<meta property="article:modified_time" content="2020-05-25T02:43:16.598Z">
 <meta property="article:author" content="Stephencurry6666">
-<meta property="article:tag" content="CF">
+<meta property="article:tag" content="SQL上机实验">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
@@ -279,11 +279,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Codeforces 625(Div.2)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-数据库原理及应用上机实验二" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/05/11/Codeforces%20625(Div.2)/" class="article-date">
-      <time datetime="2020-05-11T12:28:49.376Z" itemprop="datePublished">2020-05-11</time>
+      <a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/" class="article-date">
+      <time datetime="2020-05-25T02:30:50.492Z" itemprop="datePublished">2020-05-25</time>
 </a>
     </div>
   
@@ -296,7 +296,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Codeforces 625(Div.2)
+      数据库原理及应用上机实验二
     </h1>
   
 
@@ -305,13 +305,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/CF/">CF</a>
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CF/" rel="tag">CF</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/" rel="tag">SQL上机实验</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -324,7 +324,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">885字</span>
+        <span class="post-count">1.5k字</span>
       </span>
     </span>
     &nbsp; | &nbsp;
@@ -332,7 +332,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -341,22 +341,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>A题</strong></p>
-<p>题意：输入两组数，为1表示有该任务，0表示没有，现在由你定义每个任务的分数，使得最高分最小的情况下，第一个人的总分大于第二个人，如果无法满足，输出-1。</p>
-<a id="more"></a>
-<p>思路：这道题的话，先处理两个人的特有任务，如果第一个人特有的任务第二个人都有，那么一定无法满足，因为两个人任务的分数是相同的，第二个人特有的任务按照题目要求，应当为1分，第一个人的特有任务，按照第二个人特有任务的数量，平均分配即可。</p>
-<p>AC代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[maxx];</span><br><span class="line">int b[maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    while (cin &gt;&gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            cin &gt;&gt; b[i];</span><br><span class="line">        int ans1 &#x3D; 0, ans2 &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (a[i] + b[i] &#x3D;&#x3D; 1)</span><br><span class="line">            &#123;</span><br><span class="line">                ans1 +&#x3D; a[i];</span><br><span class="line">                ans2 +&#x3D; b[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (ans1 &#x3D;&#x3D; 0)</span><br><span class="line">            cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;</span><br><span class="line">        else</span><br><span class="line">            cout &lt;&lt; (ans1 + ans2) &#x2F; ans1 &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>B题</strong></p>
-<p>题意 ：有n个数，对于Ai和Aj这两个数，如果满足Ai-Aj=i-j，那么两个数就可以求和，输出整个数组能够求和的最大值。</p>
-<p>思路：这道题的话，因为每个城市有beauty值b，可以相互连通的城市i和j之间 i-j==b[i]-b[j]，所以i-b[i]==j-b[j]，所以可以连通的所有城市i-b[i]都是相等的，所以我们记录可以给到每一个差值的beauty值之和再取max就可以了。</p>
-<p>AC代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 200010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">unordered_map&lt;ll, ll&gt; mp;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    ll a;</span><br><span class="line">    ll ans &#x3D; -1;</span><br><span class="line">    for (ll i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        mp[a - i] +&#x3D; a;</span><br><span class="line">        ans &#x3D; max(ans, mp[a - i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>C题</strong></p>
-<p>题意：一个字符串，如果与某个位置相邻的字母，至少有一个比该位置的字母小1，那么该位置的字母就可以删掉，剩下的字母接上来，输出对于整个字符串，最多可以删多少个字母。</p>
-<p>思路：这道题的话，直接暴力，不难想到先删字母大的，然后再删小的可以保证删的最多，所以就从 ‘z’ 遍历到 ‘a’， 一个一个删，当前字母不能删就往前循环。</p>
-<p>AC代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 200010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">string s;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    while (cin &gt;&gt; n &gt;&gt; s)</span><br><span class="line">    &#123;</span><br><span class="line">        for (char i &#x3D; &#39;z&#39;; i &gt;&#x3D; &#39;b&#39;; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            if (s.size() &#x3D;&#x3D; 1)</span><br><span class="line">                break;</span><br><span class="line">            while (1)</span><br><span class="line">            &#123;</span><br><span class="line">                if (s.size() &#x3D;&#x3D; 1)</span><br><span class="line">                    break;</span><br><span class="line">                int flag &#x3D; 1;</span><br><span class="line">                for (int j &#x3D; 0; j &lt; s.size(); j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    if (s[j] !&#x3D; i)</span><br><span class="line">                        continue;</span><br><span class="line">                    if (j &#x3D;&#x3D; 0)</span><br><span class="line">                    &#123;</span><br><span class="line">                        if (s[j + 1] &#x3D;&#x3D; i - 1)</span><br><span class="line">                        &#123;</span><br><span class="line">                            flag &#x3D; 0;</span><br><span class="line">                            s.erase(s.begin() + j, s.begin() + j + 1);</span><br><span class="line">                            break;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    else if (j &#x3D;&#x3D; s.size() - 1)</span><br><span class="line">                    &#123;</span><br><span class="line">                        if (s[j - 1] &#x3D;&#x3D; i - 1)</span><br><span class="line">                        &#123;</span><br><span class="line">                            flag &#x3D; 0;</span><br><span class="line">                            s.erase(s.begin() + j, s.begin() + j + 1);</span><br><span class="line">                            break;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    else</span><br><span class="line">                    &#123;</span><br><span class="line">                        if (s[j - 1] &#x3D;&#x3D; i - 1 || s[j + 1] &#x3D;&#x3D; i - 1)</span><br><span class="line">                        &#123;</span><br><span class="line">                            flag &#x3D; 0;</span><br><span class="line">                            s.erase(s.begin() + j, s.begin() + j + 1);</span><br><span class="line">                            break;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                if (flag)</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; n - s.size() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="实验名称：实验二-数据基本查询"><a href="#实验名称：实验二-数据基本查询" class="headerlink" title="实验名称：实验二 数据基本查询"></a>实验名称：实验二 数据基本查询</h2><a id="more"></a>
+<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p><strong>1.掌握SQL查询语句的一般格式。</strong></p>
+<p><strong>2.掌握简单数据查询操作。</strong></p>
+<p><strong>3.熟练掌握各种查询条件的表示。</strong></p>
+<p><strong>4.掌握排序和分组操作在SQL语句中的实现。</strong></p>
+<p><strong>5.掌握集函数的使用。</strong></p>
+<h2 id="实验步骤与调试过程-请用简单的文字描述"><a href="#实验步骤与调试过程-请用简单的文字描述" class="headerlink" title="实验步骤与调试过程(请用简单的文字描述)"></a>实验步骤与调试过程(请用简单的文字描述)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1.按实验一步骤先建好数据库，建好表，并输入实验一所给的数据。</span><br><span class="line">2.对各表中的数据进行不同条件的查询；</span><br><span class="line">包括的运算：投影、选择、比较运算符、逻辑运算符、字符匹配运算符、匹配列表范围、算术运算符、内部函数、排序、分组、分组函数使用</span><br><span class="line">（1）查询全体学生的学号和姓名</span><br><span class="line">（2）查询全体学生的详细记录</span><br><span class="line">（3）查询软件学院的学生姓名、年龄、系别</span><br><span class="line">（4）查询所有选修过课程的学生学号（不重复）</span><br><span class="line">（5）查询考试不及格的学生学号（不重复）</span><br><span class="line">（6）查询不是软件学院、计算机系的学生性别、年龄、系别</span><br><span class="line">（7）查询年龄18－20岁的学生学号、姓名、系别、年龄；</span><br><span class="line">（8）查询姓刘的学生情况</span><br><span class="line">（9）查询姓刘或姓李的学生情况</span><br><span class="line">（10）查询姓刘且名字为两个字的学生情况</span><br><span class="line">（11）查询1983年以后出生的学生姓名。</span><br><span class="line">（12）创建表 studentgrad(sno,mathgrade,englishigrade,chinesegrade)</span><br><span class="line">计算学生各科总成绩并赋予别名</span><br><span class="line">（13）利用内部函数 year()查找软件学院学生的出生年份</span><br><span class="line">（14）利用字符转换函数实现字符联接。</span><br><span class="line">       Select sname + ‘年龄为’+cast(sage as char(2))+’岁’</span><br><span class="line">       From student</span><br><span class="line">（15）查询全体学生情况，查询结果按所在系升序排列，对同一系中的学生按年龄降序排列。</span><br><span class="line">（16）查询学生总人数。</span><br><span class="line">（17）查询选修了课程的学生人数。</span><br><span class="line">（18）查询选修了7号课程的学生总人数和平均成绩</span><br><span class="line">（19）查询选修6号课程学生的最好成绩</span><br><span class="line">（20）查询每个系的系名及学生人数。</span><br><span class="line">（21）查找每门课的选修人数及平均成绩</span><br><span class="line">（22）查找没有先修课的课程情况</span><br></pre></td></tr></table></figure>
+<h2 id="实验结果-上传实验结果截图或者简单文字描述"><a href="#实验结果-上传实验结果截图或者简单文字描述" class="headerlink" title="实验结果(上传实验结果截图或者简单文字描述)"></a>实验结果(上传实验结果截图或者简单文字描述)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.如果要对一列值设置别名，需要select+ 列名+as+新名字。</span><br><span class="line"></span><br><span class="line">2.使用group  by可以把一列或者多列分组，具有相同值的会被分在同一个分组。</span><br><span class="line"></span><br><span class="line">3.使用year（）函数可以很简洁算出你想要的那个日期的元组数有多少。</span><br><span class="line"></span><br><span class="line">4.使用order by 可以对指定列排序，升序可以直接省略。</span><br></pre></td></tr></table></figure>
+<h2 id="疑难小结-总结个人在实验中遇到的问题或者心得体会"><a href="#疑难小结-总结个人在实验中遇到的问题或者心得体会" class="headerlink" title="疑难小结(总结个人在实验中遇到的问题或者心得体会)"></a>疑难小结(总结个人在实验中遇到的问题或者心得体会)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.在查询全体学生的学号和姓名时，因为记错了语句，一直出错，调试了好久。</span><br><span class="line">2.在进行步骤的时候，不知道怎么才能在列之间插入字符，很是迷茫，所以去百度了方法之后，才会。</span><br><span class="line">3.还有就是在进行实验的过程中，经常遇到一些小问题，总结来说的话，就是不够细心和认真，下次再做实验的时候会改正。</span><br></pre></td></tr></table></figure>
+<h2 id="实验详细操作步骤或程序清单"><a href="#实验详细操作步骤或程序清单" class="headerlink" title="实验详细操作步骤或程序清单"></a>实验详细操作步骤或程序清单</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line">1、查询全体学生的学号和姓名</span><br><span class="line">select sno,sname </span><br><span class="line">from student;</span><br><span class="line"></span><br><span class="line">2、查询全体学生的详细记录</span><br><span class="line">select * </span><br><span class="line">from student;</span><br><span class="line"></span><br><span class="line">3、查询软件学院的学生姓名、年龄、系别</span><br><span class="line">select sname,sage,sdept</span><br><span class="line">from student</span><br><span class="line">where sdept&#x3D;&#39;MA&#39;;</span><br><span class="line"></span><br><span class="line">4、查询所有选修过课程的学生学号（不重复）</span><br><span class="line">select distinct sno </span><br><span class="line">from sc;</span><br><span class="line">where cno&lt;&gt;&#39;null&#39;;</span><br><span class="line"></span><br><span class="line">5、查询考试不及格的学生学号（不重复）</span><br><span class="line">select distinct sno</span><br><span class="line">from sc</span><br><span class="line">where grade&lt;60;</span><br><span class="line"></span><br><span class="line">6、查询不是软件学院、计算机系的学生性别、年龄、系别</span><br><span class="line"></span><br><span class="line">select ssex,sage,sdept</span><br><span class="line">from student </span><br><span class="line">where sdept not in(&#39;CS&#39;,&#39;MA&#39;);</span><br><span class="line"></span><br><span class="line">7、查询年龄18－20岁的学生学号、姓名、系别、年龄</span><br><span class="line"></span><br><span class="line">select sno,sname,sdept,sage </span><br><span class="line">from student</span><br><span class="line">where sage between 18 and 20;</span><br><span class="line"></span><br><span class="line">8、查询姓刘的学生情况</span><br><span class="line">select * </span><br><span class="line">from student</span><br><span class="line">where sname like &#39;刘%&#39;;</span><br><span class="line"></span><br><span class="line">9、查询姓刘或姓李的学生情况</span><br><span class="line">select *</span><br><span class="line">from student</span><br><span class="line">where sname like &#39;刘%&#39; or sname like &#39;李%&#39;;</span><br><span class="line"></span><br><span class="line">10、查询姓刘且名字为两个字的学生情况</span><br><span class="line">select * </span><br><span class="line">from student</span><br><span class="line">where sname like &#39;刘_&#39;;</span><br><span class="line"></span><br><span class="line">11、查询1983年以后出生的学生姓名</span><br><span class="line">select sname </span><br><span class="line">from student </span><br><span class="line">where sage &lt; 2019-1983</span><br><span class="line"></span><br><span class="line">12、创建表 studentgrad(sno,mathgrade,englishigrade,chinesegrade)计算学生各科总成绩并赋予别名</span><br><span class="line">create table studentgrade(</span><br><span class="line">    Sno char(8) ,</span><br><span class="line">    mathgrade int,</span><br><span class="line">    englishigrade int,</span><br><span class="line">    chinesegrade int</span><br><span class="line">)</span><br><span class="line">select sum(mathgrade+chinesegrade+englishigrade) &#39;学生总成绩&#39; </span><br><span class="line">from studentgrade;</span><br><span class="line"></span><br><span class="line">13、利用内部函数 year()查找软件学院学生的出生年份</span><br><span class="line">select (year(getdate())-student.sage+1) </span><br><span class="line">from student </span><br><span class="line">where sdept&#x3D;&#39;MA&#39;;</span><br><span class="line"></span><br><span class="line">14、利用字符转换函数实现字符联接。select sname+‘年龄为’+cast(sage as char(2))+’岁’ from student</span><br><span class="line">select sname+&#39;年龄为&#39;+cast(sage as char(2))+&#39;岁&#39;</span><br><span class="line">from student;</span><br><span class="line"></span><br><span class="line">15、查询全体学生情况，查询结果按所在系升序排列，对同一系中的学生按年龄降序排列</span><br><span class="line">select *</span><br><span class="line">from student </span><br><span class="line">order by sdept,sage desc;</span><br><span class="line"></span><br><span class="line">16、查询学生总人数</span><br><span class="line">select count(*) </span><br><span class="line">from student;</span><br><span class="line"></span><br><span class="line">17、查询选修了课程的学生人数</span><br><span class="line">select count(distinct sno) </span><br><span class="line">from sc;</span><br><span class="line"></span><br><span class="line">18、查询选修了7号课程的学生总人数和平均成绩</span><br><span class="line">select count(*),avg(grade)as avggrade </span><br><span class="line">from student,sc </span><br><span class="line">where student.sno&#x3D;sc.sno and sc.cno&#x3D;&#39;7&#39;;</span><br><span class="line"></span><br><span class="line">19、查询选修6号课程学生的最好成绩</span><br><span class="line">select max(grade) as maxgrade </span><br><span class="line">from sc</span><br><span class="line">where cno&#x3D;&#39;6&#39;;</span><br><span class="line"></span><br><span class="line">20、查询每个系的系名及学生人数</span><br><span class="line">select sdept,count(*) </span><br><span class="line">from student</span><br><span class="line">group by sdept;</span><br><span class="line"></span><br><span class="line">21、查找每门课的选修人数及平均成绩</span><br><span class="line">select cno,count(*),avg(grade) as avggrade </span><br><span class="line">from sc</span><br><span class="line">group by cno;</span><br><span class="line"></span><br><span class="line">22、查找没有先修课的课程情况</span><br><span class="line">select * </span><br><span class="line">from course </span><br><span class="line">where cpno is null;</span><br></pre></td></tr></table></figure>
 
       
       
@@ -412,13 +406,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/05/11/Codeforces%20625(Div.2)/">Codeforces 625(Div.2)</a></p>
+        <p><span>本文标题:</span><a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/">数据库原理及应用上机实验二</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
-        <p><span>发布时间:</span>2020年05月11日 - 20时28分</p>
-        <p><span>最后更新:</span>2020年05月11日 - 20时59分</p>
+        <p><span>发布时间:</span>2020年05月25日 - 10时30分</p>
+        <p><span>最后更新:</span>2020年05月25日 - 10时43分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/05/11/Codeforces%20625(Div.2)/" title="Codeforces 625(Div.2)">https://stephencurry6666.github.io/2020/05/11/Codeforces%20625(Div.2)/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/11/Codeforces%20625(Div.2)/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/" title="数据库原理及应用上机实验二">https://stephencurry6666.github.io/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -431,18 +425,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          再次温习最小生成树的一些思路
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/08/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">再次温习并查集的一些思路</div>
+    <a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库原理及应用上机实验一</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -453,7 +438,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验名称：实验二-数据基本查询"><span class="toc-number">1.</span> <span class="toc-text">实验名称：实验二 数据基本查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目的"><span class="toc-number">2.</span> <span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验步骤与调试过程-请用简单的文字描述"><span class="toc-number">3.</span> <span class="toc-text">实验步骤与调试过程(请用简单的文字描述)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果-上传实验结果截图或者简单文字描述"><span class="toc-number">4.</span> <span class="toc-text">实验结果(上传实验结果截图或者简单文字描述)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#疑难小结-总结个人在实验中遇到的问题或者心得体会"><span class="toc-number">5.</span> <span class="toc-text">疑难小结(总结个人在实验中遇到的问题或者心得体会)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验详细操作步骤或程序清单"><span class="toc-number">6.</span> <span class="toc-text">实验详细操作步骤或程序清单</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -525,13 +510,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" title="上一篇: 再次温习最小生成树的一些思路">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/05/08/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/" title="下一篇: 再次温习并查集的一些思路">
+            <a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/" title="下一篇: 数据库原理及应用上机实验一">
                 <i class="fa fa-angle-right"></i>
             </a>
         

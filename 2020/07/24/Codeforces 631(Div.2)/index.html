@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>数据库原理及应用上机实验一 | 愿你出走半生，归来仍是少年</title>
+  <title>Codeforces 631(Div.2) | 愿你出走半生，归来仍是少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实验名称：实验一 数据定义">
+  <meta name="description" content="A题题意：给你一个a序列代表每次的排名，在n个比赛之后还有x场比赛，然后你去寻找一个最大的v代表这n+x比赛后比赛的连续的最大的排名是多少。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库原理及应用上机实验一">
-<meta property="og:url" content="https://stephencurry6666.github.io/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/index.html">
+<meta property="og:title" content="Codeforces 631(Div.2)">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/07/24/Codeforces%20631(Div.2)/index.html">
 <meta property="og:site_name" content="愿你出走半生，归来仍是少年">
-<meta property="og:description" content="实验名称：实验一 数据定义">
+<meta property="og:description" content="A题题意：给你一个a序列代表每次的排名，在n个比赛之后还有x场比赛，然后你去寻找一个最大的v代表这n+x比赛后比赛的连续的最大的排名是多少。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-25T02:30:13.217Z">
-<meta property="article:modified_time" content="2020-05-25T02:39:10.974Z">
+<meta property="article:published_time" content="2020-07-24T06:37:00.526Z">
+<meta property="article:modified_time" content="2020-07-24T06:44:50.109Z">
 <meta property="article:author" content="Stephencurry6666">
-<meta property="article:tag" content="SQL上机实验">
+<meta property="article:tag" content="CF">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
@@ -279,11 +279,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-数据库原理及应用上机实验一" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Codeforces 631(Div.2)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/" class="article-date">
-      <time datetime="2020-05-25T02:30:13.217Z" itemprop="datePublished">2020-05-25</time>
+      <a href="/2020/07/24/Codeforces%20631(Div.2)/" class="article-date">
+      <time datetime="2020-07-24T06:37:00.526Z" itemprop="datePublished">2020-07-24</time>
 </a>
     </div>
   
@@ -296,7 +296,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数据库原理及应用上机实验一
+      Codeforces 631(Div.2)
     </h1>
   
 
@@ -305,13 +305,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+    <a class="article-category-link" href="/categories/CF/">CF</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/" rel="tag">SQL上机实验</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CF/" rel="tag">CF</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -324,7 +324,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">939字</span>
+        <span class="post-count">1.1k字</span>
       </span>
     </span>
     &nbsp; | &nbsp;
@@ -332,7 +332,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -341,16 +341,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="实验名称：实验一-数据定义"><a href="#实验名称：实验一-数据定义" class="headerlink" title="实验名称：实验一 数据定义"></a>实验名称：实验一 数据定义</h2><a id="more"></a>
-<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p><strong>1.熟练掌握SQL语言进行基本表结构的创建。</strong></p>
-<p><strong>2.熟练应用SQL语言进行表结构的修改。</strong></p>
-<p><strong>3.掌握SQL语言进行基本表的删除。</strong></p>
-<p><strong>4.掌握SQL语言进行索引的建立和删除。</strong></p>
-<p><strong>5.选择具体的数据库管理系统进行实现。</strong></p>
-<h2 id="实验步骤与调试过程-请用简单的文字描述"><a href="#实验步骤与调试过程-请用简单的文字描述" class="headerlink" title="实验步骤与调试过程(请用简单的文字描述)"></a>实验步骤与调试过程(请用简单的文字描述)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.用create新建数据库。</span><br><span class="line">2.用create建立表格。</span><br><span class="line">3.输入数据验证约束条件。</span><br><span class="line">4.</span><br><span class="line">（1） STUDENT表中增加一个字段入学时间scome</span><br><span class="line">（2） 删除STUDENT表中sdept字段</span><br><span class="line">（3） 删除创建的SC表中cno字段和COURSE表cno字段之间的外键约束</span><br><span class="line">（4） 重建（3）中删除的约束</span><br><span class="line">5.重新定义一个简单表，然后用SQL语言DROP语句删除该表结构。</span><br><span class="line">6.用SQL语言CREATE INDEX语句定义表STUDENT的SNAME字段的降序唯一索引。</span><br><span class="line">7.用SQL语言DROP语句删除索引。</span><br></pre></td></tr></table></figure>
-<h2 id="实验结果-上传实验结果截图或者简单文字描述"><a href="#实验结果-上传实验结果截图或者简单文字描述" class="headerlink" title="实验结果(上传实验结果截图或者简单文字描述)"></a>实验结果(上传实验结果截图或者简单文字描述)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.知道了如何利用SQL server新建数据库，新建表，插入数据进表，修改表，建立索引，删除索引名等。</span><br><span class="line">2.删除一个外键约束时必须先知道这个约束的名称。</span><br><span class="line">3.删除索引时必须指明索引名与表名。</span><br><span class="line">4.在列的数据类型后直接输入default，后加要设置的默认值 即可设置该列的默认值 。</span><br></pre></td></tr></table></figure>
-<h2 id="疑难小结-总结个人在实验中遇到的问题或者心得体会"><a href="#疑难小结-总结个人在实验中遇到的问题或者心得体会" class="headerlink" title="疑难小结(总结个人在实验中遇到的问题或者心得体会)"></a>疑难小结(总结个人在实验中遇到的问题或者心得体会)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.一开始只知道直接利用鼠标右键进行新建数据库，不知道怎么利用SQL语言建立数据库，然后自行学了一下才会。</span><br><span class="line">2.当我在删除一个表中外码的外键约束时，不知道约束名称，找了半天才在键值中找到，然后使用DROP CONSTRAINT+约束名对其进行了删除。</span><br><span class="line">3.删除索引需要drop index后加上表名跟索引名，原来我直接写的是   DROP INDEX 表名 +索引名 ，总是弄不对，然后百度了一下才弄明白。</span><br></pre></td></tr></table></figure>
-<h2 id="实验详细操作步骤或程序清单"><a href="#实验详细操作步骤或程序清单" class="headerlink" title="实验详细操作步骤或程序清单"></a>实验详细操作步骤或程序清单</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">1.新建一个student数据库</span><br><span class="line"></span><br><span class="line">use master --打开master数据库，一般的创建语句都在master中执行</span><br><span class="line">go</span><br><span class="line">if exists (select * from sysdatabases where name&#x3D;&#39;students&#39;)&#x2F;*检查有没有这个数据库*&#x2F;</span><br><span class="line">  drop database students</span><br><span class="line">go</span><br><span class="line">CREATE DATABASE students &#x2F;*创建数据库students*&#x2F;</span><br><span class="line">ON PRIMARY</span><br><span class="line">(</span><br><span class="line">    name&#x3D;&quot;students_data&quot;,&#x2F;*主数据文件的逻辑名*&#x2F;</span><br><span class="line">    filename&#x3D;&quot;D:\SQL-student-test\students_data.mdf&quot;,  &#x2F;*主数据文件储存位置*&#x2F;</span><br><span class="line">    size&#x3D;3mb,   &#x2F;*主数据文件的初始大小*&#x2F;</span><br><span class="line">    maxsize&#x3D;100mb, &#x2F;*主数据文件的最大大小，不写就是没有限制*&#x2F;</span><br><span class="line">    filegrowth&#x3D;1mb &#x2F;*增量为1MB*&#x2F;</span><br><span class="line">)</span><br><span class="line">log on</span><br><span class="line">(    &#x2F;*日志文件*&#x2F;</span><br><span class="line">    name&#x3D;&quot;students_log&quot;, </span><br><span class="line">    filename&#x3D;&quot;D:\SQL-student-test\students_log.ldf&quot;,&#x2F;*日志文件储存位置*&#x2F;</span><br><span class="line">    size&#x3D;1mb,   &#x2F;*日志文件的初始大小*&#x2F;</span><br><span class="line">    filegrowth&#x3D;10%&#x2F;*增长率为10%*&#x2F;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">2.新建表</span><br><span class="line"></span><br><span class="line">create table student  --创建表student</span><br><span class="line">(</span><br><span class="line">   sno char(8) </span><br><span class="line">   sname char(4) NOT NULL,</span><br><span class="line">   ssex char(2) DEFAULT &#39;男&#39; CHECK(ssex in (&#39;男&#39;,&#39;女&#39;)),</span><br><span class="line">   sage int,</span><br><span class="line">   sdept char(10),</span><br><span class="line">   </span><br><span class="line">   primary key(sno)</span><br><span class="line">)</span><br><span class="line">create table course   --创建表course</span><br><span class="line">(</span><br><span class="line">cno char(2) </span><br><span class="line">canme char(30),</span><br><span class="line">credit int,</span><br><span class="line">cpno char(3),</span><br><span class="line"></span><br><span class="line">primary key(cno) </span><br><span class="line">)</span><br><span class="line">create table sc  --创建表sc </span><br><span class="line">(</span><br><span class="line">sno char(8),</span><br><span class="line">cno char(2),</span><br><span class="line">grade int check(grade&gt;&#x3D;0 and grade&lt;&#x3D;100),</span><br><span class="line">primary key(sno,cno),</span><br><span class="line">foreign key (sno) references student(sno),</span><br><span class="line">foreign key (cno) references course(cno),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">3.第四步骤代码</span><br><span class="line"></span><br><span class="line">（1）alter table student add scome;</span><br><span class="line">（2）alter table student drop column sdept;</span><br><span class="line">（3）alter table sc drop constraint+约束名</span><br><span class="line">（4）alter table sc add foreign key (cno) references course(cno)+约束名，</span><br><span class="line"></span><br><span class="line">4.第六，七步骤代码</span><br><span class="line"></span><br><span class="line">create unique index love on student(sname desc) ;</span><br><span class="line">drop index love on student;</span><br></pre></td></tr></table></figure>
+        <h3 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h3><p><strong>题意：给你一个a序列代表每次的排名，在n个比赛之后还有x场比赛，然后你去寻找一个最大的v代表这n+x比赛后比赛的连续的最大的排名是多少。</strong></p>
+<a id="more"></a>
+<p><strong>思路：这道题的话，我们可以用cnt去记录此时的最高排名有没有出现过，如果没有的话，那就将x−−，最后当x=0并且cnt此时最后排名没有出现过的话，那么前一个就是答案了。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const int mod &#x3D; 1000000009;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[110];</span><br><span class="line">int cnt[1010];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t, n, x;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">        memset(cnt, 0, sizeof(cnt));</span><br><span class="line">        for (int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            cnt[a[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        int k &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; 1; x; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (cnt[i] &#x3D;&#x3D; 0)</span><br><span class="line">                x--, k &#x3D; i, cnt[i]++;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; k;; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (cnt[i] &#x3D;&#x3D; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                k &#x3D; i - 1;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%d\n&quot;, k);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h3><p><strong>题意：给出一组数，要求分成两部分，一部分假设有m个数，保证这部分的数字从1-m均出现而且仅出现一次。输出所有可能。</strong></p>
+<p><strong>思路：这道题的话，显然分出的两段是合法的，当且仅当段的最大值等于段的长度时段内没有重复元素，于是先扫一遍得到正序倒序第一个重复元素的位置，再正反各扫一遍得到前缀后缀最大值即可。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 200010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[maxx], p[maxx], q[maxx];</span><br><span class="line">int t, n, l, r;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">        set&lt;int&gt; s;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (s.find(a[i]) &#x3D;&#x3D; s.end())</span><br><span class="line">            &#123;</span><br><span class="line">                s.insert(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                l &#x3D; i - 1;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        s.clear();</span><br><span class="line">        for (int i &#x3D; n; i &gt;&#x3D; 1; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            if (s.find(a[i]) &#x3D;&#x3D; s.end())</span><br><span class="line">            &#123;</span><br><span class="line">                s.insert(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                r &#x3D; i + 1;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            p[i] &#x3D; max(p[i - 1], a[i]);</span><br><span class="line">        for (int i &#x3D; n; i &gt;&#x3D; 1; --i)</span><br><span class="line">            q[i] &#x3D; max(q[i + 1], a[i]);</span><br><span class="line">        vector&lt;int&gt; ans;</span><br><span class="line">        for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (i &lt;&#x3D; l &amp;&amp; i + 1 &gt;&#x3D; r &amp;&amp; p[i] &#x3D;&#x3D; i &amp;&amp; q[i + 1] &#x3D;&#x3D; n - i)</span><br><span class="line">            &#123;</span><br><span class="line">                ans.push_back(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans.size() &lt;&lt; endl;</span><br><span class="line">        for (int i : ans)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; n - i &lt;&lt; endl;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            p[i] &#x3D; q[i] &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h3><p><strong>题意：给你n和m，表示你有m个操作要让n涂满颜色而且每种颜色都要存在，每个m操作都给你一个ai表示涂色的范围，现在问要求你求出pi（pi表示从pi~pi+ai全部都涂成i颜色）。</strong></p>
+<p><strong>这道题的话，根据题意我们先想出不能实现的情况。分为两种，第一种就是把所有的ai加在一起都小于n的话，就不能实现；第二种就是n−ai+1&lt;i的话那么也是不可以的，因为这样会把之前的ith覆盖。然后我们才可以求序列，可以先求出后缀和，然后求出max(i,n−sumi+1)因为sumi是后缀和，表示的是后面的是否可以让此时的i满足剩余的ai涂满色到结尾。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">ll a[maxx], sum[maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (n - a[i] + 1 &lt; i)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    memset(sum, 0, sizeof(0));</span><br><span class="line">    for (int i &#x3D; m; i &gt;&#x3D; 1; i--)</span><br><span class="line">        sum[i] &#x3D; sum[i + 1] + a[i];</span><br><span class="line">    if (sum[1] &lt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int ans &#x3D; max(1ll * i, n - sum[i] + 1);</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; &quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
       
@@ -406,13 +409,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/">数据库原理及应用上机实验一</a></p>
+        <p><span>本文标题:</span><a href="/2020/07/24/Codeforces%20631(Div.2)/">Codeforces 631(Div.2)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
-        <p><span>发布时间:</span>2020年05月25日 - 10时30分</p>
-        <p><span>最后更新:</span>2020年05月25日 - 10时39分</p>
+        <p><span>发布时间:</span>2020年07月24日 - 14时37分</p>
+        <p><span>最后更新:</span>2020年07月24日 - 14时44分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/" title="数据库原理及应用上机实验一">https://stephencurry6666.github.io/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/07/24/Codeforces%20631(Div.2)/" title="Codeforces 631(Div.2)">https://stephencurry6666.github.io/2020/07/24/Codeforces%20631(Div.2)/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/07/24/Codeforces%20631(Div.2)/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -425,18 +428,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          数据库原理及应用上机实验二
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/19/JavaSE-Day(5)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaSE-Day(5)学习笔记</div>
+    <a href="/2020/07/24/Distinct%20Sub-palindromes%EF%BC%88HDU-6754%EF%BC%89%EF%BC%882020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Distinct Sub-palindromes（HDU-6754）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -447,7 +441,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验名称：实验一-数据定义"><span class="toc-number">1.</span> <span class="toc-text">实验名称：实验一 数据定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目的"><span class="toc-number">2.</span> <span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验步骤与调试过程-请用简单的文字描述"><span class="toc-number">3.</span> <span class="toc-text">实验步骤与调试过程(请用简单的文字描述)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果-上传实验结果截图或者简单文字描述"><span class="toc-number">4.</span> <span class="toc-text">实验结果(上传实验结果截图或者简单文字描述)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#疑难小结-总结个人在实验中遇到的问题或者心得体会"><span class="toc-number">5.</span> <span class="toc-text">疑难小结(总结个人在实验中遇到的问题或者心得体会)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验详细操作步骤或程序清单"><span class="toc-number">6.</span> <span class="toc-text">实验详细操作步骤或程序清单</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A题"><span class="toc-number">1.</span> <span class="toc-text">A题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B题"><span class="toc-number">2.</span> <span class="toc-text">B题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C题"><span class="toc-number">3.</span> <span class="toc-text">C题</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -519,13 +513,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/" title="上一篇: 数据库原理及应用上机实验二">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/05/19/JavaSE-Day(5)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="下一篇: JavaSE-Day(5)学习笔记">
+            <a href="/2020/07/24/Distinct%20Sub-palindromes%EF%BC%88HDU-6754%EF%BC%89%EF%BC%882020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/" title="下一篇: Distinct Sub-palindromes（HDU-6754）">
                 <i class="fa fa-angle-right"></i>
             </a>
         

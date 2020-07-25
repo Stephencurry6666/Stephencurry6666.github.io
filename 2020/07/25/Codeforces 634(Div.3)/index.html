@@ -3,32 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>计算机网络实验项目二 | 愿你出走半生，归来仍是少年</title>
+  <title>Codeforces 634(Div.3) | 愿你出走半生，归来仍是少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实验名称：实验项目2 主机系统网络参数配置与测试">
+  <meta name="description" content="A题题意：你现在有n块糖果，然后你要把n块糖果分给Alice和Betty。Alice分得a块糖果，Betty分得b块糖果。然后约束条件是$a&gt;b$且$a+b&#x3D;n$，问你有多少种可以表示$n&#x3D;a+b$的分解方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络实验项目二">
-<meta property="og:url" content="https://stephencurry6666.github.io/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C2/index.html">
+<meta property="og:title" content="Codeforces 634(Div.3)">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/07/25/Codeforces%20634(Div.3)/index.html">
 <meta property="og:site_name" content="愿你出走半生，归来仍是少年">
-<meta property="og:description" content="实验名称：实验项目2 主机系统网络参数配置与测试">
+<meta property="og:description" content="A题题意：你现在有n块糖果，然后你要把n块糖果分给Alice和Betty。Alice分得a块糖果，Betty分得b块糖果。然后约束条件是$a&gt;b$且$a+b&#x3D;n$，问你有多少种可以表示$n&#x3D;a+b$的分解方法。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200602202604195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069765208094518.png">
-<meta property="og:image" content="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069781271040961.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020060220281349.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069911036014794.png">
-<meta property="og:image" content="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069920708063120.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200602202959409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200602203115788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200602203210715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200602203302346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200602203425655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-06-02T12:22:15.844Z">
-<meta property="article:modified_time" content="2020-06-02T12:35:24.111Z">
+<meta property="article:published_time" content="2020-07-25T09:19:41.803Z">
+<meta property="article:modified_time" content="2020-07-25T09:27:05.037Z">
 <meta property="article:author" content="Stephencurry6666">
-<meta property="article:tag" content="计算机网络上机实验">
+<meta property="article:tag" content="CF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200602202604195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
   
@@ -291,11 +279,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-计算机网络实验2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Codeforces 634(Div.3)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C2/" class="article-date">
-      <time datetime="2020-06-02T12:22:15.844Z" itemprop="datePublished">2020-06-02</time>
+      <a href="/2020/07/25/Codeforces%20634(Div.3)/" class="article-date">
+      <time datetime="2020-07-25T09:19:41.803Z" itemprop="datePublished">2020-07-25</time>
 </a>
     </div>
   
@@ -308,7 +296,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      计算机网络实验项目二
+      Codeforces 634(Div.3)
     </h1>
   
 
@@ -317,13 +305,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    <a class="article-category-link" href="/categories/CF/">CF</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/" rel="tag">计算机网络上机实验</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CF/" rel="tag">CF</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -336,7 +324,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">1k字</span>
       </span>
     </span>
     &nbsp; | &nbsp;
@@ -344,7 +332,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -353,35 +341,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="实验名称：实验项目2-主机系统网络参数配置与测试"><a href="#实验名称：实验项目2-主机系统网络参数配置与测试" class="headerlink" title="实验名称：实验项目2 主机系统网络参数配置与测试"></a>实验名称：实验项目2 主机系统网络参数配置与测试</h2><a id="more"></a>
-<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p><strong>掌握IP地址的基本结构(网络部分与主机部分的区分) 掌握子网掩码的含义 掌握IP包的组成格式 理解IP数据包在网络中的转发方式。</strong></p>
-<h2 id="实验步骤与调试过程-请用简单的文字描述"><a href="#实验步骤与调试过程-请用简单的文字描述" class="headerlink" title="实验步骤与调试过程(请用简单的文字描述)"></a>实验步骤与调试过程(请用简单的文字描述)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1）查看、配置主机和相关网络设备的参数，包括IP地址、物理地址、DNS服务器地址、网关地址等参数。</span><br><span class="line">（2）测试网络的连通性。</span><br><span class="line">（3）IP地址的基本结构及IP数据包在网络中的转发方式。</span><br></pre></td></tr></table></figure>
-<h2 id="实验结果-上传实验结果截图或者简单文字描述"><a href="#实验结果-上传实验结果截图或者简单文字描述" class="headerlink" title="实验结果(上传实验结果截图或者简单文字描述)"></a>实验结果(上传实验结果截图或者简单文字描述)</h2><p><strong>（1）表 2-1 设备/接口参数表。</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/20200602202604195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70" alt="tupian1"></p>
-<p><img src="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069765208094518.png" alt="tupian2"></p>
-<p><img src="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069781271040961.png" alt="tupian3"></p>
-<p><strong>（2）按表 2-2 测试各主机或接口的连通性（从工具栏中选择“AddSimplePDU”工具， 然后依次点击“源主机”、“目的主机”，表示“源主机 ping 目的主机”（也可以打开 PC 机的命令行界 面，输入 “ping 目标 ip 地址”））。</strong></p>
-<p>表 2-2 各主机或接口的连通性测试表</p>
-<p><img src="https://img-blog.csdnimg.cn/2020060220281349.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70" alt="tupian4"></p>
-<p><strong>（3）点击 切换到模拟器/simulation模式下，重新测试上一步（2）中表2-2中不能连通的项目。</strong></p>
-<p><img src="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069911036014794.png" alt="tupian5"></p>
-<p><img src="http://61.163.231.201:8000/Lab//ueditor/jsp/upload/image/20200602/1591069920708063120.png" alt="tupian6"></p>
-<p>表2-3 步骤（2）中表2-2测试中不能连通的项目测试表</p>
-<p><img src="https://img-blog.csdnimg.cn/20200602202959409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70" alt="tupian7"></p>
-<p><strong>（4）在步骤（1）的基础上为各 PC 配置默认网关，如表 2-4 所示。完成表 2-5 的测试内容。</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/20200602203115788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70" alt="tupian8"></p>
-<p>点击 切换到模拟器/simulation模式下，按表2-5、2-6要求进行测试，观察网络层和数据链路层<br>协议数据单元（PDU）在源主机PC0和路由器（如果需要通过路由器转发）上的封装情况，完成下表表2-5,2-6 的内容。 </p>
-<p>表 2-5 数据在源主机PC0上的封装情况</p>
-<p><img src="https://img-blog.csdnimg.cn/20200602203210715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70" alt="tupian9"></p>
-<p>表 2-6 数据包在路由器上的封装情况</p>
-<p><img src="https://img-blog.csdnimg.cn/20200602203302346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70" alt="tupian10"></p>
-<p><strong>PS:</strong></p>
-<p>问题：通过以上实验，请分析默认网关的作用是什么？</p>
-<p>网关是一种充当转换重任的计算机系统或设备，在使用不同的通信协议，数据格式或语言,甚至体系结构完全不同的两种系统时，网关是一个翻译器。与网桥只是简单地传送信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同时，网关也可以提供过滤和安全功能。这就是为什么我们在有路由器上网的时候，必须要把计算机中的默认网关地址设置成路由器LAN接口的地址的原因，因为路由器的LAN接口就是你所在网络的网关，你的电脑要上网，数据包必须要经过网关转发出去。简单来说，网关是设备与路由器之间的桥梁，正确的网关配置才能保证用户可以正常上网。</p>
-<p><strong>（5）在步骤（4）的基础上只改变 PC1 和 PC3 的子网掩码，如表 2-6 所示。完成表 2-7 连通性测试。</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/20200602203425655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjEzOQ==,size_16,color_FFFFFF,t_70" alt="tupian11"></p>
-<h2 id="疑难小结-总结个人在实验中遇到的问题或者心得体会"><a href="#疑难小结-总结个人在实验中遇到的问题或者心得体会" class="headerlink" title="疑难小结(总结个人在实验中遇到的问题或者心得体会)"></a>疑难小结(总结个人在实验中遇到的问题或者心得体会)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.刚开始配置路由器IP地址的时候看成了配置交换器IP地址，然后查阅了一些资料把交换器IP地址给配送了，后来才发现不对。</span><br><span class="line">2.在切换到模拟器进行连通性测试的时候，连接错了主机接口，然后不知道怎么取消，又重新连接了一遍拓扑图。</span><br></pre></td></tr></table></figure>
-<h2 id="实验详细操作步骤或程序清单"><a href="#实验详细操作步骤或程序清单" class="headerlink" title="实验详细操作步骤或程序清单"></a>实验详细操作步骤或程序清单</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.连接拓扑图。</span><br><span class="line"></span><br><span class="line">2.按表 2-2 测试各主机或接口的连通性（从工具栏中选择“AddSimplePDU”工具， 然后依次点击“源主机”、“目的主机”，表示“源主机 ping 目的主机”（也可以打开 PC 机的命令行界 面，输入 “ping 目标 ip 地址”））。</span><br><span class="line"></span><br><span class="line">3.点击 切换到模拟器&#x2F;simulation模式下，重新测试上一步（2）中表2-2中不能连通的项目。</span><br><span class="line"></span><br><span class="line">4.在步骤（1）的基础上为各 PC 配置默认网关，如表 2-4 所示。完成表 2-5 的测试内容。 </span><br><span class="line"></span><br><span class="line">5.在步骤（4）的基础上只改变 PC1 和 PC3 的子网掩码，如表 2-6 所示。完成表 2-7 连通性测试。</span><br></pre></td></tr></table></figure>
+        <h3 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h3><p><strong>题意：你现在有n块糖果，然后你要把n块糖果分给Alice和Betty。Alice分得a块糖果，Betty分得b块糖果。然后约束条件是$a&gt;b$且$a+b=n$，问你有多少种可以表示$n=a+b$的分解方法。</strong></p>
+<a id="more"></a>
+<p><strong>思路：这道题的话，通过看题不难看出当$n&lt;=2$的时候是不能分解的；当$n&gt;2$的时候就是共有$(n-1)/2$种分解方法。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        int n;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        if (n &lt;&#x3D; 2)</span><br><span class="line">            cout &lt;&lt; &quot;0&quot; &lt;&lt; endl;</span><br><span class="line">        else</span><br><span class="line">            cout &lt;&lt; (n - 1) &#x2F; 2 &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h3><p><strong>题意：给你三个整数n,a,b表示在n长度的字符串中，每a个连续的字串中，含有b个不同的字母。然后问你满足要求的字符串。</strong></p>
+<p><strong>思路：这道题的话，我们构造一下即可。首选我们在a-b的位置构造不同的字母，然后b~a的位置再构造相同的字母，最后我们再重复前面的即可。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">char s[maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        int n, a, b;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        char c &#x3D; &#39;a&#39;;</span><br><span class="line">        memset(s, 0, sizeof(s));</span><br><span class="line">        for (int i &#x3D; 0; i &lt; a; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (i &lt; b)</span><br><span class="line">                s[i] &#x3D; c + i;</span><br><span class="line">            else</span><br><span class="line">                s[i] &#x3D; &#39;a&#39;;</span><br><span class="line">            cout &lt;&lt; s[i];</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; a; i &lt; n; i++)</span><br><span class="line">            cout &lt;&lt; s[i % a];</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h3><p><strong>题意：给你一个序列a，然后你可以将里面的元素进行分组，第一组的元素全部都要不同的，第二组全部都要相同的最后两组的数量要一样，问最大的数量是多少。</strong></p>
+<p><strong>思路：这道题的话，先用ans记录不同的技能一共有多少人，然后用map记录每个技能的人数有多少人。之后从1~n遍历，如果不同的人数大于相同的，则计算不同的人数；如果不同的人数小于相同的，则计算相同的人数；如果二者相等，求不同的人数减一，因为不同的人数当中包含了相同的，求每一个循环的最大值。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 200010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t, n;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        map&lt;int, int&gt; h;</span><br><span class="line">        set&lt;int&gt; s;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            h[a[i]]++;</span><br><span class="line">            s.insert(a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        int cnt &#x3D; s.size();</span><br><span class="line">        int m &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (cnt &gt; h[a[i]])</span><br><span class="line">                m &#x3D; max(m, h[a[i]]);</span><br><span class="line">            else if (cnt &#x3D;&#x3D; h[a[i]])</span><br><span class="line">                m &#x3D; max(m, h[a[i]] - 1);</span><br><span class="line">            else</span><br><span class="line">                m &#x3D; max(m, cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; m &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="D题"><a href="#D题" class="headerlink" title="D题"></a>D题</h3><p><strong>题意：给你一个9x9的数独，现在要你改数独，要求每一个3x3的块都包含至少两个相同的数字。</strong></p>
+<p><strong>思路：这道题的话，我们只需要随便找一个数字改成另一个数字即可。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 10;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">char a[maxx][maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; 9; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; 9; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; a[i][j];</span><br><span class="line">                if (a[i][j] &#x3D;&#x3D; &#39;2&#39;)</span><br><span class="line">                    a[i][j] &#x3D; &#39;1&#39;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; 9; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int j &#x3D; 1; j &lt;&#x3D; 9; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; a[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
       
@@ -437,13 +413,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C2/">计算机网络实验项目二</a></p>
+        <p><span>本文标题:</span><a href="/2020/07/25/Codeforces%20634(Div.3)/">Codeforces 634(Div.3)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
-        <p><span>发布时间:</span>2020年06月02日 - 20时22分</p>
-        <p><span>最后更新:</span>2020年06月02日 - 20时35分</p>
+        <p><span>发布时间:</span>2020年07月25日 - 17时19分</p>
+        <p><span>最后更新:</span>2020年07月25日 - 17时27分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C2/" title="计算机网络实验项目二">https://stephencurry6666.github.io/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C2/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C2/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/07/25/Codeforces%20634(Div.3)/" title="Codeforces 634(Div.3)">https://stephencurry6666.github.io/2020/07/25/Codeforces%20634(Div.3)/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/07/25/Codeforces%20634(Div.3)/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -456,18 +432,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/24/Distinct%20Sub-palindromes%EF%BC%88HDU-6754%EF%BC%89%EF%BC%882020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Distinct Sub-palindromes（HDU-6754）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计算机网络实验项目一</div>
+    <a href="/2020/07/25/Codeforces%20632(Div.2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeforces 632(Div.2)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -478,7 +445,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验名称：实验项目2-主机系统网络参数配置与测试"><span class="toc-number">1.</span> <span class="toc-text">实验名称：实验项目2 主机系统网络参数配置与测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目的"><span class="toc-number">2.</span> <span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验步骤与调试过程-请用简单的文字描述"><span class="toc-number">3.</span> <span class="toc-text">实验步骤与调试过程(请用简单的文字描述)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果-上传实验结果截图或者简单文字描述"><span class="toc-number">4.</span> <span class="toc-text">实验结果(上传实验结果截图或者简单文字描述)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#疑难小结-总结个人在实验中遇到的问题或者心得体会"><span class="toc-number">5.</span> <span class="toc-text">疑难小结(总结个人在实验中遇到的问题或者心得体会)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验详细操作步骤或程序清单"><span class="toc-number">6.</span> <span class="toc-text">实验详细操作步骤或程序清单</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A题"><span class="toc-number">1.</span> <span class="toc-text">A题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B题"><span class="toc-number">2.</span> <span class="toc-text">B题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C题"><span class="toc-number">3.</span> <span class="toc-text">C题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D题"><span class="toc-number">4.</span> <span class="toc-text">D题</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -550,13 +517,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/07/24/Distinct%20Sub-palindromes%EF%BC%88HDU-6754%EF%BC%89%EF%BC%882020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/" title="上一篇: Distinct Sub-palindromes（HDU-6754）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E4%B8%80/" title="下一篇: 计算机网络实验项目一">
+            <a href="/2020/07/25/Codeforces%20632(Div.2)/" title="下一篇: Codeforces 632(Div.2)">
                 <i class="fa fa-angle-right"></i>
             </a>
         

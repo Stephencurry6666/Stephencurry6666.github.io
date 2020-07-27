@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Codeforces 631(Div.2) | 愿你出走半生，归来仍是少年</title>
+  <title>Codeforces 635(Div.2) | 愿你出走半生，归来仍是少年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A题题意：给你一个a序列代表每次的排名，在n个比赛之后还有x场比赛，然后你去寻找一个最大的v代表这n+x比赛后比赛的连续的最大的排名是多少。">
+  <meta name="description" content="A题题意：给你$a,b,c,d$四个数，然后规定$a&lt;&#x3D;b&lt;&#x3D;c&lt;&#x3D;d$。然后给你$x,y,z$，规定，$a&lt;&#x3D;x&lt;&#x3D;b$,$b&lt;&#x3D;y&lt;&#x3D;c$,$c&lt;&#x3D;z&lt;&#x3D;d$,$x,y,z$可以构成面积为正的三角形，问你$x,y,z$。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 631(Div.2)">
-<meta property="og:url" content="https://stephencurry6666.github.io/2020/07/24/Codeforces%20631(Div.2)/index.html">
+<meta property="og:title" content="Codeforces 635(Div.2)">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/07/27/Codeforces%20635(Div.2)/index.html">
 <meta property="og:site_name" content="愿你出走半生，归来仍是少年">
-<meta property="og:description" content="A题题意：给你一个a序列代表每次的排名，在n个比赛之后还有x场比赛，然后你去寻找一个最大的v代表这n+x比赛后比赛的连续的最大的排名是多少。">
+<meta property="og:description" content="A题题意：给你$a,b,c,d$四个数，然后规定$a&lt;&#x3D;b&lt;&#x3D;c&lt;&#x3D;d$。然后给你$x,y,z$，规定，$a&lt;&#x3D;x&lt;&#x3D;b$,$b&lt;&#x3D;y&lt;&#x3D;c$,$c&lt;&#x3D;z&lt;&#x3D;d$,$x,y,z$可以构成面积为正的三角形，问你$x,y,z$。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-24T06:37:00.526Z">
-<meta property="article:modified_time" content="2020-07-25T03:32:33.319Z">
+<meta property="article:published_time" content="2020-07-27T07:44:35.931Z">
+<meta property="article:modified_time" content="2020-07-27T07:50:36.781Z">
 <meta property="article:author" content="Stephencurry6666">
 <meta property="article:tag" content="CF">
 <meta name="twitter:card" content="summary">
@@ -279,11 +279,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Codeforces 631(Div.2)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Codeforces 635(Div.2)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/07/24/Codeforces%20631(Div.2)/" class="article-date">
-      <time datetime="2020-07-24T06:37:00.526Z" itemprop="datePublished">2020-07-24</time>
+      <a href="/2020/07/27/Codeforces%20635(Div.2)/" class="article-date">
+      <time datetime="2020-07-27T07:44:35.931Z" itemprop="datePublished">2020-07-27</time>
 </a>
     </div>
   
@@ -296,7 +296,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Codeforces 631(Div.2)
+      Codeforces 635(Div.2)
     </h1>
   
 
@@ -324,7 +324,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">869字</span>
       </span>
     </span>
     &nbsp; | &nbsp;
@@ -332,7 +332,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -341,19 +341,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h3><p><strong>题意：给你一个a序列代表每次的排名，在n个比赛之后还有x场比赛，然后你去寻找一个最大的v代表这n+x比赛后比赛的连续的最大的排名是多少。</strong></p>
+        <h3 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h3><p><strong>题意：给你$a,b,c,d$四个数，然后规定$a&lt;=b&lt;=c&lt;=d$。然后给你$x,y,z$，规定，$a&lt;=x&lt;=b$,$b&lt;=y&lt;=c$,$c&lt;=z&lt;=d$,$x,y,z$可以构成面积为正的三角形，问你$x,y,z$。</strong></p>
 <a id="more"></a>
-<p><strong>思路：这道题的话，我们可以用cnt去记录此时的最高排名有没有出现过，如果没有的话，那就将x−−，最后当x=0并且cnt此时最后排名没有出现过的话，那么前一个就是答案了。</strong></p>
+<p><strong>思路：这道题的话，根据题意，我们直接输出$b,c,c$即可。</strong></p>
 <p><strong>AC代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const int mod &#x3D; 1000000009;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[110];</span><br><span class="line">int cnt[1010];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t, n, x;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">        memset(cnt, 0, sizeof(cnt));</span><br><span class="line">        for (int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            cnt[a[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        int k &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; 1; x; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (cnt[i] &#x3D;&#x3D; 0)</span><br><span class="line">                x--, k &#x3D; i, cnt[i]++;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; k;; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (cnt[i] &#x3D;&#x3D; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                k &#x3D; i - 1;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%d\n&quot;, k);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h3><p><strong>题意：给出一组数，要求分成两部分，一部分假设有m个数，保证这部分的数字从1-m均出现而且仅出现一次。输出所有可能。</strong></p>
-<p><strong>思路：这道题的话，显然分出的两段是合法的，当且仅当段的最大值等于段的长度时段内没有重复元素，于是先扫一遍得到正序倒序第一个重复元素的位置，再正反各扫一遍得到前缀后缀最大值即可。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxn &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    ll t,a,b,c,d;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    while(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;</span><br><span class="line">        cout&lt;&lt;b&lt;&lt;&quot; &quot;&lt;&lt;c&lt;&lt;&quot; &quot;&lt;&lt;c&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h3><p><strong>题意：kana现在在玩一个游戏，她想猎杀一条龙，龙的初始生命值是x，当$x&lt;=0$的时候，说明猎杀成功。kana有两个技能，第一个技能可以使$x=x/2+10$，第二个技能可以使$x=x-10$。然后第一个技能可以使用n次，第二个技能可以使用m次，问你能不能成功猎杀龙。</strong></p>
+<p><strong>思路：这道题的话，通过读题我们可以发现当$x&lt;20$之后，用第一次技能会使x变大，所以我们就先将x通过第一个技能尽可能的降至大于20且最小的血量，再用第二个技能判断其是否会小于等于0。</strong></p>
 <p><strong>AC代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 200010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[maxx], p[maxx], q[maxx];</span><br><span class="line">int t, n, l, r;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">        set&lt;int&gt; s;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (s.find(a[i]) &#x3D;&#x3D; s.end())</span><br><span class="line">            &#123;</span><br><span class="line">                s.insert(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                l &#x3D; i - 1;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        s.clear();</span><br><span class="line">        for (int i &#x3D; n; i &gt;&#x3D; 1; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            if (s.find(a[i]) &#x3D;&#x3D; s.end())</span><br><span class="line">            &#123;</span><br><span class="line">                s.insert(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                r &#x3D; i + 1;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            p[i] &#x3D; max(p[i - 1], a[i]);</span><br><span class="line">        for (int i &#x3D; n; i &gt;&#x3D; 1; --i)</span><br><span class="line">            q[i] &#x3D; max(q[i + 1], a[i]);</span><br><span class="line">        vector&lt;int&gt; ans;</span><br><span class="line">        for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (i &lt;&#x3D; l &amp;&amp; i + 1 &gt;&#x3D; r &amp;&amp; p[i] &#x3D;&#x3D; i &amp;&amp; q[i + 1] &#x3D;&#x3D; n - i)</span><br><span class="line">            &#123;</span><br><span class="line">                ans.push_back(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans.size() &lt;&lt; endl;</span><br><span class="line">        for (int i : ans)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; n - i &lt;&lt; endl;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            p[i] &#x3D; q[i] &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h3><p><strong>题意：给你n和m，表示你有m个操作要让n涂满颜色而且每种颜色都要存在，每个m操作都给你一个ai表示涂色的范围，现在问要求你求出pi（pi表示从pi~pi+ai全部都涂成i颜色）。</strong></p>
-<p><strong>这道题的话，根据题意我们先想出不能实现的情况。分为两种，第一种就是把所有的ai加在一起都小于n的话，就不能实现；第二种就是n−ai+1&lt;i的话那么也是不可以的，因为这样会把之前的ith覆盖。然后我们才可以求序列，可以先求出后缀和，然后求出max(i,n−sumi+1)因为sumi是后缀和，表示的是后面的是否可以让此时的i满足剩余的ai涂满色到结尾。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxn &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        int x, n, m;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        while (n &amp;&amp; x&gt;20)</span><br><span class="line">        &#123;</span><br><span class="line">            n--;</span><br><span class="line">            x &#x3D; x &#x2F; 2 + 10;</span><br><span class="line">        &#125;</span><br><span class="line">        if (x &lt;&#x3D; m * 10)</span><br><span class="line">            cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;</span><br><span class="line">        else</span><br><span class="line">            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h3><p><strong>题意：给你一颗树，这棵树有两种顶点，一个是旅游节点，一个是工业节点，你如何设置工业节点让每一个工业节点到根节点路上得旅游节点的总和最大。</strong></p>
+<p><strong>思路：这道题的话，我们可以求出每一个节点的深度，这个就是每一个节点能够得到的最大的权值，然后就是计算每一个节点下面有多少个工业节点，因为如果这个作为工业节点的话，那么后面的工业得节点的权值都会减1，所以我们就可以得到每一个节点的计算公式$val=deep−ans$，然后进行排序取k个最大的相加，得到的和就是答案了。</strong></p>
 <p><strong>AC代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">ll a[maxx], sum[maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (n - a[i] + 1 &lt; i)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    memset(sum, 0, sizeof(0));</span><br><span class="line">    for (int i &#x3D; m; i &gt;&#x3D; 1; i--)</span><br><span class="line">        sum[i] &#x3D; sum[i + 1] + a[i];</span><br><span class="line">    if (sum[1] &lt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i &#x3D; 1; i &lt;&#x3D; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int ans &#x3D; max(1ll * i, n - sum[i] + 1);</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; &quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxn &#x3D; 200010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">using namespace std;</span><br><span class="line">vector&lt;ll&gt; G[maxn];</span><br><span class="line">vector&lt;ll&gt; sum;</span><br><span class="line">int n, k;</span><br><span class="line">bool cmp(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">    return a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line">int dfs(int u, int pre, int deep)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; G[u].size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int v &#x3D; G[u][i];</span><br><span class="line">        if (v &#x3D;&#x3D; pre)</span><br><span class="line">            continue;</span><br><span class="line">        ans +&#x3D; dfs(v, u, deep + 1);</span><br><span class="line">    &#125;</span><br><span class="line">    sum.push_back(deep - ans);</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; n - 1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int u, v;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        G[u].push_back(v);</span><br><span class="line">        G[v].push_back(u);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(1, 0, 1);</span><br><span class="line">    sort(sum.begin(), sum.end(), cmp);</span><br><span class="line">    ll cnt &#x3D; 0;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; k; i++)</span><br><span class="line">        cnt +&#x3D; 1ll * sum[i];</span><br><span class="line">    cout &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
       
@@ -409,13 +409,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/07/24/Codeforces%20631(Div.2)/">Codeforces 631(Div.2)</a></p>
+        <p><span>本文标题:</span><a href="/2020/07/27/Codeforces%20635(Div.2)/">Codeforces 635(Div.2)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
-        <p><span>发布时间:</span>2020年07月24日 - 14时37分</p>
-        <p><span>最后更新:</span>2020年07月25日 - 11时32分</p>
+        <p><span>发布时间:</span>2020年07月27日 - 15时44分</p>
+        <p><span>最后更新:</span>2020年07月27日 - 15时50分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/07/24/Codeforces%20631(Div.2)/" title="Codeforces 631(Div.2)">https://stephencurry6666.github.io/2020/07/24/Codeforces%20631(Div.2)/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/07/24/Codeforces%20631(Div.2)/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/07/27/Codeforces%20635(Div.2)/" title="Codeforces 635(Div.2)">https://stephencurry6666.github.io/2020/07/27/Codeforces%20635(Div.2)/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/07/27/Codeforces%20635(Div.2)/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -428,18 +428,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/25/Codeforces%20632(Div.2)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Codeforces 632(Div.2)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/24/Distinct%20Sub-palindromes%EF%BC%88HDU-6754%EF%BC%89%EF%BC%882020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Distinct Sub-palindromes（HDU-6754）</div>
+    <a href="/2020/07/25/Codeforces%20634(Div.3)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeforces 634(Div.3)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -522,13 +513,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/07/25/Codeforces%20632(Div.2)/" title="上一篇: Codeforces 632(Div.2)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/07/24/Distinct%20Sub-palindromes%EF%BC%88HDU-6754%EF%BC%89%EF%BC%882020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/" title="下一篇: Distinct Sub-palindromes（HDU-6754）">
+            <a href="/2020/07/25/Codeforces%20634(Div.3)/" title="下一篇: Codeforces 634(Div.3)">
                 <i class="fa fa-angle-right"></i>
             </a>
         

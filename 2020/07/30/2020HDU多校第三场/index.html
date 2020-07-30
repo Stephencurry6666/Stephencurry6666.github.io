@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2020HDU多校第三场 | 愿你出走半生，归来仍是少年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tokitsukaze and Multiple （HDU-6794）  (1004)题意：有一个长度为n的序列，你现在将序列中连续两个元素合并多次，然后问你在经过一些操作之后，能得到的p的倍数元素的最大可能数量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020HDU多校第三场">
+<meta property="og:url" content="https://stephencurry6666.github.io/2020/07/30/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/index.html">
+<meta property="og:site_name" content="愿你出走半生，归来仍是少年">
+<meta property="og:description" content="Tokitsukaze and Multiple （HDU-6794）  (1004)题意：有一个长度为n的序列，你现在将序列中连续两个元素合并多次，然后问你在经过一些操作之后，能得到的p的倍数元素的最大可能数量。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-30T02:16:42.781Z">
+<meta property="article:modified_time" content="2020-07-30T02:29:19.660Z">
+<meta property="article:author" content="Stephencurry6666">
+<meta property="article:tag" content="HDU">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="愿你出走半生，归来仍是少年" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+      
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/touxiang3.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Stephencurry6666</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="https://stephencurry6666.github.io/">博客首页</a></li>
+                        
+                            <li><a  href="/archives">文章归档</a></li>
+                        
+                            <li><a  href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail"  target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                            
+                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                                <a class="fl QQ"  target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat"  target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CF/" style="font-size: 17.5px;">CF</a> <a href="/tags/HDU/" style="font-size: 12.5px;">HDU</a> <a href="/tags/Hexo%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" style="font-size: 10px;">Hexo的一些基本用法和编写博客的一些注意事项</a> <a href="/tags/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" style="font-size: 20px;">Java系统学习</a> <a href="/tags/SQL%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/" style="font-size: 15px;">SQL上机实验</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">字符串</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">并查集再温</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 12.5px;">最小生成树</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">最小生成树再温</a> <a href="/tags/%E7%89%9B%E5%AE%A2%E9%A2%98%E8%A7%A3/" style="font-size: 10px;">牛客题解</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">矩阵快速幂再温</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%86%8D%E6%B8%A9/" style="font-size: 10px;">线段树再温</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/" style="font-size: 12.5px;">计算机网络上机实验</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://blog.csdn.net/weixin_43846139">我的csdn</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一只努力学习算法的小小ACMer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+<div style="position:absolute; bottom:80px; left:-20px; width:40%">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=522433199&auto=1&height=66"></iframe>
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Stephencurry6666</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="//img/touxiang3.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Stephencurry6666</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://stephencurry6666.github.io/">博客首页</a></li>
+                
+                    <li><a href="/archives">文章归档</a></li>
+                
+                    <li><a href="https://blog.csdn.net/weixin_43846139" target="_blank" rel="noopener">学习导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=i37pQB-yVFjzAm4w&r=4f901a8bc28338bc344ef1d130646606" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Stephencurry6666" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ku-li-ku-li-65" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/6168383694/profile?rightmod=1&wvr=6&mod=personinfo" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                        <a class="QQ" target="_blank" href="/img/1812750325.jpg" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="/img/weixin1.png" title="wechat">wechat</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2020HDU多校第三场" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/30/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/" class="article-date">
+      <time datetime="2020-07-30T02:16:42.781Z" itemprop="datePublished">2020-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2020HDU多校第三场
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/%E5%A4%9A%E6%A0%A1/">多校</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/" rel="tag">HDU</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.9k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">10分</span>
+      </span>
+    </span>
+</div>
+
+      
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="Tokitsukaze-and-Multiple-（HDU-6794）-1004"><a href="#Tokitsukaze-and-Multiple-（HDU-6794）-1004" class="headerlink" title="Tokitsukaze and Multiple （HDU-6794）  (1004)"></a>Tokitsukaze and Multiple （HDU-6794）  (1004)</h3><p><strong>题意：有一个长度为n的序列，你现在将序列中连续两个元素合并多次，然后问你在经过一些操作之后，能得到的p的倍数元素的最大可能数量。</strong></p>
+<a id="more"></a>
+<p><strong>思路：这道题的话，我们用map函数来做。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const int mod &#x3D; 1000000009;</span><br><span class="line">using namespace std;</span><br><span class="line">map&lt;ll,ll&gt;mapp;</span><br><span class="line">ll a[maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t, n, p;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; p;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            a[i] %&#x3D; p;</span><br><span class="line">        &#125;</span><br><span class="line">        int ans &#x3D; 0, sum &#x3D; 0;</span><br><span class="line">        mapp[0] &#x3D; 1;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum +&#x3D; a[i];</span><br><span class="line">            sum %&#x3D; p;</span><br><span class="line">            if (mapp[sum] !&#x3D; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                ans++;</span><br><span class="line">                mapp.clear();</span><br><span class="line">                mapp[0] &#x3D; 1;</span><br><span class="line">                sum &#x3D; 0;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">                mapp[sum] &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Little-W-and-Contest-（HDU-6795）-（1005）"><a href="#Little-W-and-Contest-（HDU-6795）-（1005）" class="headerlink" title="Little W and Contest （HDU-6795） （1005）"></a>Little W and Contest （HDU-6795） （1005）</h3><p><strong>题意：现在有n个人，然后每三个人可以组成一队，但是三个之间不能互相认识。比如A认识B，B认识C，那么A就可以通过B认识C。问你随着联系的增加，每次能组成几个队伍。</strong></p>
+<p><strong>这道题的话，我们用并查集来做，将相互认识的人放在同一个并查集中，同一个并查集中的人不能够成为队友。保存总的1能力值人数为num[0]，总的2能力值人数为num[1]。每个并查集中pre[i][0]表示祖先为i点的并查集中的1能力值人数，pre[i][1]表示2能力值人数，队伍组成的情况有两种： 1 2 2 和 2 2 2。注意去重，取余的位置和防止爆int，不要对分子先进行取模，防止造成分子除分母无法刚好除尽的情况，然后对于每次交友之后，形成不同集合之后，对于结果都是有影响的，要去除原本u和v所在的集合与这两个集合之外人组成team的数量，同时也要注意u1*v2等等时可能爆int，要加ll。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 100010;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const int mod &#x3D; 1e9 + 7;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[maxx];</span><br><span class="line">int pre[maxx];</span><br><span class="line">int f[maxx][2];</span><br><span class="line">int num[2];</span><br><span class="line">int getf(int a)</span><br><span class="line">&#123;</span><br><span class="line">    if (a &#x3D;&#x3D; pre[a])</span><br><span class="line">        return a;</span><br><span class="line">    return pre[a] &#x3D; getf(pre[a]);</span><br><span class="line">&#125;</span><br><span class="line">int mer(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">    int fa &#x3D; getf(a);</span><br><span class="line">    int fb &#x3D; getf(b);</span><br><span class="line">    if (fa &#x3D;&#x3D; fb)</span><br><span class="line">        return fa;</span><br><span class="line">    pre[fb] &#x3D; fa;</span><br><span class="line">    f[fa][0] +&#x3D; f[fb][0];</span><br><span class="line">    f[fa][1] +&#x3D; f[fb][1];</span><br><span class="line">    return fa;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        memset(f, 0, sizeof(f));</span><br><span class="line">        num[0] &#x3D; num[1] &#x3D; 0;</span><br><span class="line">        int n;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            pre[i] &#x3D; i;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            if (a[i] &#x3D;&#x3D; 1)</span><br><span class="line">            &#123;</span><br><span class="line">                num[0]++;</span><br><span class="line">                f[i][0] &#x3D; 1;</span><br><span class="line">            &#125;</span><br><span class="line">            if (a[i] &#x3D;&#x3D; 2)</span><br><span class="line">            &#123;</span><br><span class="line">                num[1]++;</span><br><span class="line">                f[i][1] &#x3D; 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ll ans &#x3D; 1ll * num[1] * (num[1] - 1) &#x2F; 2 % mod * num[0] % mod + 1ll * num[1] * (num[1] - 1) * (num[1] - 2) &#x2F; 6 % mod;</span><br><span class="line">        cout &lt;&lt; ans % mod &lt;&lt; endl;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n - 1; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int u, v;</span><br><span class="line">            cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">            if (i &gt;&#x3D; n - 2)</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; &quot;0&quot; &lt;&lt; endl;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            int fa &#x3D; getf(u);</span><br><span class="line">            int fb &#x3D; getf(v);</span><br><span class="line">            int u1 &#x3D; f[fa][0], u2 &#x3D; f[fa][1];</span><br><span class="line">            int v1 &#x3D; f[fb][0], v2 &#x3D; f[fb][1];</span><br><span class="line">            int cnt &#x3D; mer(u, v);</span><br><span class="line">            int x &#x3D; f[cnt][0];</span><br><span class="line">            int y &#x3D; f[cnt][1];</span><br><span class="line">            ans -&#x3D; 1ll * u1 * v2 % mod * (num[1] - y) % mod;</span><br><span class="line">            if (ans &lt; 0)</span><br><span class="line">                ans +&#x3D; mod;</span><br><span class="line">            ans -&#x3D; 1ll * u2 * v1 % mod * (num[1] - y) % mod;</span><br><span class="line">            if (ans &lt; 0)</span><br><span class="line">                ans +&#x3D; mod;</span><br><span class="line">            ans -&#x3D; 1ll * u2 * v2 % mod * (n - x - y) % mod;</span><br><span class="line">            if (ans &lt; 0)</span><br><span class="line">                ans +&#x3D; mod;</span><br><span class="line">            cout &lt;&lt; ans % mod &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Tokitsukaze-and-Rescue-HDU-6797-1007"><a href="#Tokitsukaze-and-Rescue-HDU-6797-1007" class="headerlink" title="Tokitsukaze and Rescue (HDU-6797) (1007)"></a>Tokitsukaze and Rescue (HDU-6797) (1007)</h3><p><strong>题意：给出一张无向完全图，现在要求删除k条边，问删除后的最短路的最大值是多少，k最大是5。</strong></p>
+<p><strong>思路：这道题的话，我们可以发现题目中说了所有的边权均是随机数，然后实现就好了，然后用Dijkstra算法。然后找最短路上的边，用记录每个点的前驱来实现的，换句话说每次最短路有且仅有一条。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx &#x3D; 110;</span><br><span class="line">const int inf &#x3D; 0x3f3f3f3f;</span><br><span class="line">const int mod &#x3D; 1000000009;</span><br><span class="line">using namespace std;</span><br><span class="line">int g[maxx][maxx], pre[6][maxx], dis[maxx];</span><br><span class="line">bool vis[maxx];</span><br><span class="line">int n, ans;</span><br><span class="line">void Dijkstra(int m)</span><br><span class="line">&#123;</span><br><span class="line">    memset(dis, inf, sizeof(int) * (n + 5));</span><br><span class="line">    memset(vis, false, n + 5);</span><br><span class="line">    dis[1] &#x3D; 0;</span><br><span class="line">    for (int i &#x3D; 1; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int minn &#x3D; inf;</span><br><span class="line">        int u &#x3D; -1;</span><br><span class="line">        for (int j &#x3D; 1; j &lt;&#x3D; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (!vis[j] &amp;&amp; dis[j] &lt; minn)</span><br><span class="line">            &#123;</span><br><span class="line">                minn &#x3D; dis[j];</span><br><span class="line">                u &#x3D; j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vis[u] &#x3D; true;</span><br><span class="line">        for (int v &#x3D; 1; v &lt;&#x3D; n; v++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (dis[v] &gt; dis[u] + g[u][v])</span><br><span class="line">            &#123;</span><br><span class="line">                dis[v] &#x3D; dis[u] + g[u][v];</span><br><span class="line">                pre[m][v] &#x3D; u;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void dfs(int m)</span><br><span class="line">&#123;</span><br><span class="line">    Dijkstra(m);</span><br><span class="line">    if (!m)</span><br><span class="line">    &#123;</span><br><span class="line">        ans &#x3D; max(ans, dis[n]);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int pos &#x3D; n;</span><br><span class="line">    while (pos !&#x3D; 1)</span><br><span class="line">    &#123;</span><br><span class="line">        int u &#x3D; pos, v &#x3D; pre[m][pos];</span><br><span class="line">        int temp &#x3D; g[u][v];</span><br><span class="line">        g[u][v] &#x3D; g[v][u] &#x3D; inf;</span><br><span class="line">        dfs(m - 1);</span><br><span class="line">        g[u][v] &#x3D; g[v][u] &#x3D; temp;</span><br><span class="line">        pos &#x3D; pre[m][pos];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        int m;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n * (n - 1) &#x2F; 2; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int u, v, w;</span><br><span class="line">            cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">            g[u][v] &#x3D; g[v][u] &#x3D; w;</span><br><span class="line">        &#125;</span><br><span class="line">        ans &#x3D; 0;</span><br><span class="line">        dfs(m);</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Parentheses-Matching-（HDU-6799）（1009）"><a href="#Parentheses-Matching-（HDU-6799）（1009）" class="headerlink" title="Parentheses Matching （HDU-6799）（1009）"></a>Parentheses Matching （HDU-6799）（1009）</h3><p><strong>题意：给你一个含有’(‘，’)’，<em>‘</em>‘的字符串，允许把’*’变为’(‘或’)’或’ ‘，求最小的括号匹配合法序列。</strong></p>
+<p><strong>思路：这道题的话，想要最小的序列，那就需要尽量减少<em>‘</em>’<em>的使用，所以我们需要在原序列中就尽可能的匹配括号。然后可以发现右括号都集中在左边，左括号都集中在右边，于是要构造最小的序列的话就对于右括号来说，尽可能的选靠左的</em>‘<em>’</em>变左括号，而对于左括号来说，尽可能的选靠右的‘*’变右括号即可。</strong></p>
+<p><strong>AC代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int maxx&#x3D;100010;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef pair&lt;char,int&gt;pii;</span><br><span class="line">stack&lt;pii&gt;q;</span><br><span class="line">char s[maxx];</span><br><span class="line">char t[maxx];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    cout.tie(0);</span><br><span class="line">    int T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    while (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; s + 1;</span><br><span class="line">        int n &#x3D; strlen(s + 1);</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            t[i] &#x3D; s[i];</span><br><span class="line">            if (s[i] &#x3D;&#x3D; &#39;(&#39;)</span><br><span class="line">                q.push(pii(s[i], i));</span><br><span class="line">            if (s[i] &#x3D;&#x3D; &#39;)&#39;)</span><br><span class="line">            &#123;</span><br><span class="line">                if (!q.empty())</span><br><span class="line">                &#123;</span><br><span class="line">                    t[q.top().second] &#x3D; t[i] &#x3D; 0;</span><br><span class="line">                    q.pop();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        while (!q.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            q.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        bool flag &#x3D; 1;</span><br><span class="line">        int l &#x3D; n + 1, ls &#x3D; 0, rs &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (t[i] &#x3D;&#x3D; &#39;*&#39;)</span><br><span class="line">                ls++;</span><br><span class="line">            if (t[i] &#x3D;&#x3D; &#39;)&#39;)</span><br><span class="line">            &#123;</span><br><span class="line">                if (!ls)</span><br><span class="line">                &#123;</span><br><span class="line">                    flag &#x3D; 0;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                ls--;</span><br><span class="line">                rs++;</span><br><span class="line">            &#125;</span><br><span class="line">            if (t[i] &#x3D;&#x3D; &#39;(&#39;)</span><br><span class="line">            &#123;</span><br><span class="line">                l &#x3D; i;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (t[i] &#x3D;&#x3D; &#39;*&#39; &amp;&amp; rs)</span><br><span class="line">            &#123;</span><br><span class="line">                rs--;</span><br><span class="line">                s[i] &#x3D; &#39;(&#39;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ls &#x3D; 0;</span><br><span class="line">        rs &#x3D; 0;</span><br><span class="line">        for (int i &#x3D; n; i &gt;&#x3D; l; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            if (t[i] &#x3D;&#x3D; &#39;*&#39;)</span><br><span class="line">                rs++;</span><br><span class="line">            if (t[i] &#x3D;&#x3D; &#39;(&#39;)</span><br><span class="line">            &#123;</span><br><span class="line">                if (!rs)</span><br><span class="line">                &#123;</span><br><span class="line">                    flag &#x3D; 0;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                rs--;</span><br><span class="line">                ls++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; n; i &gt;&#x3D; l; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            if (t[i] &#x3D;&#x3D; &#39;*&#39; &amp;&amp; ls)</span><br><span class="line">            &#123;</span><br><span class="line">                ls--;</span><br><span class="line">                s[i] &#x3D; &#39;)&#39;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (!flag)</span><br><span class="line">            cout &lt;&lt; &quot;No solution!&quot; &lt;&lt; endl;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (s[i] &#x3D;&#x3D; &#39;(&#39; || s[i] &#x3D;&#x3D; &#39;)&#39;)</span><br><span class="line">                &#123;</span><br><span class="line">                    cout &lt;&lt; s[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin222.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/07/30/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/">2020HDU多校第三场</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Stephencurry6666 的个人博客">Stephencurry6666</a></p>
+        <p><span>发布时间:</span>2020年07月30日 - 10时16分</p>
+        <p><span>最后更新:</span>2020年07月30日 - 10时29分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/07/30/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/" title="2020HDU多校第三场">https://stephencurry6666.github.io/2020/07/30/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://stephencurry6666.github.io/2020/07/30/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/　　作者: Stephencurry6666" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/28/Codeforces%20633(Div.2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeforces 633(Div.2)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tokitsukaze-and-Multiple-（HDU-6794）-1004"><span class="toc-number">1.</span> <span class="toc-text">Tokitsukaze and Multiple （HDU-6794）  (1004)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Little-W-and-Contest-（HDU-6795）-（1005）"><span class="toc-number">2.</span> <span class="toc-text">Little W and Contest （HDU-6795） （1005）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tokitsukaze-and-Rescue-HDU-6797-1007"><span class="toc-number">3.</span> <span class="toc-text">Tokitsukaze and Rescue (HDU-6797) (1007)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parentheses-Matching-（HDU-6799）（1009）"><span class="toc-number">4.</span> <span class="toc-text">Parentheses Matching （HDU-6799）（1009）</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTkzMy8yNjQyNA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/07/28/Codeforces%20633(Div.2)/" title="下一篇: Codeforces 633(Div.2)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/07/30/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA/">2020HDU多校第三场</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/28/Codeforces%20633(Div.2)/">Codeforces 633(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/27/2020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%8C%E5%9C%BA/">2020HDU多校第二场</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/27/Codeforces%20635(Div.2)/">Codeforces 635(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/Codeforces%20634(Div.3)/">Codeforces 634(Div.3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/Codeforces%20632(Div.2)/">Codeforces 632(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/24/Codeforces%20631(Div.2)/">Codeforces 631(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/24/Distinct%20Sub-palindromes%EF%BC%88HDU-6754%EF%BC%89%EF%BC%882020HDU%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%EF%BC%89/">Distinct Sub-palindromes（HDU-6754）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C2/">计算机网络实验项目二</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E4%B8%80/">计算机网络实验项目一</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%89/">数据库原理及应用上机实验三</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E5%9B%9B/">数据库原理及应用上机实验四</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/26/JavaSE-Day(7)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE-Day(7)学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/25/JavaSE-Day(6)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE-Day(6)学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%BA%8C/">数据库原理及应用上机实验二</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/">数据库原理及应用上机实验一</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/JavaSE-Day(5)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE-Day(5)学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习矩阵快速幂的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/18/Codeforces%20628(Div.2)/">Codeforces 628(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/16/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习线段树的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/14/JavaSE-Day(4)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE-Day(4)学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/13/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E5%91%A8%E5%91%A8%E7%BB%836/">牛客算法周周练6</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/JavaSE-Day(3)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE-Day(3)学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/Constructing%20Roads%EF%BC%88POJ-2421%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/">Constructing Roads（POJ-2421）（最小生成树）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/QS%20Network%EF%BC%88ZOJ-1586%EF%BC%89%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89/">QS Network（ZOJ-1586）（最小生成树）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/12/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习最小生成树的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/Codeforces%20625(Div.2)/">Codeforces 625(Div.2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/08/%E5%86%8D%E6%AC%A1%E6%B8%A9%E4%B9%A0%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF/">再次温习并查集的一些思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/05/JavaSE-Day(2)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day2笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/JavaSE-Day(1)%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaSE篇-Day1笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/04/Java%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92(1)%E2%80%94JavaSE%E7%AF%87/">Java系统学习规划(1)——JavaSE篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/hello-world/">Hello Stephencurry6666</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Stephencurry6666
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >大佬到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<i class="fas fa-chart-area"></i>
+<span class="post-count">字数统计：77.1k</span>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("04/30/2020 18:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
